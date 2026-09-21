@@ -1,0 +1,120 @@
+pragma language_version >= 0.23.0;
+
+import CompactStandardLibrary;
+
+// =========================================================================
+// PUBLIC LEDGER STATE — Immutable and transparent on-chain records
+// =========================================================================
+export ledger minCreditScore: Uint<64>;
+export ledger minAnnualIncome: Uint<64>;
+export ledger maxDebtToIncomeRatioBps: Uint<64>;
+export ledger minCollateralRatioBps: Uint<64>;
+
+export ledger verificationCount: Uint<64>;
+export ledger lastVerifiedTimestamp: Uint<64>;
+export ledger lastVerifiedRiskTier: Uint<64>;      // 1 = Tier A (Prime), 2 = Tier B (Standard), 3 = Tier C (Acceptable)
+export ledger lastVerificationResult: Boolean;
+export ledger activePolicyId: Uint<64>;           // 1 = Tier 1 Prime, 2 = SME / Commercial, 3 = Micro-credit
+
+// =========================================================================
+// PRIVATE OFF-CHAIN WITNESS FUNCTIONS
+// Executed strictly in client memory — never transmitted to network/verifier
+// =========================================================================
+witness getCreditScore(): Uint<64>;
+witness getAnnualIncome(): Uint<64>;
+witness getDebtToIncomeRatioBps(): Uint<64>;
+witness getCollateralRatioBps(): Uint<64>;
+witness getApplicantSecretSalt(): Bytes<32>;
+
+// =========================================================================
+// CIRCUITS
+// =========================================================================
+
+// Circuit 1: Standard Financial Eligibility Verification
+// Evaluates all confidential applicant criteria against active ledger policy.
+// Only disclosed boolean outcomes, risk tiers, and timestamps become public.
+export circuit verifyCreditPassport(expectedCommitment: Bytes<32>, currentTimestamp: Uint<64>): Boolean {
+    const score = getCreditScore();
+    const income = getAnnualIncome();
+    const dtiBps = getDebtToIncomeRatioBps();
+    const collateralBps = getCollateralRatioBps();
+    const salt = getApplicantSecretSalt();
+
+    // Verify cryptographic commitment to bind salt (prevents witness tampering)
+    const applicantCommitment = persistentHash<Bytes<32>>(salt);
+    assert(applicantCommitment == expectedCommitment, "Applicant commitment verification failed");
+
+    // Zero-knowledge constraint assertions against active policy
+    assert(score >= minCreditScore, "Credit score does not meet minimum requirement");
+    assert(income >= minAnnualIncome, "Annual income does not meet minimum requirement");
+    assert(dtiBps <= maxDebtToIncomeRatioBps, "Debt-to-income ratio exceeds maximum threshold");
+    assert(collateralBps >= minCollateralRatioBps, "Collateral ratio below minimum threshold");
+
+    // Tier calculation using ternary expressions
+    // Tier A (1): Score >= 780, DTI <= 30%, Collateral >= 200%
+    // Tier B (2): Score >= 720, DTI <= 38%, Collateral >= 150%
+    // Tier C (3): Satisfies baseline policy thresholds
+    const isTierA = score >= 780 && dtiBps <= 3000 && collateralBps >= 20000;
+    const isTierB = score >= 720 && dtiBps <= 3800 && collateralBps >= 15000;
+    const assignedTier: Uint<64> = isTierA ? 1 : (isTierB ? 2 : 3);
+
+    // Explicit selective disclosure to public ledger
+    lastVerificationResult = true;
+    lastVerifiedRiskTier = disclose(assignedTier);
+    lastVerifiedTimestamp = disclose(currentTimestamp);
+    verificationCount = disclose((verificationCount + 1) as Uint<64>);
+
+    return disclose(lastVerificationResult);
+}
+
+// Circuit 2: Dynamic Custom Policy Verification
+// Allows any DeFi lender, DAO treasury, or institutional verifier to evaluate
+// a borrower against custom threshold parameters without deploying a new contract.
+export circuit verifyCustomPolicy(
+    expectedCommitment: Bytes<32>,
+    reqMinScore: Uint<64>,
+    reqMinIncome: Uint<64>,
+    reqMaxDtiBps: Uint<64>,
+    reqMinCollateralBps: Uint<64>,
+    customPolicyId: Uint<64>,
+    currentTimestamp: Uint<64>
+): Boolean {
+    const score = getCreditScore();
+    const income = getAnnualIncome();
+    const dtiBps = getDebtToIncomeRatioBps();
+    const collateralBps = getCollateralRatioBps();
+    const salt = getApplicantSecretSalt();
+
+    const applicantCommitment = persistentHash<Bytes<32>>(salt);
+    assert(applicantCommitment == expectedCommitment, "Applicant commitment verification failed");
+
+    assert(score >= reqMinScore, "Custom Policy: Credit score requirement not satisfied");
+    assert(income >= reqMinIncome, "Custom Policy: Income requirement not satisfied");
+    assert(dtiBps <= reqMaxDtiBps, "Custom Policy: DTI ratio exceeds threshold");
+    assert(collateralBps >= reqMinCollateralBps, "Custom Policy: Collateral ratio below threshold");
+
+    lastVerificationResult = true;
+    lastVerifiedTimestamp = disclose(currentTimestamp);
+    activePolicyId = disclose(customPolicyId);
+    verificationCount = disclose((verificationCount + 1) as Uint<64>);
+
+    return disclose(lastVerificationResult);
+}
+
+// Circuit 3: Lender Policy Management
+// Enables lenders to update baseline verification requirements.
+export circuit updatePolicy(
+    newMinScore: Uint<64>,
+    newMinIncome: Uint<64>,
+    newMaxDtiBps: Uint<64>,
+    newMinCollateralBps: Uint<64>,
+    newPolicyId: Uint<64>
+): Boolean {
+    minCreditScore = disclose(newMinScore);
+    minAnnualIncome = disclose(newMinIncome);
+    maxDebtToIncomeRatioBps = disclose(newMaxDtiBps);
+    minCollateralRatioBps = disclose(newMinCollateralBps);
+    activePolicyId = disclose(newPolicyId);
+
+    return true;
+}
