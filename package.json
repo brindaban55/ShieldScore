@@ -1,0 +1,31 @@
+{
+  "name": "shieldscore",
+  "version": "1.0.0",
+  "description": "ShieldScore — Private Credit Passport on Midnight Network",
+  "private": true,
+  "workspaces": [
+    "contract",
+    "frontend"
+  ],
+  "scripts": {
+    "contract:compile": "npm run compile --workspace=contract",
+    "contract:test": "npm run test --workspace=contract",
+    "contract:deploy": "npm run deploy --workspace=contract",
+    "contract:check-balance": "npm run check-balance --workspace=contract",
+    "frontend:dev": "npm run dev --workspace=frontend",
+    "frontend:build": "npm run build --workspace=frontend",
+    "test": "npm run contract:test",
+    "build": "npm run frontend:build"
+  },
+  "keywords": [
+    "midnight",
+    "zero-knowledge",
+    "compact",
+    "privacy",
+    "credit-score",
+    "defi",
+    "confidential-credentials"
+  ],
+  "author": "",
+  "license": "Apache-2.0"
+}

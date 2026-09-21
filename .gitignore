@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Midnight State & Local Secrets
+.midnight-state.json
+*.key
+*.seed
+*.mnemonic
+.env
+.env.local
+.env.*.local
+
+# Internal evaluation & tracking
+CHALLENGE_PROGRESS.md
+.internal-tracking/
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
