@@ -172,25 +172,35 @@ async function main() {
 
   console.log('  Syncing state with Midnight network indexer...');
   const syncStart = Date.now();
-  const syncInterval = setInterval(() => {
-    const elapsed = Math.round((Date.now() - syncStart) / 1000);
-    process.stdout.write(`\r  ⏳ Syncing... (${elapsed}s elapsed)   `);
-  }, 4000);
+  let lastLoggedProgress = -1;
 
   const state = await new Promise<any>((resolve, reject) => {
-    const sub = walletCtx.wallet.state().subscribe((s) => {
-      if (s.isSynced) {
-        sub.unsubscribe();
-        resolve(s);
-      }
+    const sub = walletCtx.wallet.state().subscribe({
+      next: (s) => {
+        const bal = s.unshielded?.balances?.[unshieldedToken().raw] ?? 0n;
+        const dust = s.dust?.balance ? s.dust.balance(new Date()) : 0n;
+        if (s.syncProgress?.syncedPercent !== undefined && s.syncProgress.syncedPercent !== lastLoggedProgress) {
+          lastLoggedProgress = s.syncProgress.syncedPercent;
+          process.stdout.write(`\r  ⏳ Sync Progress: ${lastLoggedProgress}% | tNIGHT: ${bal} | tDUST: ${dust}   `);
+        }
+        if (s.isSynced) {
+          sub.unsubscribe();
+          resolve(s);
+        }
+      },
+      error: (err) => {
+        console.error('\n  Wallet sync error:', err);
+      },
     });
+
     walletCtx.wallet.waitForSyncedState().then((s) => {
       sub.unsubscribe();
       resolve(s);
     }).catch(reject);
   });
-  clearInterval(syncInterval);
-  process.stdout.write('\r  ✓ Synced with network.                                      \n');
+
+  const elapsed = Math.round((Date.now() - syncStart) / 1000);
+  process.stdout.write(`\r  ✓ Synced with network in ${elapsed}s!                                \n`);
 
   await persistWalletState(network, walletCtx);
 
