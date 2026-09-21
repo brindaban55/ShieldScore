@@ -1,0 +1,56 @@
+name: Deploy ShieldScore to Midnight Preview
+
+on:
+  workflow_dispatch:
+    inputs:
+      network:
+        description: 'Target Network'
+        required: true
+        default: 'preview'
+        type: choice
+        options:
+          - preview
+          - preprod
+
+jobs:
+  deploy-contract:
+    name: Deploy to Midnight Blockchain
+    runs-on: ubuntu-latest
+    services:
+      proof-server:
+        image: midnightntwrk/proof-server:latest
+        ports:
+          - 6300:6300
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Compact Compiler Toolchain
+        run: |
+          curl --proto '=https' --tlsv1.2 -LsSf https://github.com/midnightntwrk/compact/releases/latest/download/compact-installer.sh | sh
+          echo "$HOME/.compact/bin" >> $GITHUB_PATH
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Install Dependencies
+        working-directory: contract
+        run: npm ci || npm install
+
+      - name: Compile Compact Contract
+        working-directory: contract
+        run: |
+          export PATH="$HOME/.compact/bin:$HOME/.local/bin:$PATH"
+          compact compile src/shieldscore.compact managed || ~/.local/bin/compact compile src/shieldscore.compact managed
+
+      - name: Execute On-Chain Contract Deployment
+        working-directory: contract
+        env:
+          MIDNIGHT_NETWORK: ${{ github.event.inputs.network || 'preview' }}
+          MIDNIGHT_WALLET_SEED: ${{ secrets.MIDNIGHT_WALLET_SEED }}
+          PRIVATE_STATE_PASSWORD: ${{ secrets.PRIVATE_STATE_PASSWORD }}
+        run: npm run deploy
