@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { HolographicShield } from './HolographicShield';
 import { GlassCard } from './GlassCard';
 import { ShieldCheck, EyeOff, Scale, ChevronRight, Lock } from 'lucide-react';
@@ -20,49 +21,75 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
       <div className="max-w-[1440px] w-[95%] mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
         {/* Left Typography Column */}
         <div className="flex-1 text-center lg:text-left z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono text-cyan-300 mb-6 shadow-[0_0_16px_rgba(0,240,255,0.2)]">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono text-cyan-300 mb-6 shadow-[0_0_16px_rgba(0,240,255,0.2)]"
+          >
             <Lock className="w-3.5 h-3.5 text-cyan-400" />
             <span>Confidential DeFi Credit Passport</span>
-          </div>
+          </motion.div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]"
+          >
             Prove your financial eligibility.{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 block mt-1">
               Keep your profile private.
             </span>
-          </h1>
+          </motion.h1>
 
-          <p className="mt-5 text-base sm:text-lg text-slate-300 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mt-5 text-base sm:text-lg text-slate-300 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed"
+          >
             ShieldScore inverts traditional lending: instead of exposing tax records, credit scores, and debt histories, prove mathematical compliance via Midnight zero-knowledge circuits.
-          </p>
+          </motion.p>
 
-          {/* Action CTAs */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+          {/* Action CTAs with Framer Motion tactile spring clicks */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+          >
             {!isConnected ? (
-              <button
+              <motion.button
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
                 onClick={onConnectWallet}
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 transition-all shadow-[0_0_24px_rgba(0,240,255,0.4)] flex items-center justify-center gap-2 active:scale-95"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 transition-all shadow-[0_0_24px_rgba(0,240,255,0.4)] flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Connect Wallet</span>
                 <ChevronRight className="w-4 h-4" />
-              </button>
+              </motion.button>
             ) : (
-              <button
+              <motion.button
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
                 onClick={onExploreDemo}
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-semibold text-slate-950 bg-gradient-to-r from-emerald-400 to-teal-300 hover:from-emerald-300 transition-all shadow-[0_0_24px_rgba(16,185,129,0.4)] flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-semibold text-slate-950 bg-gradient-to-r from-emerald-400 to-teal-300 hover:from-emerald-300 transition-all shadow-[0_0_24px_rgba(16,185,129,0.4)] flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Launch Proof Console</span>
                 <ChevronRight className="w-4 h-4" />
-              </button>
+              </motion.button>
             )}
 
-            <button
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
               onClick={onExploreDemo}
-              className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-medium text-slate-300 bg-white/[0.04] border border-white/10 hover:border-cyan-500/40 hover:text-white transition-all backdrop-blur-md"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-medium text-slate-300 bg-white/[0.04] border border-white/10 hover:border-cyan-500/40 hover:text-white transition-all backdrop-blur-md cursor-pointer"
             >
               Explore Interactive Demo
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
 
           {/* Value Props Micro Bar */}
           <div className="mt-10 pt-6 border-t border-white/5 grid grid-cols-3 gap-4 text-center lg:text-left">
@@ -87,7 +114,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
         </div>
       </div>
 
-      {/* 3 Pillar Architectural Cards */}
+      {/* 3 Pillar Architectural Cards with hover states */}
       <div className="max-w-[1440px] w-[95%] mx-auto mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
         <GlassCard>
           <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4">

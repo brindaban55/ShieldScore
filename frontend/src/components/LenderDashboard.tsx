@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { GlassCard } from './GlassCard';
-import { Sliders, Shield, ArrowRight, RefreshCw, CheckCircle2, Building2, HelpCircle } from 'lucide-react';
+import { Sliders, Shield, ArrowRight, RefreshCw, CheckCircle2, Building2, HelpCircle, ShieldCheck } from 'lucide-react';
+import { PREVIEW_CONFIG } from '../lib/networkConfig';
 
 interface LenderPolicy {
   policyName: string;
@@ -28,8 +30,8 @@ export const LenderDashboard: React.FC = () => {
     setTimeout(() => {
       setIsUpdating(false);
       setUpdateSuccess(true);
-      setTimeout(() => setUpdateSuccess(false), 3500);
-    }, 1200);
+      setTimeout(() => setUpdateSuccess(false), 4000);
+    }, 1100);
   };
 
   return (
@@ -51,7 +53,7 @@ export const LenderDashboard: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Policy Configuration Form */}
         <div className="lg:col-span-7">
-          <GlassCard>
+          <GlassCard glow>
             <div className="flex items-center justify-between pb-4 border-b border-white/5 mb-6">
               <div className="flex items-center gap-2">
                 <Sliders className="w-5 h-5 text-cyan-400" />
@@ -79,7 +81,7 @@ export const LenderDashboard: React.FC = () => {
                 <div>
                   <label className="block text-xs font-medium text-slate-300 mb-1.5 flex justify-between">
                     <span>Minimum Credit Score</span>
-                    <span className="font-mono text-cyan-300">{policy.minScore}</span>
+                    <span className="font-mono text-cyan-300 font-bold">{policy.minScore}</span>
                   </label>
                   <input
                     type="range"
@@ -88,14 +90,14 @@ export const LenderDashboard: React.FC = () => {
                     step="5"
                     value={policy.minScore}
                     onChange={(e) => setPolicy({ ...policy, minScore: Number(e.target.value) })}
-                    className="w-full accent-cyan-400"
+                    className="w-full accent-cyan-400 cursor-pointer"
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-medium text-slate-300 mb-1.5 flex justify-between">
                     <span>Minimum Annual Income ($)</span>
-                    <span className="font-mono text-cyan-300">${policy.minIncome.toLocaleString()}</span>
+                    <span className="font-mono text-cyan-300 font-bold">${policy.minIncome.toLocaleString()}</span>
                   </label>
                   <input
                     type="range"
@@ -104,14 +106,14 @@ export const LenderDashboard: React.FC = () => {
                     step="5000"
                     value={policy.minIncome}
                     onChange={(e) => setPolicy({ ...policy, minIncome: Number(e.target.value) })}
-                    className="w-full accent-cyan-400"
+                    className="w-full accent-cyan-400 cursor-pointer"
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-medium text-slate-300 mb-1.5 flex justify-between">
                     <span>Maximum Debt-to-Income (%)</span>
-                    <span className="font-mono text-cyan-300">{policy.maxDti}%</span>
+                    <span className="font-mono text-cyan-300 font-bold">{policy.maxDti}%</span>
                   </label>
                   <input
                     type="range"
@@ -120,14 +122,14 @@ export const LenderDashboard: React.FC = () => {
                     step="1"
                     value={policy.maxDti}
                     onChange={(e) => setPolicy({ ...policy, maxDti: Number(e.target.value) })}
-                    className="w-full accent-cyan-400"
+                    className="w-full accent-cyan-400 cursor-pointer"
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-medium text-slate-300 mb-1.5 flex justify-between">
                     <span>Minimum Collateral Ratio (%)</span>
-                    <span className="font-mono text-cyan-300">{policy.minCollateral}%</span>
+                    <span className="font-mono text-cyan-300 font-bold">{policy.minCollateral}%</span>
                   </label>
                   <input
                     type="range"
@@ -136,27 +138,36 @@ export const LenderDashboard: React.FC = () => {
                     step="5"
                     value={policy.minCollateral}
                     onChange={(e) => setPolicy({ ...policy, minCollateral: Number(e.target.value) })}
-                    className="w-full accent-cyan-400"
+                    className="w-full accent-cyan-400 cursor-pointer"
                   />
                 </div>
               </div>
 
-              {updateSuccess && (
-                <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-300 flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>Policy parameters committed to Midnight Preview public ledger!</span>
-                </div>
-              )}
+              <AnimatePresence>
+                {updateSuccess && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-300 flex items-center gap-2"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>Policy parameters successfully committed to Midnight Preview public ledger!</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
-              <button
+              <motion.button
                 type="submit"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 disabled={isUpdating}
-                className="w-full py-3.5 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 transition-all flex items-center justify-center gap-2 text-xs"
+                className="w-full py-3.5 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 transition-all flex items-center justify-center gap-2 text-xs shadow-[0_0_20px_rgba(0,240,255,0.3)] disabled:opacity-50 cursor-pointer"
               >
                 {isUpdating ? (
                   <>
                     <RefreshCw className="w-4 h-4 animate-spin" />
-                    <span>Broadcasting Policy Update...</span>
+                    <span>Broadcasting Policy Update to Preview...</span>
                   </>
                 ) : (
                   <>
@@ -164,7 +175,7 @@ export const LenderDashboard: React.FC = () => {
                     <ArrowRight className="w-4 h-4" />
                   </>
                 )}
-              </button>
+              </motion.button>
             </form>
           </GlassCard>
         </div>

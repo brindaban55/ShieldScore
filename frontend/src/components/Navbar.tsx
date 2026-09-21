@@ -1,10 +1,13 @@
 import React from 'react';
-import { Shield, Radio, Wallet, LogOut, Menu } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Shield, Radio, Wallet, LogOut, Menu, Coins, Cpu, Users } from 'lucide-react';
 import type { WalletProviderType } from '../lib/walletConnector';
 
+export type AppTab = 'borrower' | 'loans' | 'lender' | 'architecture';
+
 interface NavbarProps {
-  activeTab: 'borrower' | 'lender' | 'architecture';
-  setActiveTab: (tab: 'borrower' | 'lender' | 'architecture') => void;
+  activeTab: AppTab;
+  setActiveTab: (tab: AppTab) => void;
   isConnected: boolean;
   address: string | null;
   onOpenWalletModal: () => void;
@@ -24,19 +27,28 @@ export const Navbar: React.FC<NavbarProps> = ({
   latencyMs,
 }) => {
   const truncatedAddress = address
-    ? `${address.slice(0, 12)}...${address.slice(-6)}`
+    ? `${address.slice(0, 10)}...${address.slice(-6)}`
     : null;
 
+  const navTabs: { id: AppTab; label: string; icon: React.FC<{ className?: string }> }[] = [
+    { id: 'borrower', label: 'Borrower Passport', icon: Shield },
+    { id: 'loans', label: 'DeFi Loan Engine', icon: Coins },
+    { id: 'lender', label: 'Lender Console', icon: Users },
+    { id: 'architecture', label: 'Dual-State Audit', icon: Cpu },
+  ];
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-[#080B11]/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-[#080B11]/85 backdrop-blur-xl transition-all">
       <div className="max-w-[1440px] w-[95%] mx-auto h-16 flex items-center justify-between">
-        {/* Brand Logo & Title */}
+        {/* Brand Logo & Title with Tactile Micro-Interactions */}
         <div className="flex items-center gap-3">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             onClick={() => setActiveTab('borrower')}
             className="flex items-center gap-3 text-left group"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/10 border border-cyan-500/30 flex items-center justify-center shadow-[0_0_16px_rgba(0,240,255,0.25)] group-hover:border-cyan-400/60 transition-all">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/10 border border-cyan-500/30 flex items-center justify-center shadow-[0_0_16px_rgba(0,240,255,0.25)] group-hover:border-cyan-400/60 group-hover:shadow-[0_0_24px_rgba(0,240,255,0.4)] transition-all">
               <img src="/shieldscore_logo.jpg" alt="Logo" className="w-7 h-7 rounded-lg object-cover" />
             </div>
             <div>
@@ -52,9 +64,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 Confidential Credit Passport
               </p>
             </div>
-          </button>
+          </motion.button>
 
-          {/* Clean Network Status Pill (NO raw block numbers in navbar) */}
+          {/* Clean Network Status Pill */}
           <div className="hidden lg:flex items-center gap-2 ml-4 px-2.5 py-1 rounded-full bg-white/[0.03] border border-white/5 text-[11px] font-mono">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -69,41 +81,42 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
         </div>
 
-        {/* Center Desktop Navigation Tabs */}
-        <nav className="hidden md:flex items-center p-1 rounded-xl bg-slate-900/60 border border-white/5 backdrop-blur-md">
-          <button
-            onClick={() => setActiveTab('borrower')}
-            className={`px-4 py-1.5 rounded-lg text-xs font-medium transition-all ${
-              activeTab === 'borrower'
-                ? 'bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 shadow-[0_0_12px_rgba(0,240,255,0.2)]'
-                : 'text-slate-400 hover:text-white'
-            }`}
-          >
-            Borrower Passport
-          </button>
-          <button
-            onClick={() => setActiveTab('lender')}
-            className={`px-4 py-1.5 rounded-lg text-xs font-medium transition-all ${
-              activeTab === 'lender'
-                ? 'bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 shadow-[0_0_12px_rgba(0,240,255,0.2)]'
-                : 'text-slate-400 hover:text-white'
-            }`}
-          >
-            Lender Console
-          </button>
-          <button
-            onClick={() => setActiveTab('architecture')}
-            className={`px-4 py-1.5 rounded-lg text-xs font-medium transition-all ${
-              activeTab === 'architecture'
-                ? 'bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 shadow-[0_0_12px_rgba(0,240,255,0.2)]'
-                : 'text-slate-400 hover:text-white'
-            }`}
-          >
-            Dual-State Audit
-          </button>
+        {/* Center Desktop Navigation Tabs with Framer Motion Sliding Indicator */}
+        <nav className="hidden md:flex items-center p-1 rounded-xl bg-slate-900/70 border border-white/5 backdrop-blur-md relative">
+          {navTabs.map((tab) => {
+            const isActive = activeTab === tab.id;
+            const Icon = tab.icon;
+
+            return (
+              <motion.button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.96 }}
+                className={`relative px-3.5 py-1.5 rounded-lg text-xs font-medium transition-colors flex items-center gap-1.5 z-10 ${
+                  isActive ? 'text-cyan-300 font-semibold' : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                {/* Sliding Indicator Pill */}
+                {isActive && (
+                  <motion.div
+                    layoutId="activeTabPill"
+                    className="absolute inset-0 rounded-lg bg-gradient-to-r from-cyan-500/20 to-blue-500/15 border border-cyan-400/40 shadow-[0_0_14px_rgba(0,240,255,0.25)] -z-10"
+                    transition={{
+                      type: 'spring',
+                      stiffness: 400,
+                      damping: 32,
+                    }}
+                  />
+                )}
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-cyan-400' : 'text-slate-400'}`} />
+                <span>{tab.label}</span>
+              </motion.button>
+            );
+          })}
         </nav>
 
-        {/* Wallet Connection Action */}
+        {/* Wallet Connection Action with Tactile Click Micro-Interactions */}
         <div className="flex items-center gap-2">
           {isConnected ? (
             <div className="flex items-center gap-2">
@@ -111,31 +124,37 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="tabular-nums">{truncatedAddress}</span>
               </div>
-              <button
+              <motion.button
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.92 }}
                 onClick={onDisconnect}
                 title="Disconnect Wallet"
                 className="p-2 rounded-xl bg-white/[0.04] border border-white/5 text-slate-400 hover:text-red-400 hover:border-red-500/30 transition-colors"
               >
                 <LogOut className="w-4 h-4" />
-              </button>
+              </motion.button>
             </div>
           ) : (
-            <button
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.96 }}
               onClick={onOpenWalletModal}
-              className="relative px-4 py-2 rounded-xl text-xs font-semibold text-slate-900 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 transition-all shadow-[0_0_20px_rgba(0,240,255,0.35)] flex items-center gap-2 active:scale-95"
+              className="relative px-4 py-2 rounded-xl text-xs font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 transition-all shadow-[0_0_20px_rgba(0,240,255,0.35)] flex items-center gap-2"
             >
-              <Wallet className="w-3.5 h-3.5 text-slate-900" />
+              <Wallet className="w-3.5 h-3.5 text-slate-950" />
               <span>Connect Wallet</span>
-            </button>
+            </motion.button>
           )}
 
           {/* Mobile Menu Trigger */}
-          <button
+          <motion.button
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.94 }}
             onClick={onOpenMobileDrawer}
             className="md:hidden p-2 rounded-xl bg-white/[0.04] border border-white/5 text-slate-400 hover:text-white"
           >
             <Menu className="w-5 h-5" />
-          </button>
+          </motion.button>
         </div>
       </div>
     </header>

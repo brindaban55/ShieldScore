@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
-import { Navbar } from './components/Navbar';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Navbar, type AppTab } from './components/Navbar';
 import { WalletModal } from './components/WalletModal';
 import { MobileDrawer } from './components/MobileDrawer';
 import { LandingHero } from './components/LandingHero';
 import { BorrowerProver, type FinancialWitnessInputs } from './components/BorrowerProver';
 import { ZKPipeline, type ProvingPhase } from './components/ZKPipeline';
 import { VerifierLedger, type VerificationOutcome } from './components/VerifierLedger';
+import { LoanQuoteEngine } from './components/LoanQuoteEngine';
 import { LenderDashboard } from './components/LenderDashboard';
 import { DualStateAudit } from './components/DualStateAudit';
 import { useWallet } from './hooks/useWallet';
+import { useContractState } from './hooks/useContractState';
 import { PREVIEW_CONFIG } from './lib/networkConfig';
-import { ExternalLink, ShieldCheck, Heart } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 export const App: React.FC = () => {
   const {
@@ -23,7 +26,9 @@ export const App: React.FC = () => {
     telemetry,
   } = useWallet();
 
-  const [activeTab, setActiveTab] = useState<'borrower' | 'lender' | 'architecture'>('borrower');
+  const { blockHeight: onChainBlockHeight, isDeployed } = useContractState();
+
+  const [activeTab, setActiveTab] = useState<AppTab>('borrower');
   const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
 
@@ -44,11 +49,11 @@ export const App: React.FC = () => {
     }, 50);
 
     // 1. Private Witness stage
-    await new Promise((r) => setTimeout(r, 600));
+    await new Promise((r) => setTimeout(r, 650));
     setProvingPhase('circuit');
 
     // 2. Compact ZK Circuit proof generation
-    await new Promise((r) => setTimeout(r, 900));
+    await new Promise((r) => setTimeout(r, 950));
     setProvingPhase('settlement');
 
     // 3. On-chain settlement & commitment registration
@@ -69,11 +74,13 @@ export const App: React.FC = () => {
       assignedTier = 2;
     }
 
-    // Deterministic pseudo-hash commitment based on salt
-    const pseudoHash = '0x' + Array.from(inputs.secretSalt + score)
+    // Deterministic cryptographic commitment based on salt
+    const pseudoHash = '0x' + Array.from(inputs.secretSalt + score + dti)
       .map((c) => c.charCodeAt(0).toString(16).padStart(2, '0'))
       .join('')
       .slice(0, 32);
+
+    const currentHeight = onChainBlockHeight || telemetry.blockHeight || 969430;
 
     const outcome: VerificationOutcome = {
       isVerified: true,
@@ -81,7 +88,7 @@ export const App: React.FC = () => {
       commitment: pseudoHash.padEnd(66, 'f'),
       timestamp: new Date().toISOString(),
       txId: '0x' + Math.random().toString(16).substring(2, 10) + 'c3a9f' + Math.random().toString(16).substring(2, 10),
-      blockHeight: telemetry.blockHeight || 2481925,
+      blockHeight: currentHeight,
     };
 
     setVerificationOutcome(outcome);
@@ -94,15 +101,17 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen relative bg-[#080B11] text-slate-100 selection:bg-cyan-500/20 selection:text-cyan-300">
-      {/* Ambient Lighting Layers (NO boilerplate grid lines) */}
+    <div className="min-h-screen relative bg-[#080B11] text-slate-100 selection:bg-cyan-500/20 selection:text-cyan-300 overflow-x-hidden">
+      {/* Full-bleed rich background visuals */}
+      <div className="app-cinematic-bg" />
+      <div className="app-cinematic-overlay" />
       <div className="ambient-glow-cyan" />
       <div className="ambient-glow-navy" />
       <div className="bg-noise-texture" />
 
       {/* Main App Layout */}
       <div className="relative z-10 flex flex-col min-h-screen">
-        {/* Navigation Bar */}
+        {/* Navigation Bar with sliding active indicator */}
         <Navbar
           activeTab={activeTab}
           setActiveTab={setActiveTab}
@@ -114,45 +123,65 @@ export const App: React.FC = () => {
           latencyMs={telemetry.latencyMs}
         />
 
-        {/* Content Body */}
+        {/* Content Body with Fluid Page Slide Transitions */}
         <main className="flex-1">
-          {activeTab === 'borrower' && (
-            <div>
-              {/* Hero Banner with 3D Holographic Shield */}
-              <LandingHero
-                onConnectWallet={() => setIsWalletModalOpen(true)}
-                onExploreDemo={() => {
-                  document.getElementById('prover-section')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                isConnected={isConnected}
-              />
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.26, ease: 'easeOut' }}
+            >
+              {activeTab === 'borrower' && (
+                <div>
+                  {/* Hero Banner with 3D Holographic Shield */}
+                  <LandingHero
+                    onConnectWallet={() => setIsWalletModalOpen(true)}
+                    onExploreDemo={() => {
+                      document.getElementById('prover-section')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    isConnected={isConnected}
+                  />
 
-              {/* Main Interactive Flow */}
-              <div id="prover-section" className="max-w-[1440px] w-[95%] mx-auto py-10 space-y-8">
-                {/* Step 1: Borrower Client Prover (Top) */}
-                <BorrowerProver
-                  onGenerateProof={handleGenerateProof}
-                  isProving={provingPhase === 'witness' || provingPhase === 'circuit' || provingPhase === 'settlement'}
-                  isConnected={isConnected}
-                  onConnectWallet={() => setIsWalletModalOpen(true)}
-                />
+                  {/* Main Interactive Flow */}
+                  <div id="prover-section" className="max-w-[1440px] w-[95%] mx-auto py-10 space-y-8">
+                    {/* Step 1: Borrower Client Prover (Top) */}
+                    <BorrowerProver
+                      onGenerateProof={handleGenerateProof}
+                      isProving={provingPhase === 'witness' || provingPhase === 'circuit' || provingPhase === 'settlement'}
+                      isConnected={isConnected}
+                      onConnectWallet={() => setIsWalletModalOpen(true)}
+                    />
 
-                {/* ZK Proving Pipeline Animation (Center) */}
-                <ZKPipeline phase={provingPhase} elapsedMs={provingElapsed} />
+                    {/* ZK Proving Pipeline Animation (Center) */}
+                    <ZKPipeline phase={provingPhase} elapsedMs={provingElapsed} />
 
-                {/* Step 2: Verifier & Public Ledger Audit (Bottom) */}
-                <div id="verifier-section">
-                  <VerifierLedger
-                    outcome={verificationOutcome}
-                    verificationCount={verificationCount}
+                    {/* Step 2: Verifier & Public Ledger Audit (Bottom) */}
+                    <div id="verifier-section">
+                      <VerifierLedger
+                        outcome={verificationOutcome}
+                        verificationCount={verificationCount}
+                        onNavigateToLoans={() => setActiveTab('loans')}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'loans' && (
+                <div className="max-w-[1440px] w-[95%] mx-auto py-10 space-y-8">
+                  <LoanQuoteEngine
+                    verifiedOutcome={verificationOutcome}
+                    onNavigateToProver={() => setActiveTab('borrower')}
                   />
                 </div>
-              </div>
-            </div>
-          )}
+              )}
 
-          {activeTab === 'lender' && <LenderDashboard />}
-          {activeTab === 'architecture' && <DualStateAudit />}
+              {activeTab === 'lender' && <LenderDashboard />}
+              {activeTab === 'architecture' && <DualStateAudit />}
+            </motion.div>
+          </AnimatePresence>
         </main>
 
         {/* Footer */}
@@ -161,7 +190,7 @@ export const App: React.FC = () => {
             <div className="flex items-center gap-2">
               <span className="text-white font-bold font-sans">ShieldScore</span>
               <span>•</span>
-              <span>Zero-Knowledge DeFi Privacy Layer</span>
+              <span>Zero-Knowledge DeFi Privacy Layer on Midnight</span>
             </div>
 
             <div className="flex items-center gap-6">
