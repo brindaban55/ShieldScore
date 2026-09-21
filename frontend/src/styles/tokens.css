@@ -61,6 +61,28 @@ body {
   z-index: 1;
 }
 
+/* Cinematic cyber-fintech full-bleed background */
+.app-cinematic-bg {
+  position: fixed;
+  inset: 0;
+  background-image: url('/app_background.jpg');
+  background-size: cover;
+  background-position: center top;
+  opacity: 0.22;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  z-index: 0;
+  filter: contrast(110%) brightness(95%);
+}
+
+.app-cinematic-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 20%, rgba(8, 11, 17, 0.4) 0%, rgba(8, 11, 17, 0.85) 60%, #080B11 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
