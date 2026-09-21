@@ -8,7 +8,7 @@ import { u8aToHex } from '@polkadot/util';
 // @ts-expect-error WebSocket polyfill
 globalThis.WebSocket = ws;
 
-import { resolveNetwork, getOrCreateWallet, recordDeployment } from './network.js';
+import { resolveNetwork, getOrCreateWallet, recordDeployment, STATE_FILE_NAME } from './network.js';
 import { createWallet, persistWalletState, unshieldedToken, type WalletContext } from './wallet.js';
 
 import { deployContract } from '@midnight-ntwrk/midnight-js-contracts';

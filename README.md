@@ -24,7 +24,9 @@ ShieldScore is deployed and active on the **Midnight Preview Public Testnet**:
 | Parameter | On-Chain Value |
 | :--- | :--- |
 | **Target Network** | Midnight Preview (`preview`) |
-| **Contract Address** | `43973c7336b9409893d58fc8d147ca17caecba63307d90f8c36cf3e0215bbb1` |
+| **Contract Address** | [`0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123`](https://midnightexplorer.com/contract/0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123) |
+| **Deployment TX ID** | `00028ae43852775aa60a42561aca808ca7052529e4a22cc188f8ae538878ef07b4` |
+| **Included in Block** | `0xca0e2a65adef658fe7b94d79d6abaaa66dd7ab7cb69d262996a900b791014eb3` |
 | **Deployer Address** | `mn_addr_preview170a8t0cndggvvdx0x4c69s2fddavxggrw33e40jh6406ykg7sessmely7x` |
 | **Explorer** | [Midnight Preview Explorer](https://midnightexplorer.com) |
 | **GraphQL Indexer** | `https://indexer.preview.midnight.network/api/v4/graphql` |

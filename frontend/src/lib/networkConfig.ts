@@ -19,6 +19,6 @@ export const PREVIEW_CONFIG: NetworkEndpoints = {
   proofServerUrl: import.meta.env.VITE_PROOF_SERVER || 'http://localhost:6300',
   explorerUrl: import.meta.env.VITE_EXPLORER_URL || 'https://midnightexplorer.com',
   faucetUrl: 'https://faucet.preview.midnight.network/',
-  // Once deployed on-chain, this holds the live contract address
-  deployedContractAddress: '43973c7336b9409893d58fc8d147ca17caecba63307d90f8c36cf3e0215bbb1',
+  // Live deployed contract address on Midnight Preview
+  deployedContractAddress: '0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123',
 };
