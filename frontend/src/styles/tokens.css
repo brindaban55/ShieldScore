@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-void: #080B11;
+  --bg-surface: #0D131F;
+  --bg-elevated: #141C2E;
+  --bg-input: #1C263D;
+  --accent-cyan: #00F0FF;
+  --accent-cyan-muted: #009BB5;
+  --accent-emerald: #10B981;
+}
+
+body {
+  background-color: var(--bg-void);
+  font-family: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #f1f5f9;
+}
+
+/* Tabular numerics for financial figures */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-family: 'Geist Mono', 'JetBrains Mono', monospace;
+}
+
+/* Ambient Backdrop Glows (NO boilerplate grid lines) */
+.ambient-glow-cyan {
+  position: fixed;
+  top: -10%;
+  right: -10%;
+  width: 650px;
+  height: 650px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at center, rgba(0, 240, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(100px);
+  z-index: 0;
+}
+
+.ambient-glow-navy {
+  position: fixed;
+  bottom: -15%;
+  left: -10%;
+  width: 750px;
+  height: 750px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at center, rgba(30, 58, 138, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(120px);
+  z-index: 0;
+}
+
+/* Micro-noise overlay to prevent OLED banding */
+.bg-noise-texture {
+  position: fixed;
+  inset: 0;
+  opacity: 0.025;
+  pointer-events: none;
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)"/></svg>');
+  z-index: 1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080B11;
+}
+::-webkit-scrollbar-thumb {
+  background: #1C263D;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #009BB5;
+}
+
+/* Laser Scanline animation across full parent container height */
+@keyframes laserSweepFull {
+  0% {
+    top: 2%;
+    opacity: 0.2;
+  }
+  15% {
+    opacity: 0.95;
+  }
+  85% {
+    opacity: 0.95;
+  }
+  100% {
+    top: 96%;
+    opacity: 0.2;
+  }
+}
+
+.scanline-full {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, #00F0FF 25%, #818cf8 50%, #00F0FF 75%, transparent 100%);
+  box-shadow: 0 0 16px #00F0FF, 0 0 24px rgba(0, 240, 255, 0.6);
+  pointer-events: none;
+  z-index: 10;
+  animation: laserSweepFull 4s ease-in-out infinite alternate;
+}
