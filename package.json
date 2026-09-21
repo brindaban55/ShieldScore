@@ -8,14 +8,15 @@
     "frontend"
   ],
   "scripts": {
-    "contract:compile": "npm run compile --workspace=contract",
-    "contract:test": "npm run test --workspace=contract",
-    "contract:deploy": "npm run deploy --workspace=contract",
-    "contract:check-balance": "npm run check-balance --workspace=contract",
-    "frontend:dev": "npm run dev --workspace=frontend",
-    "frontend:build": "npm run build --workspace=frontend",
+    "contract:compile": "npm run compile --prefix contract",
+    "contract:test": "npm run test --prefix contract",
+    "contract:deploy": "npm run deploy --prefix contract",
+    "contract:check-balance": "npm run check-balance --prefix contract",
+    "frontend:dev": "npm run dev --prefix frontend",
+    "frontend:build": "npm run build --prefix frontend",
     "test": "npm run contract:test",
-    "build": "npm run frontend:build"
+    "build": "npm run frontend:build",
+    "dev": "npm run frontend:dev"
   },
   "keywords": [
     "midnight",
