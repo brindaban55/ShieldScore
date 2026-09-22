@@ -96,18 +96,18 @@ export const LoanQuoteEngine: React.FC<LoanQuoteEngineProps> = ({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-white/5">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-[10px] font-mono uppercase tracking-widest text-cyan-400">
+            <span className="text-[10px] font-mono font-semibold uppercase tracking-widest text-cyan-400">
               Confidential DeFi Application
             </span>
-            <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+            <span className="text-[10px] font-mono font-medium px-1.5 py-0.2 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
               Low-Collateral Credit Engine
             </span>
           </div>
-          <h2 className="text-xl font-bold text-white flex items-center gap-2">
+          <h2 className="font-display text-xl font-bold tracking-tight text-white flex items-center gap-2">
             <Coins className="w-5 h-5 text-cyan-400" />
             Undercollateralized Loan Quotation Engine
           </h2>
-          <p className="text-xs text-slate-400 mt-0.5">
+          <p className="font-sans text-xs text-slate-300 mt-0.5 leading-relaxed">
             Turn your zero-knowledge ShieldScore proof into instant, high-efficiency borrowing terms on Midnight.
           </p>
         </div>
@@ -222,7 +222,7 @@ export const LoanQuoteEngine: React.FC<LoanQuoteEngineProps> = ({
               whileTap={{ scale: 0.98 }}
               onClick={handleRequestQuote}
               disabled={isQuoting}
-              className="w-full py-3.5 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-cyan-400 via-cyan-300 to-teal-300 hover:from-cyan-300 hover:to-teal-200 transition-all shadow-[0_0_20px_rgba(0,240,255,0.3)] flex items-center justify-center gap-2 text-sm disabled:opacity-50"
+              className="w-full py-3.5 rounded-xl font-display font-bold text-slate-950 bg-gradient-to-r from-cyan-400 via-cyan-300 to-teal-300 hover:from-cyan-300 hover:to-teal-200 transition-all shadow-[0_0_20px_rgba(0,240,255,0.3)] flex items-center justify-center gap-2 text-sm tracking-tight disabled:opacity-50 cursor-pointer"
             >
               {isQuoting ? (
                 <>

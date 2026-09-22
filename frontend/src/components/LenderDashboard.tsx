@@ -38,14 +38,14 @@ export const LenderDashboard: React.FC = () => {
     <div className="max-w-[1440px] w-[95%] mx-auto py-8 space-y-8">
       {/* Header */}
       <div>
-        <div className="flex items-center gap-2 text-cyan-400 text-xs font-mono mb-2">
+        <div className="flex items-center gap-2 text-cyan-400 text-xs font-mono font-semibold uppercase tracking-widest mb-2">
           <Building2 className="w-4 h-4" />
           <span>INSTITUTIONAL LENDER CONSOLE</span>
         </div>
-        <h1 className="text-3xl font-extrabold text-white">
+        <h1 className="font-display text-3xl font-extrabold text-white tracking-tight">
           Configurable Credit Policies & Underwriting
         </h1>
-        <p className="text-sm text-slate-400 mt-1 max-w-2xl">
+        <p className="font-sans text-sm text-slate-300 mt-1 max-w-2xl leading-relaxed">
           Define customized financial eligibility thresholds. ShieldScore's Compact circuits evaluate applicant compliance confidentially on Midnight without exposing borrower data.
         </p>
       </div>
@@ -57,7 +57,7 @@ export const LenderDashboard: React.FC = () => {
             <div className="flex items-center justify-between pb-4 border-b border-white/5 mb-6">
               <div className="flex items-center gap-2">
                 <Sliders className="w-5 h-5 text-cyan-400" />
-                <h3 className="text-base font-semibold text-white">Underwriting Policy Rules</h3>
+                <h3 className="font-display text-base font-bold text-white tracking-tight">Underwriting Policy Rules</h3>
               </div>
               <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-white/[0.04] text-slate-300 border border-white/5">
                 Circuit: updatePolicy()
@@ -162,7 +162,7 @@ export const LenderDashboard: React.FC = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 disabled={isUpdating}
-                className="w-full py-3.5 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 transition-all flex items-center justify-center gap-2 text-xs shadow-[0_0_20px_rgba(0,240,255,0.3)] disabled:opacity-50 cursor-pointer"
+                className="w-full py-3.5 rounded-xl font-display font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 transition-all flex items-center justify-center gap-2 text-xs tracking-tight shadow-[0_0_20px_rgba(0,240,255,0.3)] disabled:opacity-50 cursor-pointer"
               >
                 {isUpdating ? (
                   <>
@@ -183,11 +183,11 @@ export const LenderDashboard: React.FC = () => {
         {/* Right Explainer Column */}
         <div className="lg:col-span-5 space-y-6">
           <GlassCard>
-            <h3 className="text-sm font-semibold text-white mb-2 flex items-center gap-2">
+            <h3 className="font-display text-sm font-bold text-white mb-2 flex items-center gap-2 tracking-tight">
               <Shield className="w-4 h-4 text-cyan-400" />
               <span>How Lenders Integrate ShieldScore</span>
             </h3>
-            <div className="text-xs text-slate-300 space-y-3 leading-relaxed">
+            <div className="font-sans text-xs text-slate-300 space-y-3 leading-relaxed">
               <p>
                 1. <strong>Publish Criteria:</strong> Lenders register their credit parameters directly on Midnight via <code className="text-cyan-300 font-mono">updatePolicy</code>.
               </p>
@@ -201,11 +201,11 @@ export const LenderDashboard: React.FC = () => {
           </GlassCard>
 
           <GlassCard>
-            <h3 className="text-sm font-semibold text-white mb-2 flex items-center gap-2">
+            <h3 className="font-display text-sm font-bold text-white mb-2 flex items-center gap-2 tracking-tight">
               <HelpCircle className="w-4 h-4 text-cyan-400" />
               <span>Institutional Risk Mitigation</span>
             </h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <p className="font-sans text-xs text-slate-400 leading-relaxed">
               By never possessing borrower tax returns, bank credentials, or social security numbers, lending platforms eliminate catastrophic data breach liability and regulatory exposure under GDPR/CCPA.
             </p>
           </GlassCard>

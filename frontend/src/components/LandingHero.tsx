@@ -35,7 +35,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]"
+            className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-[-0.035em] text-white leading-[1.12]"
           >
             Prove your financial eligibility.{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 block mt-1">
@@ -47,7 +47,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-5 text-base sm:text-lg text-slate-300 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed"
+            className="mt-5 font-sans text-base sm:text-lg text-slate-300 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed"
           >
             ShieldScore inverts traditional lending: instead of exposing tax records, credit scores, and debt histories, prove mathematical compliance via Midnight zero-knowledge circuits.
           </motion.p>
@@ -64,7 +64,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
                 onClick={onConnectWallet}
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 transition-all shadow-[0_0_24px_rgba(0,240,255,0.4)] flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-display font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 transition-all shadow-[0_0_24px_rgba(0,240,255,0.4)] flex items-center justify-center gap-2 cursor-pointer text-sm"
               >
                 <span>Connect Wallet</span>
                 <ChevronRight className="w-4 h-4" />
@@ -74,7 +74,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
                 onClick={onExploreDemo}
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-semibold text-slate-950 bg-gradient-to-r from-emerald-400 to-teal-300 hover:from-emerald-300 transition-all shadow-[0_0_24px_rgba(16,185,129,0.4)] flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-display font-bold text-slate-950 bg-gradient-to-r from-emerald-400 to-teal-300 hover:from-emerald-300 transition-all shadow-[0_0_24px_rgba(16,185,129,0.4)] flex items-center justify-center gap-2 cursor-pointer text-sm"
               >
                 <span>Launch Proof Console</span>
                 <ChevronRight className="w-4 h-4" />
@@ -85,7 +85,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               onClick={onExploreDemo}
-              className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-medium text-slate-300 bg-white/[0.04] border border-white/10 hover:border-cyan-500/40 hover:text-white transition-all backdrop-blur-md cursor-pointer"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-sans font-medium text-slate-300 bg-white/[0.04] border border-white/10 hover:border-cyan-500/40 hover:text-white transition-all backdrop-blur-md cursor-pointer text-sm"
             >
               Explore Interactive Demo
             </motion.button>
@@ -94,16 +94,16 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
           {/* Value Props Micro Bar */}
           <div className="mt-10 pt-6 border-t border-white/5 grid grid-cols-3 gap-4 text-center lg:text-left">
             <div>
-              <span className="font-mono text-xl sm:text-2xl font-bold text-white tabular-nums">100%</span>
-              <p className="text-[11px] text-slate-400 font-mono mt-0.5">Off-Chain Witness Privacy</p>
+              <span className="font-display text-2xl sm:text-3xl font-extrabold text-white tabular-nums tracking-tight">100%</span>
+              <p className="text-[11px] text-slate-400 font-mono font-medium uppercase tracking-wider mt-0.5">Off-Chain Witness</p>
             </div>
             <div>
-              <span className="font-mono text-xl sm:text-2xl font-bold text-cyan-400 tabular-nums">&lt;500ms</span>
-              <p className="text-[11px] text-slate-400 font-mono mt-0.5">Client-Side ZK Proof</p>
+              <span className="font-display text-2xl sm:text-3xl font-extrabold text-cyan-400 tabular-nums tracking-tight">&lt;500ms</span>
+              <p className="text-[11px] text-slate-400 font-mono font-medium uppercase tracking-wider mt-0.5">ZK Proving Time</p>
             </div>
             <div>
-              <span className="font-mono text-xl sm:text-2xl font-bold text-emerald-400 tabular-nums">0 PII</span>
-              <p className="text-[11px] text-slate-400 font-mono mt-0.5">Disclosed On-Chain</p>
+              <span className="font-display text-2xl sm:text-3xl font-extrabold text-emerald-400 tabular-nums tracking-tight">0 PII</span>
+              <p className="text-[11px] text-slate-400 font-mono font-medium uppercase tracking-wider mt-0.5">On-Chain Leakage</p>
             </div>
           </div>
         </div>
@@ -120,8 +120,8 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
           <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4">
             <EyeOff className="w-5 h-5" />
           </div>
-          <h3 className="text-base font-semibold text-white">Private Financial Witness</h3>
-          <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+          <h3 className="font-display text-base font-bold text-white tracking-tight">Private Financial Witness</h3>
+          <p className="font-sans text-xs text-slate-300 mt-2 leading-relaxed">
             Exact income, credit scores, debt obligations, and banking details are computed exclusively in client memory. Raw data never touches any server.
           </p>
         </GlassCard>
@@ -130,8 +130,8 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
           <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-4">
             <ShieldCheck className="w-5 h-5" />
           </div>
-          <h3 className="text-base font-semibold text-white">Compact Zero-Knowledge Circuit</h3>
-          <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+          <h3 className="font-display text-base font-bold text-white tracking-tight">Compact Zero-Knowledge Circuit</h3>
+          <p className="font-sans text-xs text-slate-300 mt-2 leading-relaxed">
             Evaluates financial conditions against lender policies using cryptographic polynomial assertions. Verified without leaking intermediate values.
           </p>
         </GlassCard>
@@ -140,8 +140,8 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
           <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4">
             <Scale className="w-5 h-5" />
           </div>
-          <h3 className="text-base font-semibold text-white">On-Chain Settlement</h3>
-          <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+          <h3 className="font-display text-base font-bold text-white tracking-tight">On-Chain Settlement</h3>
+          <p className="font-sans text-xs text-slate-300 mt-2 leading-relaxed">
             Discloses only the binary verification result, assigned risk category, and immutable timestamp to Midnight Preview's public ledger.
           </p>
         </GlassCard>

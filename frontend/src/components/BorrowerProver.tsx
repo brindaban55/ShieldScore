@@ -116,17 +116,17 @@ export const BorrowerProver: React.FC<BorrowerProverProps> = ({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-white/5">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-cyan-400">
+              <span className="text-[10px] font-mono font-semibold uppercase tracking-widest text-cyan-400">
                 Step 1 • Client-Side Witness Input
               </span>
-              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+              <span className="text-[10px] font-mono font-medium px-1.5 py-0.2 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
                 Client Memory Only
               </span>
             </div>
-            <h2 className="text-xl font-bold text-white flex items-center gap-2">
+            <h2 className="font-display text-xl font-bold tracking-tight text-white flex items-center gap-2">
               Private Financial Credential Vault
             </h2>
-            <p className="text-xs text-slate-400 mt-0.5">
+            <p className="font-sans text-xs text-slate-300 mt-0.5 leading-relaxed">
               Your credentials stay locked in client memory. Only the cryptographic proof leaves your device.
             </p>
           </div>
@@ -282,7 +282,7 @@ export const BorrowerProver: React.FC<BorrowerProverProps> = ({
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={onConnectWallet}
-                className="w-full py-4 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 transition-all shadow-[0_0_24px_rgba(0,240,255,0.35)] flex items-center justify-center gap-2 text-sm"
+                className="w-full py-4 rounded-xl font-display font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 transition-all shadow-[0_0_24px_rgba(0,240,255,0.35)] flex items-center justify-center gap-2 text-sm tracking-tight"
               >
                 <span>Connect Wallet to Prove Financial Eligibility</span>
                 <ArrowRight className="w-4 h-4" />
@@ -293,7 +293,7 @@ export const BorrowerProver: React.FC<BorrowerProverProps> = ({
                 whileHover={{ scale: isProving ? 1 : 1.02 }}
                 whileTap={{ scale: isProving ? 1 : 0.97 }}
                 disabled={isProving}
-                className="w-full py-4 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-cyan-400 via-cyan-300 to-teal-300 hover:from-cyan-300 transition-all shadow-[0_0_24px_rgba(0,240,255,0.35)] flex items-center justify-center gap-2 text-sm disabled:opacity-50 cursor-pointer"
+                className="w-full py-4 rounded-xl font-display font-bold text-slate-950 bg-gradient-to-r from-cyan-400 via-cyan-300 to-teal-300 hover:from-cyan-300 transition-all shadow-[0_0_24px_rgba(0,240,255,0.35)] flex items-center justify-center gap-2 text-sm tracking-tight disabled:opacity-50 cursor-pointer"
               >
                 {isProving ? (
                   <>

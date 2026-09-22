@@ -28,8 +28,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['Geist', 'Inter', 'SF Pro Display', 'system-ui', 'sans-serif'],
-        mono: ['Geist Mono', 'JetBrains Mono', 'Fira Code', 'monospace'],
+        display: ['"Plus Jakarta Sans"', '"Space Grotesk"', 'sans-serif'],
+        tech: ['"Space Grotesk"', 'sans-serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        mono: ['"JetBrains Mono"', '"Geist Mono"', 'monospace'],
       },
       animation: {
         'spin-slow': 'spin 20s linear infinite',

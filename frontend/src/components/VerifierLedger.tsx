@@ -85,15 +85,15 @@ export const VerifierLedger: React.FC<VerifierLedgerProps> = ({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-400">
+            <span className="text-[10px] font-mono font-semibold uppercase tracking-widest text-emerald-400">
               Step 2 • Verifier & Public Ledger Audit
             </span>
-            <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+            <span className="text-[10px] font-mono font-medium px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
               Live On-Chain State
             </span>
           </div>
-          <h2 className="text-xl font-bold text-white">Public Credit Verification State</h2>
-          <p className="text-xs text-slate-400 mt-0.5">
+          <h2 className="font-display text-xl font-bold tracking-tight text-white">Public Credit Verification State</h2>
+          <p className="font-sans text-xs text-slate-300 mt-0.5 leading-relaxed">
             What on-chain lenders, DeFi protocols, and external observers can mathematically verify.
           </p>
         </div>

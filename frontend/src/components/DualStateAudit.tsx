@@ -8,13 +8,13 @@ export const DualStateAudit: React.FC = () => {
     <div className="max-w-[1440px] w-[95%] mx-auto py-8 space-y-8">
       {/* Header */}
       <div>
-        <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest block mb-2">
+        <span className="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-widest block mb-2">
           ARCHITECTURE AUDIT
         </span>
-        <h1 className="text-3xl font-extrabold text-white">
+        <h1 className="font-display text-3xl font-extrabold text-white tracking-tight">
           Midnight Dual-State Privacy Model
         </h1>
-        <p className="text-sm text-slate-400 mt-1 max-w-2xl">
+        <p className="font-sans text-sm text-slate-300 mt-1 max-w-2xl leading-relaxed">
           Understanding how ShieldScore executes off-chain witness logic with zero-knowledge mathematical verification while maintaining complete public ledger transparency.
         </p>
       </div>
@@ -29,10 +29,10 @@ export const DualStateAudit: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#080B11] via-transparent to-transparent" />
         <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-xl bg-[#080B11]/80 backdrop-blur-md border border-cyan-500/30">
           <div>
-            <h3 className="text-sm font-bold text-white">
+            <h3 className="font-display text-sm font-bold text-white tracking-tight">
               End-to-End Zero-Knowledge Verification Flow
             </h3>
-            <p className="text-xs text-slate-300">
+            <p className="font-sans text-xs text-slate-300">
               Encrypted Local Memory (Left) ➔ Client Proof Generation (Center) ➔ Midnight Consensus Settlement (Right)
             </p>
           </div>
@@ -54,11 +54,11 @@ export const DualStateAudit: React.FC = () => {
         <GlassCard>
           <div className="flex items-center gap-2 text-cyan-400 mb-3">
             <EyeOff className="w-5 h-5" />
-            <h3 className="text-sm font-bold uppercase tracking-wider font-mono">
+            <h3 className="font-display text-sm font-bold tracking-tight uppercase text-white">
               1. Private Witness State
             </h3>
           </div>
-          <p className="text-xs text-slate-300 leading-relaxed">
+          <p className="font-sans text-xs text-slate-300 leading-relaxed">
             Resides strictly inside the user's browser memory via TypeScript witness callbacks. Never broadcast, serialized, or transmitted over the internet.
           </p>
           <div className="mt-4 p-3 rounded-lg bg-canvas-void border border-white/5 font-mono text-[11px] text-cyan-300/80">
@@ -73,11 +73,11 @@ export const DualStateAudit: React.FC = () => {
         <GlassCard>
           <div className="flex items-center gap-2 text-indigo-400 mb-3">
             <ShieldCheck className="w-5 h-5" />
-            <h3 className="text-sm font-bold uppercase tracking-wider font-mono">
+            <h3 className="font-display text-sm font-bold tracking-tight uppercase text-white">
               2. Compact Circuit (ZK)
             </h3>
           </div>
-          <p className="text-xs text-slate-300 leading-relaxed">
+          <p className="font-sans text-xs text-slate-300 leading-relaxed">
             Encodes mathematical arithmetic constraints. If assertions hold, generates a succinct zero-knowledge proof (&pi;) verifying compliance.
           </p>
           <div className="mt-4 p-3 rounded-lg bg-canvas-void border border-white/5 font-mono text-[11px] text-indigo-300/80">
@@ -92,11 +92,11 @@ export const DualStateAudit: React.FC = () => {
         <GlassCard>
           <div className="flex items-center gap-2 text-emerald-400 mb-3">
             <Database className="w-5 h-5" />
-            <h3 className="text-sm font-bold uppercase tracking-wider font-mono">
+            <h3 className="font-display text-sm font-bold tracking-tight uppercase text-white">
               3. Public Ledger State
             </h3>
           </div>
-          <p className="text-xs text-slate-300 leading-relaxed">
+          <p className="font-sans text-xs text-slate-300 leading-relaxed">
             Verified on-chain by Midnight consensus nodes. Contains strictly the declassified boolean verification state and cryptographic commitments.
           </p>
           <div className="mt-4 p-3 rounded-lg bg-canvas-void border border-white/5 font-mono text-[11px] text-emerald-300/80">
@@ -110,7 +110,7 @@ export const DualStateAudit: React.FC = () => {
 
       {/* Security Properties Checklist */}
       <GlassCard>
-        <h3 className="text-base font-bold text-white mb-4 flex items-center gap-2">
+        <h3 className="font-display text-base font-bold text-white mb-4 flex items-center gap-2 tracking-tight">
           <Lock className="w-4 h-4 text-cyan-400" />
           <span>Cryptographic Security Invariants Enforced</span>
         </h3>
