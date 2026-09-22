@@ -6,14 +6,32 @@
 [![Network](https://img.shields.io/badge/network-Midnight%20Preview-792EE5.svg)](https://midnight.network)
 [![Wallet](https://img.shields.io/badge/wallet-1AM%20%2F%20Lace-00F0FF.svg)](https://1am.xyz)
 [![CI/CD](https://img.shields.io/badge/CI%2FCD-Automated%20Deploy-00D26A.svg)](.github/workflows/ci.yml)
+[![X Profile](https://img.shields.io/badge/X-@ShieldScoreFi-000000.svg?logo=x)](https://x.com/ShieldScoreFi)
+[![Testnet Users](https://img.shields.io/badge/Users-70%20Onboarded-00F0FF.svg)](USERS-70.md)
 
 <p align="center">
   <img src="shieldscore_logo.jpg" alt="ShieldScore Logo" width="220" />
 </p>
 
+> **Midnight Builder Challenge Category**: **Confidential Credentials & Eligibility Gate**  
+> **Challenge Progress**: Level 1 (New Moon) through Level 6 (Supermoon) Complete.
+
 **ShieldScore** is a privacy-preserving financial eligibility and confidential credit-verification protocol built natively for the **Midnight Network**.
 
 Borrowers hold sensitive personal financial metrics—such as annual income, credit bureau scores, debt-to-income (DTI) obligations, and collateral buffers—securely on their local device. By executing client-side zero-knowledge circuits, users generate mathematical proofs ($\pi$) verifying that they satisfy lender credit policies (e.g. `creditScore >= 700`, `annualIncome >= $50,000`, `debtToIncome <= 40%`). The lending protocol receives cryptographic proof of solvency on-chain without receiving, transmitting, or storing any personal data.
+
+---
+
+## 🏆 Midnight Builder Challenge — Level 1 to 6 Compliance Matrix
+
+| Level | Challenge Phase | Core Requirement | ShieldScore Implementation | Status |
+| :---: | :--- | :--- | :--- | :---: |
+| **Level 1** | New Moon | Toolchain, first Compact contract with `disclose()`, passing tests, deployed on Preview | Toolchain installed, `shieldscore.compact` written, 10/10 Vitest tests pass, deployed on Midnight Preview (`0794f000...`) | ✅ Complete |
+| **Level 2** | Crescent | Contract wired to frontend UI, 1AM/Lace wallet connect/disconnect, observable privacy behavior | React 18 + Vite frontend with multi-wallet connector, ZK pipeline, selective disclosure audit | ✅ Complete |
+| **Level 3** | Half Moon | Approved idea ("Confidential Credentials"), production-grade dApp, 3+ tests, CI/CD pipeline | "Confidential Credentials" category, 10 tests, GitHub Actions CI/CD (`.github/workflows/ci.yml`) | ✅ Complete |
+| **Level 4** | Gibbous | MVP on Preview, full documentation, setup guide, product profile on X | Full docs (`README.md`, `docs/PRIVACY_MODEL.md`), X profile ([@ShieldScoreFi](https://x.com/ShieldScoreFi)) | ✅ Complete |
+| **Level 5** | Full Moon | 50 Preprod/Preview users, living feedback loop documented, updated docs | 50+ users directory (`USERS-70.md`), living feedback loop & in-app feedback modal (`FEEDBACK.md`) | ✅ Complete |
+| **Level 6** | Supermoon | 70 Preprod/Preview users, refined MVP, feedback documentation, 30+ meaningful commits | 70 verifiable user accounts (`USERS-70.md`), 30+ structured git commits | ✅ Complete |
 
 ---
 
