@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Radio, Wallet, LogOut, Menu, Coins, Cpu, Users } from 'lucide-react';
+import { Shield, Radio, Wallet, LogOut, Menu, Coins, Cpu, Users, MessageSquare } from 'lucide-react';
 import type { WalletProviderType } from '../lib/walletConnector';
 
 export type AppTab = 'borrower' | 'loans' | 'lender' | 'architecture';
@@ -13,6 +13,7 @@ interface NavbarProps {
   onOpenWalletModal: () => void;
   onDisconnect: () => void;
   onOpenMobileDrawer: () => void;
+  onOpenFeedbackModal?: () => void;
   latencyMs: number;
 }
 
@@ -24,6 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenWalletModal,
   onDisconnect,
   onOpenMobileDrawer,
+  onOpenFeedbackModal,
   latencyMs,
 }) => {
   const truncatedAddress = address
@@ -143,6 +145,20 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Wallet className="w-3.5 h-3.5 text-slate-950" />
               <span>Connect Wallet</span>
+            </motion.button>
+          )}
+
+          {/* Feedback Trigger Button */}
+          {onOpenFeedbackModal && (
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={onOpenFeedbackModal}
+              title="Provide Testnet Feedback"
+              className="px-3 py-2 rounded-xl bg-white/[0.04] border border-white/10 hover:border-cyan-400/40 text-slate-300 hover:text-cyan-300 text-xs font-mono transition-all flex items-center gap-1.5"
+            >
+              <MessageSquare className="w-3.5 h-3.5 text-cyan-400" />
+              <span className="hidden sm:inline">Feedback</span>
             </motion.button>
           )}
 
