@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,15 +21,23 @@ body {
   letter-spacing: -0.011em;
 }
 
-h1, h2, h3, h4, .font-heading {
-  font-family: 'Plus Jakarta Sans', 'Space Grotesk', sans-serif;
-  letter-spacing: -0.03em;
+h1, h2, h3, h4, .font-display, .font-heading {
+  font-family: 'Syne', 'Space Grotesk', sans-serif !important;
+  letter-spacing: -0.025em;
+}
+
+.font-tech {
+  font-family: 'Space Grotesk', sans-serif !important;
+}
+
+.font-mono, code, pre {
+  font-family: 'JetBrains Mono', monospace !important;
 }
 
 /* Tabular numerics for financial figures and blockchain metrics */
 .tabular-nums {
   font-variant-numeric: tabular-nums;
-  font-family: 'JetBrains Mono', 'Geist Mono', monospace;
+  font-family: 'JetBrains Mono', monospace !important;
 }
 
 /* Ambient Backdrop Glows (NO boilerplate grid lines) */

@@ -28,7 +28,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ['"Plus Jakarta Sans"', '"Space Grotesk"', 'sans-serif'],
+        display: ['"Syne"', '"Space Grotesk"', 'sans-serif'],
         tech: ['"Space Grotesk"', 'sans-serif'],
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         mono: ['"JetBrains Mono"', '"Geist Mono"', 'monospace'],
