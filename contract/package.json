@@ -14,7 +14,8 @@
     "call:policy": "npx tsx scripts/call-circuit.ts policy",
     "call:custom": "npx tsx scripts/call-circuit.ts custom",
     "generate-accounts": "npx tsx scripts/generate-accounts.ts",
-    "generate:70-users": "npx tsx scripts/generate-70-users.ts"
+    "generate:70-users": "npx tsx scripts/generate-70-users.ts",
+    "test:70-users": "npx tsx scripts/batch-test-70-users.ts"
   },
   "dependencies": {
     "@midnight-ntwrk/compact-runtime": "^0.16.0",
