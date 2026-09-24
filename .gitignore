@@ -10,6 +10,7 @@ build/
 
 # Midnight State & Local Secrets
 .midnight-state.json
+.midnight-accounts.json
 .midnight-wallet-state/
 midnight-level-db/
 contract/midnight-level-db/

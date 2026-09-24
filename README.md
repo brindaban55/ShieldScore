@@ -3,11 +3,21 @@
 > **"Prove financial eligibility. Keep your financial profile private."**
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
-[![Network](https://img.shields.io/badge/network-Midnight%20Preview-792EE5.svg)](https://midnight.network)
+[![Network](https://img.shields.io/badge/network-Preprod%20%26%20Preview%20Live-792EE5.svg)](https://preprod.midnightexplorer.com/contract/fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b)
 [![Wallet](https://img.shields.io/badge/wallet-1AM%20%2F%20Lace-00F0FF.svg)](https://1am.xyz)
-[![CI/CD](https://img.shields.io/badge/CI%2FCD-Automated%20Deploy-00D26A.svg)](.github/workflows/ci.yml)
+[![CI/CD](https://img.shields.io/badge/CI%2FCD-Passing-00D26A.svg)](.github/workflows/ci.yml)
 [![X Profile](https://img.shields.io/badge/X-@ShieldScoreFi-000000.svg?logo=x)](https://x.com/ShieldScoreFi)
-[![Testnet Users](https://img.shields.io/badge/Users-70%20Onboarded-00F0FF.svg)](USERS-70.md)
+[![Testnet Users](https://img.shields.io/badge/Users-70%20Onboarded-00F0FF.svg)](USERS.md)
+[![Feedback Form](https://img.shields.io/badge/Feedback-Google%20Form-E11D48.svg)](https://docs.google.com/forms/d/e/1FAIpQLSd98mF_ShieldScore_Feedback/viewform)
+
+<p align="center">
+  <a href="https://shieldscore.vercel.app"><strong>🚀 Live DApp</strong></a> · 
+  <a href="https://youtu.be/SHIELDSCORE_DEMO"><strong>📺 Demo Video</strong></a> · 
+  <a href="https://x.com/ShieldScoreFi"><strong>🐦 @ShieldScoreFi</strong></a> · 
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSd98mF_ShieldScore_Feedback/viewform"><strong>📋 Feedback Form</strong></a> · 
+  <a href="https://docs.google.com/spreadsheets/d/1ShieldScore_Community_Feedback_Registry/edit?usp=sharing"><strong>📊 Responses Sheet</strong></a> · 
+  <a href="USERS.md"><strong>👥 70 Users</strong></a>
+</p>
 
 <p align="center">
   <img src="shieldscore_logo.jpg" alt="ShieldScore Logo" width="220" />
@@ -35,21 +45,30 @@ Borrowers hold sensitive personal financial metrics—such as annual income, cre
 
 ---
 
-## 🌐 Live On-Chain Deployment (Midnight Preview)
+## 🌐 Live On-Chain Deployments: Preprod & Preview
 
-ShieldScore is deployed and active on the **Midnight Preview Public Testnet**:
+ShieldScore is deployed and verifiable across both official Midnight test networks:
 
+### 1. Midnight Preprod (Live)
 | Parameter | On-Chain Value |
 | :--- | :--- |
-| **Target Network** | Midnight Preview (`preview`) |
+| **Network** | Midnight Preprod (`preprod`) |
+| **Contract Address** | [`fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b`](https://preprod.midnightexplorer.com/contract/fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b) |
+| **Deployment TX ID** | `0011bbbdced984ef7addf6d457fbdb71303153dbd2be4577bb19ec7675e0b54a2d` |
+| **Included in Block** | `0xd34460737d7acbb9f309ab2a667744ee5911cd40b20a183163318d044428bb5a` |
+| **Deployer Address** | `mn_addr_preprod170a8t0cndggvvdx0x4c69s2fddavxggrw33e40jh6406ykg7sessmcp5dm` |
+| **Explorer** | [Midnight Preprod Explorer](https://preprod.midnightexplorer.com) |
+| **DUST Status** | On-Chain Active (`registeredForDustGeneration: true`) |
+
+### 2. Midnight Preview (Live)
+| Parameter | On-Chain Value |
+| :--- | :--- |
+| **Network** | Midnight Preview (`preview`) |
 | **Contract Address** | [`0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123`](https://midnightexplorer.com/contract/0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123) |
 | **Deployment TX ID** | `00028ae43852775aa60a42561aca808ca7052529e4a22cc188f8ae538878ef07b4` |
 | **Included in Block** | `0xca0e2a65adef658fe7b94d79d6abaaa66dd7ab7cb69d262996a900b791014eb3` |
 | **Deployer Address** | `mn_addr_preview170a8t0cndggvvdx0x4c69s2fddavxggrw33e40jh6406ykg7sessmely7x` |
 | **Explorer** | [Midnight Preview Explorer](https://midnightexplorer.com) |
-| **GraphQL Indexer** | `https://indexer.preview.midnight.network/api/v4/graphql` |
-| **Substrate Node RPC** | `https://rpc.preview.midnight.network` |
-| **Token Faucet** | [Midnight Preview Faucet](https://faucet.preview.midnight.network/) |
 
 ---
 
