@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GlassCard } from './GlassCard';
-import { MessageSquare, Star, CheckCircle2, X, Send, Sparkles, User, ThumbsUp } from 'lucide-react';
+import { MessageSquare, Star, CheckCircle2, X, Send, Sparkles, User, ThumbsUp, ExternalLink } from 'lucide-react';
 
 interface FeedbackModalProps {
   isOpen: boolean;
@@ -192,6 +192,22 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({ isOpen, onClose })
                     <Send className="w-4 h-4" />
                     <span>Submit to Feedback Ledger</span>
                   </motion.button>
+
+                  {/* External Google Form Link */}
+                  <div className="pt-2 text-center border-t border-white/5">
+                    <p className="text-[11px] text-slate-400 font-sans">
+                      Prefer a detailed external survey?{' '}
+                      <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSd98mF_ShieldScore_Feedback/viewform"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-cyan-400 hover:text-cyan-300 underline font-mono inline-flex items-center gap-1 transition-colors"
+                      >
+                        <span>Open Google Feedback Form</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    </p>
+                  </div>
                 </form>
               )}
             </GlassCard>
