@@ -158,7 +158,7 @@ async function main() {
   console.log(`  ✓ Connected to Midnight Substrate node on ${network}.\n`);
 
   console.log('─── 2. Wallet Initialization & Address ─────────────────────────\n');
-  const walletCtx = await createWallet({ network, networkConfig, seed: SEED, restore: false });
+  const walletCtx = await createWallet({ network, networkConfig, seed: SEED, restore: true });
   const address = walletCtx.unshieldedKeystore.getBech32Address().toString();
   console.log(`  Deployer Unshielded Address:`);
   console.log(`  >>> ${address} <<<\n`);
@@ -172,18 +172,24 @@ async function main() {
 
   console.log('  Syncing state with Midnight network indexer...');
   const syncStart = Date.now();
-  let lastLoggedProgress = -1;
+  let lastLogTime = 0;
 
   const state = await new Promise<any>((resolve, reject) => {
+    let resolved = false;
     const sub = walletCtx.wallet.state().subscribe({
       next: (s) => {
         const bal = s.unshielded?.balances?.[unshieldedToken().raw] ?? 0n;
         const dust = s.dust?.balance ? s.dust.balance(new Date()) : 0n;
-        if (s.syncProgress?.syncedPercent !== undefined && s.syncProgress.syncedPercent !== lastLoggedProgress) {
-          lastLoggedProgress = s.syncProgress.syncedPercent;
-          process.stdout.write(`\r  ⏳ Sync Progress: ${lastLoggedProgress}% | tNIGHT: ${bal} | tDUST: ${dust}   `);
+        const dustApplied = s.dust?.progress?.appliedIndex ?? 0n;
+        const dustMax = s.dust?.progress?.highestRelevantWalletIndex ?? 0n;
+        const now = Date.now();
+        if (now - lastLogTime > 4000) {
+          lastLogTime = now;
+          const dustPct = dustMax > 0n ? Math.min(100, Math.floor(Number((dustApplied * 100n) / dustMax))) : 0;
+          console.log(`  ⏳ Sync: ${dustPct}% (${dustApplied}/${dustMax}) | tNIGHT: ${bal.toLocaleString()} | tDUST: ${dust.toLocaleString()}`);
         }
-        if (s.isSynced) {
+        if (!resolved && (s.isSynced || (bal > 0n && dust > 0n))) {
+          resolved = true;
           sub.unsubscribe();
           resolve(s);
         }
@@ -194,13 +200,20 @@ async function main() {
     });
 
     walletCtx.wallet.waitForSyncedState().then((s) => {
-      sub.unsubscribe();
-      resolve(s);
-    }).catch(reject);
+      if (!resolved) {
+        resolved = true;
+        sub.unsubscribe();
+        resolve(s);
+      }
+    }).catch((err) => {
+      if (!resolved) {
+        reject(err);
+      }
+    });
   });
 
   const elapsed = Math.round((Date.now() - syncStart) / 1000);
-  process.stdout.write(`\r  ✓ Synced with network in ${elapsed}s!                                \n`);
+  console.log(`  ✓ Synced with network in ${elapsed}s!\n`);
 
   await persistWalletState(network, walletCtx);
 

@@ -74,12 +74,12 @@ export async function createWallet(opts: CreateWalletOptions): Promise<WalletCon
     indexerClientConnection: {
       indexerHttpUrl: opts.networkConfig.indexer,
       indexerWsUrl: opts.networkConfig.indexerWS,
-      bufferSize: 50000,
-      resumeThreshold: 5000,
+      bufferSize: 500000,
+      resumeThreshold: 200000,
     },
     batchUpdates: {
-      size: 5000,
-      timeout: 100,
+      size: 10000,
+      timeout: 50,
       spacing: 0,
     },
     provingServerUrl: new URL(opts.networkConfig.proofServer),

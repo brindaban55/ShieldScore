@@ -134,6 +134,15 @@ export function resolveNetwork(opts: FsOptions = {}): {
   network: NetworkId;
   config: NetworkConfig;
 } {
+  // Check command line arguments first (--network <id>)
+  const netIdx = process.argv.indexOf('--network');
+  if (netIdx !== -1 && netIdx + 1 < process.argv.length) {
+    const argNet = process.argv[netIdx + 1];
+    if (isNetworkId(argNet)) {
+      return { network: argNet, config: NETWORK_CONFIGS[argNet] };
+    }
+  }
+
   const envTarget = process.env.MIDNIGHT_NETWORK;
   if (envTarget && isNetworkId(envTarget)) {
     return { network: envTarget, config: NETWORK_CONFIGS[envTarget] };
