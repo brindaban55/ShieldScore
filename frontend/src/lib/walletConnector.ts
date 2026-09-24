@@ -96,21 +96,26 @@ export async function extractAddressFromApi(api: any): Promise<string> {
   return '';
 }
 
+import { type SupportedNetwork, getNetworkConfig } from './networkConfig';
+
 /**
- * Connect to user's selected wallet extension on Midnight Preview
+ * Connect to user's selected wallet extension on Midnight Preview or Preprod
  */
 export async function connectWalletProvider(
   providerType: WalletProviderType,
-  networkId: string = 'preview'
+  networkId: SupportedNetwork = 'preview'
 ): Promise<{ address: string; connectedApi: any }> {
+  const netConfig = getNetworkConfig(networkId);
+
   if (providerType === 'demo') {
     // Instant Read-Only Public Explorer Mode (zero extension / zero docker required)
+    const demoAddr = netConfig.demoAddress;
     return {
-      address: 'mn_addr_preview170a8t0cndggvvdx0x4c69s2fddavxggrw33e40jh6406ykg7sessmely7x',
+      address: demoAddr,
       connectedApi: {
         isReadOnly: true,
         getUnshieldedAddress: async () => ({
-          unshieldedAddress: 'mn_addr_preview170a8t0cndggvvdx0x4c69s2fddavxggrw33e40jh6406ykg7sessmely7x',
+          unshieldedAddress: demoAddr,
         }),
       },
     };
@@ -137,7 +142,7 @@ export async function connectWalletProvider(
     throw new Error(`Wallet provider "${providerType}" not found in browser extension registry.`);
   }
 
-  // Request connection popup from wallet
+  // Request connection popup from wallet with requested networkId
   const connectedApi = typeof walletConnector.connect === 'function'
     ? await walletConnector.connect(networkId)
     : (typeof walletConnector.enable === 'function' ? await walletConnector.enable() : walletConnector);
@@ -145,6 +150,12 @@ export async function connectWalletProvider(
   const address = await extractAddressFromApi(connectedApi);
   if (!address) {
     throw new Error('Wallet connected, but could not resolve account address.');
+  }
+
+  // Strict Network Verification: Address must match current active network prefix
+  if (!address.startsWith(netConfig.addressPrefix)) {
+    const detectedNet = address.startsWith('mn_addr_preview') ? 'Midnight Preview' : (address.startsWith('mn_addr_preprod') ? 'Midnight Preprod' : 'Unknown Network');
+    throw new Error(`Network Mismatch: Your wallet is currently on ${detectedNet} (${address.slice(0, 15)}...), but ShieldScore is active on ${netConfig.networkName}. Please switch your 1AM or Lace wallet extension to ${netConfig.networkName} and try again.`);
   }
 
   return { address, connectedApi };

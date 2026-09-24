@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { Shield, Radio, Wallet, LogOut, Menu, Coins, Cpu, Users, MessageSquare } from 'lucide-react';
 import type { WalletProviderType } from '../lib/walletConnector';
 
+import type { SupportedNetwork } from '../lib/networkConfig';
+
 export type AppTab = 'borrower' | 'loans' | 'lender' | 'architecture';
 
 interface NavbarProps {
@@ -10,6 +12,8 @@ interface NavbarProps {
   setActiveTab: (tab: AppTab) => void;
   isConnected: boolean;
   address: string | null;
+  activeNetwork: SupportedNetwork;
+  onSelectNetwork: (network: SupportedNetwork) => void;
   onOpenWalletModal: () => void;
   onDisconnect: () => void;
   onOpenMobileDrawer: () => void;
@@ -22,6 +26,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   setActiveTab,
   isConnected,
   address,
+  activeNetwork,
+  onSelectNetwork,
   onOpenWalletModal,
   onDisconnect,
   onOpenMobileDrawer,
@@ -68,16 +74,35 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
           </motion.button>
 
-          {/* Clean Network Status Pill */}
-          <div className="hidden lg:flex items-center gap-2 ml-4 px-2.5 py-1 rounded-full bg-white/[0.03] border border-white/5 text-[11px] font-mono">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-            </span>
-            <span className="text-slate-300">Midnight Preview</span>
-            <span className="text-slate-500">|</span>
-            <span className="text-cyan-400 flex items-center gap-1">
-              <Radio className="w-3 h-3 animate-pulse" />
+          {/* Interactive Dual Network Switcher (Preview <-> Preprod) */}
+          <div className="hidden sm:flex items-center gap-1 p-1 rounded-xl bg-white/[0.03] border border-white/10 text-[11px] font-mono ml-2">
+            <button
+              type="button"
+              onClick={() => onSelectNetwork('preview')}
+              className={`px-2.5 py-1 rounded-lg flex items-center gap-1.5 transition-all ${
+                activeNetwork === 'preview'
+                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-[0_0_12px_rgba(6,182,212,0.25)] font-semibold'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <span className={`h-1.5 w-1.5 rounded-full ${activeNetwork === 'preview' ? 'bg-cyan-400 animate-pulse' : 'bg-slate-500'}`} />
+              Preview
+            </button>
+            <button
+              type="button"
+              onClick={() => onSelectNetwork('preprod')}
+              className={`px-2.5 py-1 rounded-lg flex items-center gap-1.5 transition-all ${
+                activeNetwork === 'preprod'
+                  ? 'bg-purple-500/20 text-purple-300 border border-purple-500/40 shadow-[0_0_12px_rgba(168,85,247,0.25)] font-semibold'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <span className={`h-1.5 w-1.5 rounded-full ${activeNetwork === 'preprod' ? 'bg-purple-400 animate-pulse' : 'bg-slate-500'}`} />
+              Preprod
+            </button>
+            <span className="text-slate-600 px-1 hidden xl:inline">|</span>
+            <span className="text-slate-400 text-[10px] items-center gap-1 hidden xl:flex pr-1.5">
+              <Radio className="w-2.5 h-2.5 text-emerald-400 animate-pulse" />
               {latencyMs}ms
             </span>
           </div>

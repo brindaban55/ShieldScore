@@ -13,10 +13,13 @@ import { DualStateAudit } from './components/DualStateAudit';
 import { FeedbackModal } from './components/FeedbackModal';
 import { useWallet } from './hooks/useWallet';
 import { useContractState } from './hooks/useContractState';
-import { PREVIEW_CONFIG } from './lib/networkConfig';
+import { type SupportedNetwork, getNetworkConfig } from './lib/networkConfig';
 import { ExternalLink } from 'lucide-react';
 
 export const App: React.FC = () => {
+  const [activeNetwork, setActiveNetwork] = useState<SupportedNetwork>('preview');
+  const currentNetConfig = getNetworkConfig(activeNetwork);
+
   const {
     isConnected,
     isConnecting,
@@ -25,7 +28,9 @@ export const App: React.FC = () => {
     disconnect,
     error,
     telemetry,
-  } = useWallet();
+    networkRevocationNotice,
+    clearRevocationNotice,
+  } = useWallet(activeNetwork);
 
   const { blockHeight: onChainBlockHeight, isDeployed } = useContractState();
 
@@ -113,18 +118,53 @@ export const App: React.FC = () => {
 
       {/* Main App Layout */}
       <div className="relative z-10 flex flex-col min-h-screen">
-        {/* Navigation Bar with sliding active indicator */}
+        {/* Navigation Bar with sliding active indicator & Dual Network Switcher */}
         <Navbar
           activeTab={activeTab}
           setActiveTab={setActiveTab}
           isConnected={isConnected}
           address={address}
+          activeNetwork={activeNetwork}
+          onSelectNetwork={setActiveNetwork}
           onOpenWalletModal={() => setIsWalletModalOpen(true)}
           onDisconnect={disconnect}
           onOpenMobileDrawer={() => setIsMobileDrawerOpen(true)}
           onOpenFeedbackModal={() => setIsFeedbackModalOpen(true)}
           latencyMs={telemetry.latencyMs}
         />
+
+        {/* Dynamic Network Revocation Alert Banner */}
+        {networkRevocationNotice && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="bg-amber-500/10 border-b border-amber-500/30 text-amber-200 px-4 py-2.5 text-xs font-mono"
+          >
+            <div className="max-w-[1440px] w-[95%] mx-auto flex flex-wrap items-center justify-between gap-3">
+              <div className="flex items-center gap-2">
+                <span className="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold text-[10px]">
+                  REVOCATION NOTICE
+                </span>
+                <span>{networkRevocationNotice}</span>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <button
+                  onClick={() => setIsWalletModalOpen(true)}
+                  className="px-2.5 py-1 rounded bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/40 text-amber-100 font-semibold text-[11px] transition-colors"
+                >
+                  Reconnect on {getNetworkConfig(activeNetwork).badgeLabel}
+                </button>
+                <button
+                  onClick={clearRevocationNotice}
+                  className="p-1 rounded text-amber-400 hover:text-white transition-colors"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
 
         {/* Content Body with Fluid Page Slide Transitions */}
         <main className="flex-1">
@@ -198,21 +238,21 @@ export const App: React.FC = () => {
 
             <div className="flex items-center gap-6">
               <a
-                href={`${PREVIEW_CONFIG.explorerUrl}/contract/${PREVIEW_CONFIG.deployedContractAddress}`}
+                href={`${currentNetConfig.explorerUrl}/contract/${currentNetConfig.deployedContractAddress}`}
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-cyan-400 transition-colors flex items-center gap-1"
               >
-                <span>Contract on Preview</span>
+                <span>Contract on {currentNetConfig.badgeLabel}</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
               <a
-                href={PREVIEW_CONFIG.faucetUrl}
+                href={currentNetConfig.faucetUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-cyan-400 transition-colors flex items-center gap-1"
               >
-                <span>Preview Faucet</span>
+                <span>{currentNetConfig.badgeLabel} Faucet</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
               <a
@@ -238,6 +278,7 @@ export const App: React.FC = () => {
           }}
           isConnecting={isConnecting}
           error={error}
+          activeNetwork={activeNetwork}
         />
 
         <MobileDrawer
@@ -247,6 +288,8 @@ export const App: React.FC = () => {
           setActiveTab={setActiveTab}
           isConnected={isConnected}
           address={address}
+          activeNetwork={activeNetwork}
+          onSelectNetwork={setActiveNetwork}
           onConnectWallet={() => setIsWalletModalOpen(true)}
           onDisconnect={disconnect}
           latencyMs={telemetry.latencyMs}

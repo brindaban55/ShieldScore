@@ -38,3 +38,29 @@ export function detectDevice(): DeviceInfo {
     os,
   };
 }
+
+export interface MobileWalletLinks {
+  oneAmDeepLink: string;
+  oneAmAppStore: string;
+  oneAmPlayStore: string;
+  recommendedStoreUrl: string;
+}
+
+export function getMobileWalletLinks(dappUrl?: string): MobileWalletLinks {
+  const targetUrl = dappUrl || (typeof window !== 'undefined' ? window.location.href : 'https://shieldscore.vercel.app');
+  const encodedUrl = encodeURIComponent(targetUrl);
+  const device = detectDevice();
+
+  const oneAmAppStore = 'https://apps.apple.com/app/1am-wallet/id6479963283';
+  const oneAmPlayStore = 'https://play.google.com/store/apps/details?id=xyz.oneam.wallet';
+  const oneAmDeepLink = `https://1am.xyz/dapp?url=${encodedUrl}`;
+
+  const recommendedStoreUrl = device.os === 'ios' ? oneAmAppStore : oneAmPlayStore;
+
+  return {
+    oneAmDeepLink,
+    oneAmAppStore,
+    oneAmPlayStore,
+    recommendedStoreUrl,
+  };
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Shield, Sliders, FileCode2, ExternalLink, Radio, Wallet, Coins, Cpu } from 'lucide-react';
-import { PREVIEW_CONFIG } from '../lib/networkConfig';
+import { type SupportedNetwork, getNetworkConfig } from '../lib/networkConfig';
 import type { AppTab } from './Navbar';
 
 interface MobileDrawerProps {
@@ -11,6 +11,8 @@ interface MobileDrawerProps {
   setActiveTab: (tab: AppTab) => void;
   isConnected: boolean;
   address: string | null;
+  activeNetwork?: SupportedNetwork;
+  onSelectNetwork?: (network: SupportedNetwork) => void;
   onConnectWallet: () => void;
   onDisconnect: () => void;
   latencyMs: number;
@@ -23,10 +25,13 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
   setActiveTab,
   isConnected,
   address,
+  activeNetwork = 'preview',
+  onSelectNetwork,
   onConnectWallet,
   onDisconnect,
   latencyMs,
 }) => {
+  const netConfig = getNetworkConfig(activeNetwork);
   if (!isOpen) return null;
 
   const handleNav = (tab: AppTab) => {
@@ -92,16 +97,42 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
               })}
             </nav>
 
-            {/* Network Status in Drawer */}
-            <div className="mt-8 p-3 rounded-xl bg-white/[0.02] border border-white/5 space-y-2 text-xs font-mono">
+            {/* Network Status & Switcher in Drawer */}
+            <div className="mt-8 p-3 rounded-xl bg-white/[0.02] border border-white/5 space-y-3 text-xs font-mono">
               <div className="flex items-center justify-between">
-                <span className="text-slate-400">Network:</span>
-                <span className="text-emerald-400 flex items-center gap-1.5">
+                <span className="text-slate-400">Active Network:</span>
+                <span className="text-emerald-400 flex items-center gap-1.5 font-bold">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Midnight Preview
+                  {netConfig.networkName}
                 </span>
               </div>
-              <div className="flex items-center justify-between">
+              {onSelectNetwork && (
+                <div className="grid grid-cols-2 gap-2 pt-1">
+                  <button
+                    type="button"
+                    onClick={() => onSelectNetwork('preview')}
+                    className={`py-1.5 rounded-lg border text-center transition-all ${
+                      activeNetwork === 'preview'
+                        ? 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40 font-semibold'
+                        : 'bg-white/[0.02] text-slate-400 border-white/5'
+                    }`}
+                  >
+                    Preview
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => onSelectNetwork('preprod')}
+                    className={`py-1.5 rounded-lg border text-center transition-all ${
+                      activeNetwork === 'preprod'
+                        ? 'bg-purple-500/20 text-purple-300 border-purple-500/40 font-semibold'
+                        : 'bg-white/[0.02] text-slate-400 border-white/5'
+                    }`}
+                  >
+                    Preprod
+                  </button>
+                </div>
+              )}
+              <div className="flex items-center justify-between pt-1">
                 <span className="text-slate-400">RPC Latency:</span>
                 <span className="text-cyan-400">{latencyMs}ms</span>
               </div>
@@ -142,12 +173,12 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
             )}
 
             <a
-              href={PREVIEW_CONFIG.faucetUrl}
+              href={netConfig.faucetUrl}
               target="_blank"
               rel="noreferrer"
               className="flex items-center justify-center gap-1.5 text-xs font-mono text-cyan-400 py-1"
             >
-              <span>Get Preview Faucet Tokens</span>
+              <span>Get {netConfig.badgeLabel} Faucet Tokens</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>
