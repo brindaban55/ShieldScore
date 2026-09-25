@@ -8,8 +8,8 @@
 
 ## 📋 Official Community Feedback Registry & Telemetry Links
 
-- **📋 Community Feedback Form**: [Google Forms Feedback Survey](https://docs.google.com/forms/d/e/1FAIpQLSd98mF_ShieldScore_Feedback/viewform)
-- **📊 Public Responses Ledger**: [Google Sheets Responses Spreadsheet](https://docs.google.com/spreadsheets/d/1ShieldScore_Community_Feedback_Registry/edit?usp=sharing)
+- **📋 Community Feedback Form**: [Google Forms Feedback Survey](https://docs.google.com/forms/d/11znyKMakHgapENhlluqdgUQvswuEIaXiX1xMQiDhpbg/viewform)
+- **📊 Public Responses Ledger**: [Google Sheets Responses Spreadsheet](https://docs.google.com/spreadsheets/d/1YcRRiltm8tE1_IZ3P2EszeWsnztjLWhT7audSbvlJEU/edit?usp=sharing)
 - **👥 70 Testnet Users Directory**: [`USERS.md`](USERS.md)
 - **🚀 Launch Cohort Verification (20 Users)**: [`LAUNCH_USERS.md`](LAUNCH_USERS.md)
 - **⛓️ Preprod Contract**: [`fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b`](https://preprod.midnightexplorer.com/contract/fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b)

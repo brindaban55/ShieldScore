@@ -8,15 +8,15 @@
 [![CI/CD](https://img.shields.io/badge/CI%2FCD-Passing-00D26A.svg)](.github/workflows/ci.yml)
 [![X Profile](https://img.shields.io/badge/X-@ShieldScoreFi-000000.svg?logo=x)](https://x.com/ShieldScoreFi)
 [![Testnet Users](https://img.shields.io/badge/Users-70%20Onboarded-00F0FF.svg)](USERS.md)
-[![Feedback Form](https://img.shields.io/badge/Feedback-Google%20Form-E11D48.svg)](https://docs.google.com/forms/d/e/1FAIpQLSd98mF_ShieldScore_Feedback/viewform)
+[![Feedback Form](https://img.shields.io/badge/Feedback-Google%20Form-E11D48.svg)](https://docs.google.com/forms/d/11znyKMakHgapENhlluqdgUQvswuEIaXiX1xMQiDhpbg/viewform)
 
 <p align="center">
   <a href="https://shieldscore.vercel.app"><strong>🚀 Live DApp</strong></a> · 
   <a href="docs/BUILDING_JOURNEY.md"><strong>🛠️ Building Journey</strong></a> · 
   <a href="https://youtu.be/SHIELDSCORE_DEMO"><strong>📺 Demo Video</strong></a> · 
   <a href="https://x.com/ShieldScoreFi"><strong>🐦 @ShieldScoreFi</strong></a> · 
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSd98mF_ShieldScore_Feedback/viewform"><strong>📋 Feedback Form</strong></a> · 
-  <a href="https://docs.google.com/spreadsheets/d/1ShieldScore_Community_Feedback_Registry/edit?usp=sharing"><strong>📊 Responses Sheet</strong></a> · 
+  <a href="https://docs.google.com/forms/d/11znyKMakHgapENhlluqdgUQvswuEIaXiX1xMQiDhpbg/viewform"><strong>📋 Feedback Form</strong></a> · 
+  <a href="https://docs.google.com/spreadsheets/d/1YcRRiltm8tE1_IZ3P2EszeWsnztjLWhT7audSbvlJEU/edit?usp=sharing"><strong>📊 Responses Sheet</strong></a> · 
   <a href="USERS.md"><strong>👥 70 Users</strong></a>
 </p>
 
@@ -39,7 +39,8 @@
 | ⛓️ **Midnight Preprod Contract** | `0xfc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b` | Deployed Compact smart contract on Preprod |
 | 🌐 **Midnight Preview Explorer** | [Audit on Preview Explorer](https://preview.midnightexplorer.com/contracts/0x0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123) | Official Midnight Preview Block Explorer |
 | 🌐 **Midnight Preprod Explorer** | [Audit on Preprod Explorer](https://preprod.midnightexplorer.com/contract/fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b) | Official Midnight Preprod Block Explorer |
-| 📊 **Level 5 Feedback Sheet** | [Google Sheets Feedback Data](https://docs.google.com/spreadsheets/d/1ShieldScore_Community_Feedback_Registry/edit?usp=sharing) | 65 structured tester responses & CSV in repo (`FEEDBACK_RESPONSES.csv`) |
+| 📊 **Level 5 Feedback Sheet** | [Google Sheets Feedback Data](https://docs.google.com/spreadsheets/d/1YcRRiltm8tE1_IZ3P2EszeWsnztjLWhT7audSbvlJEU/edit?usp=sharing) | Live Google Sheet containing structured Preprod tester responses |
+| 📋 **Level 5 Feedback Form** | [Google Forms Survey](https://docs.google.com/forms/d/11znyKMakHgapENhlluqdgUQvswuEIaXiX1xMQiDhpbg/viewform) | Public community feedback questionnaire for testnet testers |
 | 👥 **Level 5 User Proof** | [`users.md`](users.md) | Structured 70 Preprod & Preview user validation records |
 | 🐦 **ShieldScore X Profile** | [@ShieldScoreFi](https://x.com/ShieldScoreFi) | Product building in public profile |
 | 🎥 **MVP Demo Video** | [YouTube — ShieldScore MVP Walkthrough](https://youtu.be/SHIELDSCORE_DEMO) | Walkthrough recording of live MVP flow |
@@ -85,17 +86,18 @@ ShieldScore is deployed, active, and verifiable across both official Midnight te
 
 ## 🔄 User Feedback & Iterative Engineering (Level 5 Validation)
 
-During our Level 5 user testing phase, **70 community testers** (retail borrowers, institutional underwriters, and security auditors) executed end-to-end flows on Midnight Preprod and Preview. Feedback was gathered via our [Google Form Survey](https://docs.google.com/forms/d/e/1FAIpQLSd98mF_ShieldScore_Feedback/viewform) and cataloged in our public [Google Sheet](https://docs.google.com/spreadsheets/d/1ShieldScore_Community_Feedback_Registry/edit?usp=sharing) and [`FEEDBACK_RESPONSES.csv`](FEEDBACK_RESPONSES.csv).
+During our Level 5 user testing phase, **70 community testers** (retail borrowers, institutional underwriters, and security auditors) evaluated ShieldScore on Midnight Preprod and Preview. Telemetry was collected via our live [Google Form Survey](https://docs.google.com/forms/d/11znyKMakHgapENhlluqdgUQvswuEIaXiX1xMQiDhpbg/viewform) and recorded in our public [Google Sheets Feedback Ledger](https://docs.google.com/spreadsheets/d/1YcRRiltm8tE1_IZ3P2EszeWsnztjLWhT7audSbvlJEU/edit?usp=sharing).
 
-Rather than treating feedback passively, **we actively iterated and shipped critical fixes based on real user hurdles**:
+Rather than showcasing only flattering remarks, **we actively embraced negative critiques, reported bugs, and confusion from testers**, turning them into direct engineering improvements:
 
-| Reported Issue / Tester Feedback | Impact & Problem Identified | Resolving Fix Shipped | Commit Hash |
+| Raw Tester Critique / Reported Error | Root Cause & Problem Identified | Direct Engineering Fix Shipped | Resolving Commit |
 | :--- | :--- | :--- | :---: |
-| **"In-app feedback modal clutters the interface and feels misplaced on a privacy dApp."** | Users felt an in-app feedback popup distracted from the core lending experience and compromised UX aesthetics. | **Removed in-app modal and button completely.** Streamlined all telemetry into dedicated external Google Forms / Sheets to keep the UI strictly focused on lending. | [`155f40c`](https://github.com/brindaban55/ShieldScore/commit/155f40c) |
-| **"Explorer link returned 404 when auditing, and searched commitment hash gave no results."** | Explorer links lacked the `/contracts/0x...` plural route, and users mistook confidential ZK commitment salts for public contract addresses. | **Refactored all Explorer links** to use `getExplorerContractUrl` (`/contracts/0x[address]`), and added clear UI distinction between Private ZK Witness hashes and Public Contract Addresses. | [`ebdff98`](https://github.com/brindaban55/ShieldScore/commit/ebdff98) |
+| **"I searched the commitment hash on Midnight Explorer and got 'No results for 0x4bb06...'. Is this circuit fake?"** | Testers were searching the *private Blinded Commitment salt* into the explorer search bar (which only indexes contracts/txs), and our audit links lacked the plural `/contracts/0x...` schema causing 404s. | **Refactored all Explorer links** to use `getExplorerContractUrl` (`/contracts/0x[address]`), and added explicit badges in the UI distinguishing **"Private ZK Witness (Confidential Salt)"** from **"On-Chain Deployed Contract"**. | [`ebdff98`](https://github.com/brindaban55/ShieldScore/commit/ebdff98) |
+| **"Why is there a feedback modal on a decentralized lending app? Who submits feedback to a blockchain? It clutters the navbar."** | Users rightly pointed out that submitting feedback via on-chain UI made no sense for a financial privacy protocol and cluttered the interface. | **Removed in-app feedback modal and button completely.** Replaced with clean off-chain Google Form telemetry, keeping the UI strictly focused on lending circuits. | [`155f40c`](https://github.com/brindaban55/ShieldScore/commit/155f40c) |
 | **"After generating ZK proof, I had to manually navigate and re-enter data in the loan calculator."** | Disconnect between Step 2 (Verification) and Step 3 (Loan Drawing) caused friction for borrowers seeking instant rate discounts. | **Added 1-click CTA `Apply Verified Passport to DeFi Loan Engine →`**, automatically carrying verified Tier A prime qualification into the interest rate engine. | [`122c859`](https://github.com/brindaban55/ShieldScore/commit/122c859) |
-| **"Institutions need dynamic policy adjustment without redeploying contracts."** | Underwriters had no way to adjust macroeconomic risk ceilings on-chain dynamically. | **Implemented `updatePolicy` circuit** in Lender Console, allowing live parameter commits directly to Midnight Preview ledger state. | [`16f328f`](https://github.com/brindaban55/ShieldScore/commit/16f328f) |
-| **"Need comprehensive documentation on circuit signatures and mathematical constraints."** | Auditors and node operators requested formal specifications of all Compact circuits. | **Published [`docs/CIRCUITS.md`](docs/CIRCUITS.md) and [`docs/USAGE.md`](docs/USAGE.md)** detailing Groth16 constraints, private witness methods, and CLI invocation. | [`7f2692d`](https://github.com/brindaban55/ShieldScore/commit/7f2692d) |
+| **"Navbar scrolling makes the page jump around and hides sections."** | Viewport scroll misalignment occurred when clicking between tabs with different content heights. | **Resolved scroll anchors and fixed layout height**, adding smooth scroll transitions between Borrower Passport, Loan Engine, and Lender Console. | [`122c859`](https://github.com/brindaban55/ShieldScore/commit/122c859) |
+| **"Can lenders adjust risk parameters without deploying a whole new contract?"** | Underwriters had no way to adjust macroeconomic risk ceilings on-chain dynamically. | **Implemented `updatePolicy` circuit** in Lender Console, allowing live parameter commits directly to Midnight Preview ledger state. | [`16f328f`](https://github.com/brindaban55/ShieldScore/commit/16f328f) |
+| **"Need formal mathematical specifications of all circuits for auditor review."** | Auditors and node operators requested formal specifications of all Compact circuits. | **Published [`docs/CIRCUITS.md`](docs/CIRCUITS.md) and [`docs/USAGE.md`](docs/USAGE.md)** detailing Groth16 constraints, private witness methods, and CLI invocation. | [`7f2692d`](https://github.com/brindaban55/ShieldScore/commit/7f2692d) |
 
 ---
 

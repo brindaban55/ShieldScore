@@ -28,6 +28,12 @@ WALLETS_RECOVERY_PRIVATE.md
 CHALLENGE_PROGRESS.md
 .internal-tracking/
 
+# Local Feedback Datasets (Sensitive/Mock Data)
+FEEDBACK_RESPONSES.csv
+FEEDBACK_RESPONSES.tsv
+*.csv
+*.tsv
+
 # OS & Editor
 .DS_Store
 Thumbs.db
