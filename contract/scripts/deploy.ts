@@ -62,9 +62,9 @@ const defaultWitnesses = {
   getApplicantSecretSalt: (context: any): [any, Uint8Array] => [context.privateState, new Uint8Array(32).fill(7)],
 };
 
-const compiledContract = CompiledContract.make('shieldscore', ShieldScoreModule.Contract).pipe(
-  CompiledContract.withWitnesses(defaultWitnesses),
-  CompiledContract.withCompiledFileAssets(zkConfigPath),
+const compiledContract = (CompiledContract.make('shieldscore', ShieldScoreModule.Contract) as any).pipe(
+  (CompiledContract.withWitnesses as any)(defaultWitnesses),
+  (CompiledContract.withCompiledFileAssets as any)(zkConfigPath),
 );
 
 async function broadcastTransaction(api: ApiPromise, tx: any): Promise<string> {

@@ -201,9 +201,9 @@ async function main() {
   };
 
   console.log('─── 3. Locating Deployed Contract on Midnight ──────────────────');
-  const compiledContract = CompiledContract.make('shieldscore', ShieldScoreModule.Contract).pipe(
-    CompiledContract.withWitnesses(witnesses),
-    CompiledContract.withCompiledFileAssets(zkConfigPath),
+  const compiledContract = (CompiledContract.make('shieldscore', ShieldScoreModule.Contract) as any).pipe(
+    (CompiledContract.withWitnesses as any)(witnesses),
+    (CompiledContract.withCompiledFileAssets as any)(zkConfigPath),
   );
 
   const providers = await createProviders(walletCtx, api);
