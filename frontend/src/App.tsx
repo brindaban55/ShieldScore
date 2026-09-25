@@ -10,7 +10,6 @@ import { VerifierLedger, type VerificationOutcome } from './components/VerifierL
 import { LoanQuoteEngine } from './components/LoanQuoteEngine';
 import { LenderDashboard } from './components/LenderDashboard';
 import { DualStateAudit } from './components/DualStateAudit';
-import { FeedbackModal } from './components/FeedbackModal';
 import { useWallet } from './hooks/useWallet';
 import { useContractState } from './hooks/useContractState';
 import { type SupportedNetwork, getNetworkConfig } from './lib/networkConfig';
@@ -37,7 +36,6 @@ export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<AppTab>('borrower');
   const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
-  const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
 
   // Prover & Verifier State
   const [provingPhase, setProvingPhase] = useState<ProvingPhase>('idle');
@@ -132,7 +130,6 @@ export const App: React.FC = () => {
           onOpenWalletModal={() => setIsWalletModalOpen(true)}
           onDisconnect={disconnect}
           onOpenMobileDrawer={() => setIsMobileDrawerOpen(true)}
-          onOpenFeedbackModal={() => setIsFeedbackModalOpen(true)}
           latencyMs={telemetry.latencyMs}
         />
 
@@ -304,11 +301,6 @@ export const App: React.FC = () => {
           onConnectWallet={() => setIsWalletModalOpen(true)}
           onDisconnect={disconnect}
           latencyMs={telemetry.latencyMs}
-        />
-
-        <FeedbackModal
-          isOpen={isFeedbackModalOpen}
-          onClose={() => setIsFeedbackModalOpen(false)}
         />
       </div>
     </div>
