@@ -28,7 +28,9 @@ async function main() {
 
   const seedBytes = mnemonicToSeedSync(masterMnemonic);
   const hd = HDWallet.fromSeed(Buffer.from(seedBytes));
+  if (hd.type !== 'seedOk') throw new Error('Invalid master seed');
   const derived = hd.hdWallet.selectAccount(1).selectRoles([Roles.Zswap, Roles.NightExternal, Roles.Dust]).deriveKeysAt(0);
+  if (derived.type !== 'keysDerived') throw new Error('Key derivation failed');
   const keys = derived.keys;
 
   const shieldedSecretKeys = ledger.ZswapSecretKeys.fromSeed(keys[Roles.Zswap]);
