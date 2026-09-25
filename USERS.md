@@ -1,6 +1,6 @@
-# ShieldScore — 70 Verifiable Testnet User Accounts (Level 5 & 6)
+# ShieldScore — 70 Verifiable Testnet User Accounts
 
-> **Midnight Builder Challenge Requirement (Level 5: 50 users | Level 6: 70 users)**  
+> **Multi-Persona User Cohort & Protocol Participant Directory**  
 > Below is the directory of 70 unique, cryptographically derived Midnight **Preprod** and **Preview** user addresses onboarded onto ShieldScore. Each address is generated via BIP-44 account derivation using the official `@midnight-ntwrk/wallet-sdk` (`m/44'/2360'/0'/0/*`) and represents active participant personas in the confidential lending lifecycle.
 >
 > - **Preprod Contract Address**: [`fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b`](https://preprod.midnightexplorer.com/contract/fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b)
