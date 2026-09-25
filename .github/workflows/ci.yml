@@ -42,7 +42,8 @@ jobs:
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
           export PATH="$HOME/.compact/bin:$HOME/.local/bin:$PATH"
           if command -v compactup >/dev/null 2>&1; then
-            compactup default 0.28.0 || compactup default $(compactup list --remote 2>/dev/null | tail -n 1) || compactup install || true
+            compactup install 0.28.0 2>/dev/null || true
+            compactup default 0.28.0 2>/dev/null || compactup default $(compactup list --remote 2>/dev/null | tail -n 1) || true
           fi
 
       - name: Compile or Verify ShieldScore Compact Circuits
