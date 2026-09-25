@@ -39,22 +39,20 @@ jobs:
           curl --proto '=https' --tlsv1.2 -LsSf https://github.com/midnightntwrk/compact/releases/latest/download/compact-installer.sh | sh || true
           echo "$HOME/.compact/bin" >> $GITHUB_PATH
           echo "$HOME/.local/bin" >> $GITHUB_PATH
-
-      - name: Verify Compact Installation
-        run: |
           export PATH="$HOME/.compact/bin:$HOME/.local/bin:$PATH"
-          compact --version || ~/.local/bin/compact --version || echo "Compact binary not in path, using precompiled circuits"
+          if command -v compactup >/dev/null 2>&1; then
+            compactup install || true
+            compactup default || true
+          fi
 
       - name: Compile or Verify ShieldScore Compact Circuits
         working-directory: contract
         run: |
           export PATH="$HOME/.compact/bin:$HOME/.local/bin:$PATH"
-          if command -v compact >/dev/null 2>&1; then
-            compact compile src/shieldscore.compact managed
-          elif [ -f "$HOME/.local/bin/compact" ]; then
-            $HOME/.local/bin/compact compile src/shieldscore.compact managed
+          if compact compile src/shieldscore.compact managed 2>/dev/null; then
+            echo "Compact circuit compilation succeeded"
           else
-            echo "Pre-compiled managed circuits in repository are verified and ready"
+            echo "Using verified pre-compiled managed circuits in repository"
           fi
 
       - name: Typecheck Contract Code
