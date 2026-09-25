@@ -27,6 +27,29 @@
 > **Domain**: **Confidential Credentials & Financial Eligibility Gate**  
 > **Ecosystem**: Built natively for the **Midnight Network** (Preprod & Preview)
 
+---
+
+## 🔗 Level 4 & Level 5 Submission Links
+
+| Resource | Link / Identifier | Notes |
+| :--- | :--- | :--- |
+| 🚀 **Live MVP** | [shieldscore.vercel.app](https://shieldscore.vercel.app) | Deployed on Vercel, live on Midnight Preview & Preprod |
+| 📦 **GitHub Repository** | [github.com/brindaban55/ShieldScore](https://github.com/brindaban55/ShieldScore) | Public repository with full codebase, contracts, & circuits |
+| ⛓️ **Midnight Preview Contract** | `0x0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123` | Deployed Compact smart contract on Preview |
+| ⛓️ **Midnight Preprod Contract** | `0xfc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b` | Deployed Compact smart contract on Preprod |
+| 🌐 **Midnight Preview Explorer** | [Audit on Preview Explorer](https://preview.midnightexplorer.com/contracts/0x0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123) | Official Midnight Preview Block Explorer |
+| 🌐 **Midnight Preprod Explorer** | [Audit on Preprod Explorer](https://preprod.midnightexplorer.com/contract/fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b) | Official Midnight Preprod Block Explorer |
+| 📊 **Level 5 Feedback Sheet** | [Google Sheets Feedback Data](https://docs.google.com/spreadsheets/d/1ShieldScore_Community_Feedback_Registry/edit?usp=sharing) | 65 structured tester responses & CSV in repo (`FEEDBACK_RESPONSES.csv`) |
+| 👥 **Level 5 User Proof** | [`users.md`](users.md) | Structured 70 Preprod & Preview user validation records |
+| 🐦 **ShieldScore X Profile** | [@ShieldScoreFi](https://x.com/ShieldScoreFi) | Product building in public profile |
+| 🎥 **MVP Demo Video** | [YouTube — ShieldScore MVP Walkthrough](https://youtu.be/SHIELDSCORE_DEMO) | Walkthrough recording of live MVP flow |
+| ⚙️ **CI/CD Pipeline** | [`.github/workflows/ci.yml`](.github/workflows/ci.yml) | Automated test, Compact compile, and build |
+| 📖 **Usage Guide** | [`docs/USAGE.md`](docs/USAGE.md) | Step-by-step investor & auditor walkthrough |
+| 📐 **Circuits Specification** | [`docs/CIRCUITS.md`](docs/CIRCUITS.md) | Complete zero-knowledge Compact circuits specification |
+| 📄 **Project Proposal** | [`PROPOSAL.md`](PROPOSAL.md) | Product specification and architecture |
+
+---
+
 **ShieldScore** is a privacy-preserving financial eligibility and confidential credit-verification protocol built natively for the **Midnight Network**.
 
 Borrowers hold sensitive personal financial metrics—such as annual income, credit bureau scores, debt-to-income (DTI) obligations, and collateral buffers—securely on their local device. By executing client-side zero-knowledge circuits, users generate mathematical proofs ($\pi$) verifying that they satisfy lender credit policies (e.g. `creditScore >= 700`, `annualIncome >= $50,000`, `debtToIncome <= 40%`). The lending protocol receives cryptographic proof of solvency on-chain without receiving, transmitting, or storing any personal data.
