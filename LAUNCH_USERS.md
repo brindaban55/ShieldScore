@@ -1,6 +1,6 @@
 # ShieldScore — Launch Users (Midnight Preprod & Preview Onboarding)
 
-> **Midnight Builder Challenge Level 6 Certification**  
+> **ShieldScore Launch Cohort Multi-Network Certification**  
 > This document certifies that **20 launch users** have been personally onboarded across both **Midnight Preprod** and **Midnight Preview Testnet** deployments, multi-account funding batches, and zero-knowledge circuit executions.
 >
 > - **Midnight Preprod Contract Address**: [`fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b`](https://preprod.midnightexplorer.com/contract/fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b)
