@@ -212,6 +212,37 @@ ShieldScore includes a full GitHub Actions workflow (`.github/workflows/ci.yml`)
 
 ---
 
+## 📚 Architectural Specifications & Technical Documentation
+
+| Documentation Guide | Scope / Topic | Target Audience |
+| :--- | :--- | :--- |
+| [**Architectural Overview**](docs/ARCHITECTURE_OVERVIEW.md) | Dual-state private RAM vs public Midnight ledger | Architects & Engineers |
+| [**Building Journey**](docs/BUILDING_JOURNEY.md) | 12-step engineering roadmap and implementation log | Developers & Auditors |
+| [**Compact Circuits Specification**](docs/CIRCUITS_SPEC.md) | Polynomial constraint boundaries and disclosure specs | Cryptographers |
+| [**Underwriting Math & Formulas**](docs/UNDERWRITING_MATH.md) | Basis-point integer models and risk calculations | Underwriters & Quants |
+| [**Loan Drawdown Engine**](docs/LOAN_DRAWDOWN_ENGINE.md) | Real-time capital efficiency and borrow calculators | DeFi Borrowers |
+| [**CIP-0030 Wallet Connector**](docs/CIP0030_WALLET_CONNECTOR.md) | Injected 1AM / Lace wallet discovery & session handling | Frontend Developers |
+| [**Dynamic Policy Engine**](docs/DYNAMIC_POLICY_ENGINE.md) | Syndicated risk pools and runtime custom policy evaluations | Institutional Lenders |
+| [**Deterministic HD Identities**](docs/SYNTHETIC_IDENTITIES_SPEC.md) | BIP-44 account derivation and 70-user testing personas | QA & Test Engineers |
+| [**DUST Gas Mechanics**](docs/DUST_GAS_MECHANICS.md) | Midnight Substrate dual-token economics & UTXO gas | Protocol Engineers |
+| [**Multi-Network Topology**](docs/PREPROD_PREVIEW_MIGRATION.md) | Preprod and Preview dual-network deployment and migration | DevOps & Node Runners |
+| [**Deployment Topology**](docs/DEPLOYMENT_TOPOLOGY.md) | RPC indexer endpoints and consensus node connectivity | Infrastructure Leads |
+| [**Proof Server Integration**](docs/PROOF_SERVER_INTEGRATION.md) | Local Docker proof server RPC and proving benchmarks | DevOps & Security |
+| [**State Indexer Synchronization**](docs/STATE_INDEXER_SYNCHRONIZATION.md) | Reactive Substrate contract state polling and hooks | Frontend Engineers |
+| [**Three.js Holographic Visualizer**](docs/THREEJS_HOLOGRAPHIC_VISUALIZER.md) | 3D WebGL particle terminal and tactile UI interactions | UI/UX Designers |
+| [**Cryptographic Invariants**](docs/CRYPTOGRAPHIC_INVARIANTS.md) | Completeness, soundness, and range-check proofs | Cryptographic Auditors |
+| [**Disclosure Privacy Audit**](docs/DISCLOSURE_PRIVACY_AUDIT.md) | Line-by-line Compact disclosure privacy audit | Security Reviewers |
+| [**Security Audit Dossier**](docs/SECURITY_AUDIT.md) | Threat models, zero-custody RAM guarantees, and invariants | Security Auditors |
+| [**Institutional Onboarding Manual**](docs/INSTITUTIONAL_ONBOARDING_MANUAL.md) | Fintech LOS integration and credit union underwriting | Institutional Partners |
+| [**Community Telemetry Framework**](docs/COMMUNITY_TELEMETRY.md) | Feedback ingestion, live Sheets telemetry, and RFC tracker | Community & Growth |
+| [**Vercel Cloud Deployment Guide**](docs/VERCEL_DEPLOYMENT_GUIDE.md) | Zero-config edge hosting, SPA rewrite routing & headers | Cloud Engineers |
+| [**Compact Compiler Guide**](docs/COMPACT_COMPILER_GUIDE.md) | Toolchain installation, version pinning, and zkir output | Core Developers |
+| [**Protocol Verification Matrix**](docs/PROTOCOL_VERIFICATION_MATRIX.md) | Complete 6-phase capability verification checklist | Protocol Evaluators |
+| [**Contributing Guide**](docs/CONTRIBUTING_GUIDE.md) | Open-source setup, testing instructions, and PR guidelines | Open-Source Community |
+| [**v1.0.0 Release Notes**](docs/RELEASE_NOTES_v1.0.md) | Production release summary and dual-network certification | General Public |
+
+---
+
 ## 📜 License
 
 Licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE) for details.
