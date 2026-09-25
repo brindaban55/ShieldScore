@@ -23,123 +23,123 @@
   * *(Or select Lace / 1AM if you have the extension installed).*
 * **Visual Result:** The modal closes. The navbar displays your connected address `mn_addr_preview170a...` with a green live pulse indicator.
 * **User Perspective / Voiceover:**  
-  *"We start by connecting to the Midnight Preview network. ShieldScore connects either via the Lace Midnight wallet extension or through direct client proof sessions, giving us instant zero-friction access to the privacy ledger."*
+  *"We start by connecting to the Midnight Preview network. ShieldScore connects either via the Lace Midnight wallet extension or through direct client proof sessions, giving institutional counterparties instant zero-friction access to the confidential solvency ledger."*
 
 ---
 
-### STEP 2: Ingest Verified Financial Credentials
-**[TASK: Load authentic, cryptographically signed credit attestation into private browser RAM]**
+### STEP 2: Ingest Verified Institutional Financial Credentials
+**[TASK: Load authenticated, cryptographically signed solvency attestation into private browser RAM]**
 
 * **Go to:** Center of the screen.
-* **Click button:** **`Explore Interactive Demo`** (in the hero banner, or click the **`Borrower Passport`** tab in the navbar).
+* **Click button:** **`Explore Interactive Demo`** (in the hero banner, or click the **`Solvency Attestation`** tab in the navbar).
 * **Screen lands on:** `STEP 1 • VERIFIABLE FINANCIAL ATTESTATION INGESTION`.
 * **Under the title, you will see 4 data source cards:**
-  * Card 1: **Experian Credit Bureau** (FICO 790)
-  * Card 2: **Equifax Verified API** (Cashflow 730)
-  * Card 3: **TransUnion Zero-Trust** (TLS 760)
+  * Card 1: **Institutional Credit Bureau** (Solvency 790)
+  * Card 2: **Verified Financial API** (Cashflow 730)
+  * Card 3: **Zero-Trust Audit Node** (TLS 760)
   * Card 4: **Decentralized Oracle Node** (Dev Sandbox)
-* **Click card:** **`Experian Credit Bureau`** (1st card on the left).
+* **Click card:** **`Institutional Credit Bureau`** (1st card on the left).
 * **Values automatically populated into the form:**
-  * **Credit Score:** `790`  
-    *Why this value:* Must be $\ge 700$ (the baseline lender threshold). A 790 score proves exceptional creditworthiness and qualifies you for Tier A Prime (lowest interest rate and lowest collateral).
-  * **Annual Income (USD):** `120000` ($120,000)  
-    *Why this value:* Must be $\ge \$50,000$. Proves strong recurring earning capacity to service debt obligations.
-  * **Monthly Debt (USD):** `2800` ($2,800)  
-    *Why this value:* Automatically calculates Debt-to-Income (DTI) at 28.0% (well below the lender's 40% maximum ceiling). The banking golden ratio is under 30%.
-  * **Collateral Buffer Value (USD):** `210000` ($210,000)  
-    *Why this value:* Automatically calculates 210.0% collateral coverage (exceeds the 150% minimum solvency benchmark).
+  * **Solvency Score:** `790`  
+    *Why this value:* Must be $\ge 700$ (the baseline underwriting covenant). A 790 score proves investment-grade solvency and qualifies for Tier A (lowest facility rate and lowest collateral requirement).
+  * **Verifiable Revenue / AUM (USD):** `120000` (\$120,000)  
+    *Why this value:* Must be $\ge \$50,000$. Proves strong recurring revenue capacity to service debt obligations.
+  * **Monthly Debt Service (USD):** `2800` (\$2,800)  
+    *Why this value:* Automatically calculates Debt Service Coverage Ratio (DSCR) at 28.0% (well below the covenant's 40% maximum ceiling). The institutional golden ratio is under 30%.
+  * **Collateral Coverage Value (USD):** `210000` (\$210,000)  
+    *Why this value:* Automatically calculates 210.0% collateral coverage (exceeds the 150% minimum solvency covenant).
   * **Identity Blinding Salt:** Auto-filled with a 256-bit cryptographic witness key.  
-    *Why this value:* A secret random blinding salt. Even if another user shares a 790 score, this salt ensures the cryptographic hash is completely unique, preventing external observers from linking loans.
-* **Notice the green badge that lights up:** `CRYPTOGRAPHIC SIGNATURE VERIFIED` with issuer `did:key:z6MkuExperianUS04`.
+    *Why this value:* A secret random blinding salt. Even if another counterparty shares a 790 score, this salt ensures the cryptographic hash is completely unique, preventing external observers from linking transactions or identifying counterparties.
+* **Notice the green badge that lights up:** `CRYPTOGRAPHIC SIGNATURE VERIFIED` with issuer `did:key:z6MkuInstitutionalUS04`.
 * **User Perspective / Voiceover:**  
-  *"Rather than self-reporting unverified numbers, the borrower loads a cryptographically signed attestation from Experian directly into their local browser RAM. Crucially, this financial data never leaves the user's device—it remains strictly in private memory."*
+  *"Rather than sharing full audited financials with every syndicate member, the institutional counterparty loads a cryptographically signed solvency attestation directly into their local browser RAM. This proprietary financial data never leaves the counterparty's device — it remains strictly in private memory, invisible to the network."*
 
 ---
 
 ### STEP 3: Execute Local Compact ZK Circuit
-**[CIRCUIT: `verifyCreditPassport()` — Zero-Knowledge Solvency Proof Generation]**
+**[CIRCUIT: `verifyCreditPassport()` — Zero-Knowledge Confidential Solvency Proof Generation]**
 
 * **Go to:** Bottom of the credential vault form.
 * **Click button:** **`Generate Private ZK Proof & Disclose Result`** (large cyan button).
 * **What happens behind the scenes (~2 seconds):**
   1. The local Compact ZK circuit executes in your browser's private memory.
-  2. It asserts all underwriting invariants:  
-     $$\text{score} \ge 700 \;\wedge\; \text{income} \ge \$50,000 \;\wedge\; \text{DTI} \le 40\% \;\wedge\; \text{collateral} \ge 150\%$$
-  3. All mathematical assertions pass, assigning Risk Tier 1 (Prime).
+  2. It asserts all underwriting covenant invariants:  
+     $$\text{solvency} \ge 700 \;\wedge\; \text{revenue} \ge \$50,000 \;\wedge\; \text{DSCR} \le 40\% \;\wedge\; \text{collateral} \ge 150\%$$
+  3. All mathematical assertions pass, assigning Risk Tier 1 (Investment Grade).
   4. A succinct Groth16 ZK-SNARK proof ($\pi$) and blinded Pedersen commitment are generated and verified on Midnight Preview.
 * **Visual Result:** Screen smoothly reveals `STEP 2 • VERIFIER & PUBLIC LEDGER AUDIT`:
   * **Badge:** `STATUS: VERIFIED • ZK-SNARK VALID` (green checkmark).
-  * **Risk Tier:** `Tier A — Prime Solvency` (cyan glowing text).
+  * **Risk Tier:** `Tier A — Investment Grade` (cyan glowing text).
   * **Blinded Commitment (ZK Witness):** Shows `0x4bb06f8e4e3a...` with a note: *"Private witness salt kept secret from public view"*.
   * **Settlement Block:** `#1016024`.
   * **On-Chain Contract:** Clickable link `0x0794f000...` that opens the live contract on Midnight Preview Explorer!
   * **Top Right Link:** Click **`Audit in Preview Explorer ↗`** to show the live contract on camera!
-  * **Right Terminal JSON:** Displays live on-chain state with `containsPersonallyIdentifiableInformation: false` (0 PII leaked).
+  * **Right Terminal JSON:** Displays live on-chain state with `containsProprietaryFinancialData: false` (0 proprietary data leaked).
 * **User Perspective / Voiceover:**  
-  *"We invoke Midnight's Compact circuit `verifyCreditPassport`. The circuit evaluates all mathematical solvency constraints locally. The blockchain records that the applicant is Tier A Prime, but zero personally identifiable financial information—no income, no score, no debt—is ever revealed on-chain."*
+  *"We invoke Midnight's Compact circuit `verifyCreditPassport`. The circuit evaluates all solvency covenant constraints locally. The blockchain records that the counterparty qualifies as Tier A Investment Grade, but zero proprietary financial data — no revenue, no solvency score, no debt service — is ever revealed on-chain. This is the breakthrough: institutional-grade underwriting with complete financial confidentiality."*
 
 ---
 
-### STEP 4: Transfer Verified Proof to DeFi Loan Engine
-**[TASK: Bridge verified credit passport to decentralized undercollateralized lending pool]**
+### STEP 4: Transfer Verified Proof to Capital Facility Engine
+**[TASK: Bridge verified solvency attestation to decentralized capital facility pricing]**
 
 * **Go to:** Inside the verified result card (bottom-left).
-* **Click button:** **`Apply Verified Passport to DeFi Loan Engine →`** (cyan button).
-* **Visual Result:** The app smoothly transitions directly to the **DeFi Loan Engine** section.
+* **Click button:** **`Apply Verified Passport to Capital Facility Engine →`** (cyan button).
+* **Visual Result:** The app smoothly transitions directly to the **Capital Facility Engine** section.
 * **User Perspective / Voiceover:**  
-  *"Now we apply our verified zero-knowledge passport directly into the lending market with a single click, without re-entering any data."*
+  *"Now we apply our verified zero-knowledge solvency passport directly into the capital facility pricing engine with a single click, without re-entering any data or sharing any proprietary financials."*
 
 ---
 
-### STEP 5: Configure Undercollateralized Borrowing Terms
-**[TASK: Lock in high-efficiency borrowing terms with 70% collateral reduction]**
+### STEP 5: Configure Capital-Efficient Facility Terms
+**[TASK: Lock in institutional-grade facility terms with 70% collateral reduction]**
 
-* **Go to:** Left card under **Requested Borrow Amount**.
+* **Go to:** Left card under **Requested Facility Amount**.
 * **Action:** Drag the slider to **`$50,000`** (or drag to **`$100,000`**).
 * **Why this matters / Hover mouse over the comparison metrics on the right:**
-  * **Borrow APR:** Notice the APR drops from **14.8%** (anonymous DeFi penalty) down to **6.2% fixed APR**!
-  * **Interest Savings:** Highlights over **$4,300+ saved** in interest costs.
-  * **Required Collateral:** Drops from **180%** ($90,000 in Maker/Aave) down to **110%** ($55,000 in ShieldScore).
-  * **Capital Freed Up:** Points to **+$35,000 of liquid capital** freed up for the borrower to use elsewhere instead of locking it in an overcollateralized vault.
-* **Click button:** **`Lock Instant Zero-Knowledge Loan Offer`** (cyan button at the bottom).
-* **Visual Result:** A green confirmation banner appears: *"Loan Term Sheet Locked at 6.2% APR for 24 hours with 110% collateral requirement."*
+  * **Facility APR:** Notice the APR drops from **14.8%** (anonymous DeFi penalty) down to **6.2% fixed APR**!
+  * **Interest Savings:** Highlights over **\$4,300+ saved** in interest costs.
+  * **Required Collateral:** Drops from **180%** (\$90,000 in Maker/Aave) down to **110%** (\$55,000 in ShieldScore).
+  * **Capital Freed Up:** Points to **+\$35,000 of liquid capital** freed up for redeployment instead of locking in an overcollateralized vault.
+* **Click button:** **`Lock Instant Zero-Knowledge Facility Offer`** (cyan button at the bottom).
+* **Visual Result:** A green confirmation banner appears: *"Facility Term Sheet Locked at 6.2% APR for 24 hours with 110% collateral requirement."*
 * **User Perspective / Voiceover:**  
-  *"Because the borrower proved Tier A creditworthiness through Midnight, their borrowing rate drops from 14.8% to 6.2%, and collateral requirements drop from 180% to 110%, unlocking massive capital efficiency in DeFi."*
+  *"Because the counterparty proved Tier A solvency through Midnight, their facility rate drops from 14.8% to 6.2%, and collateral requirements drop from 180% to 110%, unlocking massive capital efficiency for institutional private credit."*
 
 ---
 
-### STEP 6: Institutional Underwriting Policy Configuration
-**[CIRCUIT: `updatePolicy()` — On-Chain Lender Underwriting Configuration]**
+### STEP 6: Institutional Underwriting Covenant Configuration
+**[CIRCUIT: `updatePolicy()` — On-Chain Institutional Covenant Governance]**
 
 * **Go to:** Top navigation bar.
-* **Click tab:** **`Lender Console`** (3rd tab).
-* **Screen displays:** *Institutional Underwriting & Policy Governance*.
+* **Click tab:** **`Underwriting Console`** (3rd tab).
+* **Screen displays:** *Institutional Underwriting & Covenant Governance*.
 * **In the left form, adjust these values:**
-  * **Minimum Credit Score:** Drag slider to **`710`** (was 700).  
-    *Why change this:* As an institutional underwriter, tightening the credit floor in response to market volatility.
-  * **Minimum Annual Income ($):** Drag slider to **`$55,000`** (was $50,000).  
-    *Why change this:* Updates baseline verifiable salary requirement.
-  * **Maximum Debt-to-Income (%):** Adjust slider to **`38%`** (was 40%).
-  * **Minimum Collateral Ratio (%):** Adjust slider to **`160%`** (was 150%).
-* **Click button:** **`Commit Policy to Midnight Preview Ledger`** (cyan button at bottom).
-* **What happens behind the scenes:** Invokes the Midnight smart contract circuit `updatePolicy()` to write these updated underwriting thresholds directly into the public ledger state.
+  * **Minimum Solvency Score:** Drag slider to **`710`** (was 700).  
+    *Why change this:* As an institutional risk committee, tightening the solvency floor in response to credit cycle deterioration.
+  * **Minimum Verifiable Revenue (\$):** Drag slider to **`$55,000`** (was \$50,000).  
+    *Why change this:* Updates baseline verifiable revenue covenant.
+  * **Maximum Debt Service Coverage (%):** Adjust slider to **`38%`** (was 40%).
+  * **Minimum Collateral Coverage (%):** Adjust slider to **`160%`** (was 150%).
+* **Click button:** **`Commit Covenant to Midnight Preview Ledger`** (cyan button at bottom).
+* **What happens behind the scenes:** Invokes the Midnight smart contract circuit `updatePolicy()` to write these updated underwriting covenants directly into the public ledger state.
 * **Visual Result:** A green confirmation box appears:
-  * *"Policy parameters committed to Midnight Preview ledger!"*
+  * *"Covenant parameters committed to Midnight Preview ledger!"*
   * Displays Tx: `00c2304e46dfba925be34227e69b9b2876b3117b...` with a clickable link: **`Audit on Explorer ↗`**.
 * **User Perspective / Voiceover:**  
-  *"Lenders publish their underwriting policies transparently on Midnight using the `updatePolicy` circuit. Lenders maintain total risk control, while borrowers can verify against those rules with complete privacy."*
+  *"Risk committees publish their underwriting covenants transparently on Midnight using the `updatePolicy` circuit. Institutional lenders maintain total governance control over risk parameters, while counterparties can verify against those covenants with complete financial confidentiality."*
 
 ---
 
-### STEP 7: Dual-State Cryptographic Audit & Unit Economics
-**[TASK: Demonstrate Midnight's dual-state ledger model & protocol business model]**
+### STEP 7: Dual-State Cryptographic Audit & Protocol Economics
+**[TASK: Demonstrate Midnight's dual-state ledger model & institutional capital efficiency]**
 
 * **Go to:** Top navigation bar.
 * **Click tab:** **`Dual-State Audit`** (4th tab).
 * **Screen displays:** Side-by-side comparison of **Private Witness State** vs **Public Consensus State**.
-  * **Left Column (Private Witness / RAM Only):** Points out Credit Score (790), Annual Income ($120k), Debt ($2.8k/mo), and Secret Blinding Salt. Highlight that these variables are cryptographically sealed.
+  * **Left Column (Private Witness / RAM Only):** Points out Solvency Score (790), Verifiable Revenue (\$120k), Debt Service (\$2.8k/mo), and Secret Blinding Salt. Highlight that these variables are cryptographically sealed and never transmitted.
   * **Right Column (Public Consensus / Midnight Ledger):** Points out Verified Boolean (`true`), Assigned Tier (`Tier A`), Settlement Block (`#1016024`), and Contract Address (`0x0794f000...`).
 * **Scroll down to Protocol Unit Economics:**
-  * Shows **$14.2M Origination Capacity**, **$1.13M Projected Annual Revenue**, and **+42.5% Collateral Efficiency Gain**.
+  * Shows **\$14.2M Origination Capacity**, **\$1.13M Projected Annual Revenue**, and **+42.5% Collateral Efficiency Gain**.
 * **User Perspective / Voiceover:**  
-  *"This is the breakthrough of Midnight Network: private financial inputs stay strictly with the user, while the verified proof is settled transparently on the public ledger. ShieldScore solves the multi-billion-dollar overcollateralization problem in DeFi."*
+  *"This is the breakthrough of Midnight Network: proprietary institutional financial data stays strictly with the counterparty, while the verified solvency attestation is settled transparently on the public ledger. ShieldScore solves the multi-billion-dollar overcollateralization problem in institutional private credit and RWA origination."*

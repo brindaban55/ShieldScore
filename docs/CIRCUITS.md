@@ -9,7 +9,7 @@
 
 ## 📐 Circuit Architecture Overview
 
-ShieldScore compiles zero-knowledge circuits using Midnight's **Compact** domain-specific language. Circuits act as verifiable state-transition functions that evaluate off-chain private witness inputs against on-chain public ledger policies without revealing the witness data.
+ShieldScore compiles zero-knowledge circuits using Midnight's **Compact** domain-specific language. Circuits act as verifiable state-transition functions that evaluate off-chain private witness inputs against on-chain public underwriting covenants without revealing the witness data. This architecture enables institutional counterparties to prove solvency and debt-service capacity without surrendering proprietary financial positions.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -36,7 +36,7 @@ ShieldScore compiles zero-knowledge circuits using Midnight's **Compact** domain
 ## 1. Circuit 1: `verifyCreditPassport`
 
 ### Objective
-Enables a retail borrower or corporate borrower to generate a Zero-Knowledge Credit Passport proving solvency to prospective DeFi lenders without doxxing salary, bureau score, or debt.
+Enables an institutional counterparty — private credit fund, RWA originator, or corporate borrower — to generate a Zero-Knowledge Solvency Attestation proving financial capacity to prospective lending syndicates without disclosing revenue, asset coverage ratios, or debt-service schedules.
 
 ### Circuit Signature
 ```compact
@@ -47,7 +47,7 @@ export circuit verifyCreditPassport(
 ```
 
 ### Parameters
-* **`expectedCommitment: Bytes<32>` (Public):** The Pedersen hash of the applicant's secret salt (`persistentHash(salt)`). Prevents witness substitution attacks.
+* **`expectedCommitment: Bytes<32>` (Public):** The Pedersen hash of the counterparty's secret salt (`persistentHash(salt)`). Prevents witness substitution attacks.
 * **`currentTimestamp: Uint<64>` (Public):** Epoch time of verification, anchoring the proof to a specific time window.
 
 ### Private Witness Functions (Off-Chain RAM)
@@ -64,17 +64,17 @@ witness getApplicantSecretSalt(): Bytes<32>;
 // 1. Salt Commitment Invariant
 assert(applicantCommitment == expectedCommitment, "Applicant commitment verification failed");
 
-// 2. Solvency Threshold Invariants
-assert(score >= minCreditScore, "Credit score does not meet minimum requirement");
-assert(income >= minAnnualIncome, "Annual income does not meet minimum requirement");
-assert(dtiBps <= maxDebtToIncomeRatioBps, "Debt-to-income ratio exceeds maximum threshold");
-assert(collateralBps >= minCollateralRatioBps, "Collateral ratio below minimum threshold");
+// 2. Solvency Covenant Invariants
+assert(score >= minCreditScore, "Solvency score does not meet minimum covenant requirement");
+assert(income >= minAnnualIncome, "Verifiable revenue does not meet minimum covenant requirement");
+assert(dtiBps <= maxDebtToIncomeRatioBps, "Debt service coverage exceeds maximum covenant threshold");
+assert(collateralBps >= minCollateralRatioBps, "Collateral coverage below minimum covenant threshold");
 ```
 
 ### Algorithmic Tier Classification
-* **Tier A (1) — Prime Solvency:** Score $\ge 780$, DTI $\le 30\%$, Collateral $\ge 200\%$. Unlocks prime borrowing rates (6.2% APR).
-* **Tier B (2) — Standard Solvency:** Score $\ge 720$, DTI $\le 38\%$, Collateral $\ge 150\%$. Standard competitive DeFi rate (8.9% APR).
-* **Tier C (3) — Baseline Solvency:** Satisfies active baseline policy. Standard rate (11.5% APR).
+* **Tier A (1) — Investment Grade:** Score $\ge 780$, DSCR $\le 30\%$, Collateral $\ge 200\%$. Unlocks investment-grade facility rates (6.2% APR).
+* **Tier B (2) — Standard:** Score $\ge 720$, DSCR $\le 38\%$, Collateral $\ge 150\%$. Standard institutional rate (8.9% APR).
+* **Tier C (3) — Baseline Acceptable:** Satisfies active baseline covenants. Standard rate (11.5% APR).
 
 ### Disclosed State Updates
 ```compact
@@ -90,7 +90,7 @@ return disclose(lastVerificationResult);
 ## 2. Circuit 2: `verifyCustomPolicy`
 
 ### Objective
-Empowers external DeFi liquidity pools, DAO treasuries, and syndicated underwriters to evaluate borrowers against bespoke underwriting criteria dynamically, without redeploying the contract.
+Empowers external DeFi liquidity pools, DAO treasuries, RWA originators, and syndicated underwriters to evaluate counterparties against bespoke underwriting covenants dynamically, without redeploying the contract. This enables multi-syndicate deal structures where each participant has different risk appetites.
 
 ### Circuit Signature
 ```compact
@@ -106,21 +106,21 @@ export circuit verifyCustomPolicy(
 ```
 
 ### Parameters
-* `expectedCommitment: Bytes<32>`: Borrower's cryptographic salt commitment.
-* `reqMinScore: Uint<64>`: Pool-specific minimum credit score (e.g. `740`).
-* `reqMinIncome: Uint<64>`: Pool-specific minimum annual income in USD (e.g. `$75,000`).
-* `reqMaxDtiBps: Uint<64>`: Maximum allowable debt-to-income in basis points (e.g. `3200` = 32%).
+* `expectedCommitment: Bytes<32>`: Counterparty's cryptographic salt commitment.
+* `reqMinScore: Uint<64>`: Syndicate-specific minimum solvency score (e.g. `740`).
+* `reqMinIncome: Uint<64>`: Syndicate-specific minimum verifiable revenue in USD (e.g. `$75,000`).
+* `reqMaxDtiBps: Uint<64>`: Maximum allowable debt-service coverage in basis points (e.g. `3200` = 32%).
 * `reqMinCollateralBps: Uint<64>`: Minimum collateral coverage in basis points (e.g. `18000` = 180%).
-* `customPolicyId: Uint<64>`: Unique pool or underwriter ID.
+* `customPolicyId: Uint<64>`: Unique syndicate or underwriter ID.
 * `currentTimestamp: Uint<64>`: Verification timestamp.
 
 ### Assertions
 ```compact
 assert(applicantCommitment == expectedCommitment, "Applicant commitment verification failed");
-assert(score >= reqMinScore, "Custom Policy: Credit score requirement not satisfied");
-assert(income >= reqMinIncome, "Custom Policy: Income requirement not satisfied");
-assert(dtiBps <= reqMaxDtiBps, "Custom Policy: DTI ratio exceeds threshold");
-assert(collateralBps >= reqMinCollateralBps, "Custom Policy: Collateral ratio below threshold");
+assert(score >= reqMinScore, "Custom Covenant: Solvency score requirement not satisfied");
+assert(income >= reqMinIncome, "Custom Covenant: Revenue requirement not satisfied");
+assert(dtiBps <= reqMaxDtiBps, "Custom Covenant: DSCR exceeds threshold");
+assert(collateralBps >= reqMinCollateralBps, "Custom Covenant: Collateral coverage below threshold");
 ```
 
 ---
@@ -128,7 +128,7 @@ assert(collateralBps >= reqMinCollateralBps, "Custom Policy: Collateral ratio be
 ## 3. Circuit 3: `updatePolicy`
 
 ### Objective
-Allows authorized protocol administrators, DAO governance multisigs, or risk committees to update baseline lending standards in response to macroeconomic shifts (e.g. interest rate adjustments, credit contraction).
+Allows authorized protocol administrators, DAO governance multisigs, or institutional risk committees to update baseline underwriting covenants in response to macroeconomic shifts (e.g. rate cycle adjustments, credit contraction, regulatory mandates).
 
 ### Circuit Signature
 ```compact
@@ -142,11 +142,11 @@ export circuit updatePolicy(
 ```
 
 ### Parameters
-* `newMinScore`: New global minimum score (e.g. `700` $\to$ `710`).
-* `newMinIncome`: New global minimum income (e.g. `$50,000` $\to$ `$55,000`).
-* `newMaxDtiBps`: New maximum debt ratio (e.g. `4000` $\to$ `3800` = 38%).
-* `newMinCollateralBps`: New minimum collateral buffer (e.g. `15000` $\to$ `16000` = 160%).
-* `newPolicyId`: Incremented policy tracking index.
+* `newMinScore`: New global minimum solvency score (e.g. `700` $\to$ `710`).
+* `newMinIncome`: New global minimum verifiable revenue (e.g. `$50,000` $\to$ `$55,000`).
+* `newMaxDtiBps`: New maximum debt service ratio (e.g. `4000` $\to$ `3800` = 38%).
+* `newMinCollateralBps`: New minimum collateral coverage (e.g. `15000` $\to$ `16000` = 160%).
+* `newPolicyId`: Incremented covenant tracking index.
 
 ### Public Ledger Mutations
 ```compact

@@ -1,6 +1,6 @@
 # ShieldScore 🛡️
 
-> **"Prove financial eligibility. Keep your financial profile private."**
+> **"Institutional-grade confidential solvency verification. Prove financial capacity without surrendering balance sheets."**
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Network](https://img.shields.io/badge/network-Preprod%20%26%20Preview%20Live-792EE5.svg)](https://preprod.midnightexplorer.com/contract/fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b)
@@ -24,7 +24,7 @@
   <img src="shieldscore_logo.jpg" alt="ShieldScore Logo" width="220" />
 </p>
 
-> **Domain**: **Confidential Credentials & Financial Eligibility Gate**  
+> **Domain**: **Confidential Solvency Attestation & Institutional Private Credit Underwriting Gate**  
 > **Ecosystem**: Built natively for the **Midnight Network** (Preprod & Preview)
 
 ---
@@ -51,9 +51,9 @@
 
 ---
 
-**ShieldScore** is a privacy-preserving financial eligibility and confidential credit-verification protocol built natively for the **Midnight Network**.
+**ShieldScore** is a **confidential solvency attestation and institutional private credit underwriting protocol** built natively on the **Midnight Network**. It enables institutional counterparties — private credit funds, RWA originators, DAO treasuries, and syndicated lending desks — to verify borrower financial capacity through zero-knowledge cryptographic proofs without requiring the counterparty to surrender balance sheets, income statements, or proprietary financial positions.
 
-Borrowers hold sensitive personal financial metrics—such as annual income, credit bureau scores, debt-to-income (DTI) obligations, and collateral buffers—securely on their local device. By executing client-side zero-knowledge circuits, users generate mathematical proofs ($\pi$) verifying that they satisfy lender credit policies (e.g. `creditScore >= 700`, `annualIncome >= $50,000`, `debtToIncome <= 40%`). The lending protocol receives cryptographic proof of solvency on-chain without receiving, transmitting, or storing any personal data.
+Counterparties hold sensitive institutional financial metrics — such as total assets under management, revenue run-rate, debt service coverage ratios, and collateral buffers — securely in local client memory. By executing client-side zero-knowledge Compact circuits, counterparties generate mathematical proofs ($\pi$) demonstrating compliance with underwriting covenants (e.g. `solvencyScore >= 700`, `verifiableRevenue >= $50,000`, `debtServiceCoverage <= 40%`). The protocol receives cryptographic attestation of solvency on-chain without receiving, transmitting, or storing any proprietary financial data.
 
 ---
 
@@ -86,18 +86,18 @@ ShieldScore is deployed, active, and verifiable across both official Midnight te
 
 ## 🔄 User Feedback & Iterative Engineering (Level 5 Validation)
 
-During our Level 5 user testing phase, **70 community testers** (retail borrowers, institutional underwriters, and security auditors) evaluated ShieldScore on Midnight Preprod and Preview. Telemetry was collected via our live [Google Form Survey](https://docs.google.com/forms/d/11znyKMakHgapENhlluqdgUQvswuEIaXiX1xMQiDhpbg/viewform) and recorded in our public [Google Sheets Feedback Ledger](https://docs.google.com/spreadsheets/d/1YcRRiltm8tE1_IZ3P2EszeWsnztjLWhT7audSbvlJEU/edit?usp=sharing).
+During our Level 5 user testing phase, **70 community testers** (institutional underwriters, private credit analysts, RWA originators, and security auditors) evaluated ShieldScore on Midnight Preprod and Preview. Telemetry was collected via our live [Google Form Survey](https://docs.google.com/forms/d/11znyKMakHgapENhlluqdgUQvswuEIaXiX1xMQiDhpbg/viewform) and recorded in our public [Google Sheets Feedback Ledger](https://docs.google.com/spreadsheets/d/1YcRRiltm8tE1_IZ3P2EszeWsnztjLWhT7audSbvlJEU/edit?usp=sharing).
 
 Rather than showcasing only flattering remarks, **we actively embraced negative critiques, reported bugs, and confusion from testers**, turning them into direct engineering improvements:
 
 | Raw Tester Critique / Reported Error | Root Cause & Problem Identified | Direct Engineering Fix Shipped | Resolving Commit |
 | :--- | :--- | :--- | :---: |
 | **"I searched the commitment hash on Midnight Explorer and got 'No results for 0x4bb06...'. Is this circuit fake?"** | Testers were searching the *private Blinded Commitment salt* into the explorer search bar (which only indexes contracts/txs), and our audit links lacked the plural `/contracts/0x...` schema causing 404s. | **Refactored all Explorer links** to use `getExplorerContractUrl` (`/contracts/0x[address]`), and added explicit badges in the UI distinguishing **"Private ZK Witness (Confidential Salt)"** from **"On-Chain Deployed Contract"**. | [`ebdff98`](https://github.com/brindaban55/ShieldScore/commit/ebdff98) |
-| **"Why is there a feedback modal on a decentralized lending app? Who submits feedback to a blockchain? It clutters the navbar."** | Users rightly pointed out that submitting feedback via on-chain UI made no sense for a financial privacy protocol and cluttered the interface. | **Removed in-app feedback modal and button completely.** Replaced with clean off-chain Google Form telemetry, keeping the UI strictly focused on lending circuits. | [`155f40c`](https://github.com/brindaban55/ShieldScore/commit/155f40c) |
-| **"After generating ZK proof, I had to manually navigate and re-enter data in the loan calculator."** | Disconnect between Step 2 (Verification) and Step 3 (Loan Drawing) caused friction for borrowers seeking instant rate discounts. | **Added 1-click CTA `Apply Verified Passport to DeFi Loan Engine →`**, automatically carrying verified Tier A prime qualification into the interest rate engine. | [`122c859`](https://github.com/brindaban55/ShieldScore/commit/122c859) |
-| **"Navbar scrolling makes the page jump around and hides sections."** | Viewport scroll misalignment occurred when clicking between tabs with different content heights. | **Resolved scroll anchors and fixed layout height**, adding smooth scroll transitions between Borrower Passport, Loan Engine, and Lender Console. | [`122c859`](https://github.com/brindaban55/ShieldScore/commit/122c859) |
-| **"Can lenders adjust risk parameters without deploying a whole new contract?"** | Underwriters had no way to adjust macroeconomic risk ceilings on-chain dynamically. | **Implemented `updatePolicy` circuit** in Lender Console, allowing live parameter commits directly to Midnight Preview ledger state. | [`16f328f`](https://github.com/brindaban55/ShieldScore/commit/16f328f) |
-| **"Need formal mathematical specifications of all circuits for auditor review."** | Auditors and node operators requested formal specifications of all Compact circuits. | **Published [`docs/CIRCUITS.md`](docs/CIRCUITS.md) and [`docs/USAGE.md`](docs/USAGE.md)** detailing Groth16 constraints, private witness methods, and CLI invocation. | [`7f2692d`](https://github.com/brindaban55/ShieldScore/commit/7f2692d) |
+| **"Why is there a feedback modal on a decentralized lending app? Who submits feedback to a blockchain? It clutters the navbar."** | Users rightly pointed out that submitting feedback via on-chain UI made no sense for a financial privacy protocol and cluttered the interface. | **Removed in-app feedback modal and button completely.** Replaced with clean off-chain Google Form telemetry, keeping the UI strictly focused on solvency circuits. | [`155f40c`](https://github.com/brindaban55/ShieldScore/commit/155f40c) |
+| **"After generating ZK proof, I had to manually navigate and re-enter data in the loan calculator."** | Disconnect between Step 2 (Verification) and Step 3 (Capital Drawdown) caused friction for counterparties seeking instant facility pricing. | **Added 1-click CTA `Apply Verified Passport to DeFi Loan Engine →`**, automatically carrying verified Tier A prime qualification into the capital facility pricing engine. | [`122c859`](https://github.com/brindaban55/ShieldScore/commit/122c859) |
+| **"Navbar scrolling makes the page jump around and hides sections."** | Viewport scroll misalignment occurred when clicking between tabs with different content heights. | **Resolved scroll anchors and fixed layout height**, adding smooth scroll transitions between Solvency Attestation, Capital Facility, and Underwriting Console. | [`122c859`](https://github.com/brindaban55/ShieldScore/commit/122c859) |
+| **"Can lenders adjust risk parameters without deploying a whole new contract?"** | Institutional underwriters had no way to adjust macroeconomic risk covenants on-chain dynamically. | **Implemented `updatePolicy` circuit** in Underwriting Console, allowing live covenant commits directly to Midnight Preview ledger state. | [`16f328f`](https://github.com/brindaban55/ShieldScore/commit/16f328f) |
+| **"Need formal mathematical specifications of all circuits for auditor review."** | Institutional compliance and node operators requested formal specifications of all Compact circuits for audit trail. | **Published [`docs/CIRCUITS.md`](docs/CIRCUITS.md) and [`docs/USAGE.md`](docs/USAGE.md)** detailing Groth16 constraints, private witness methods, and CLI invocation. | [`7f2692d`](https://github.com/brindaban55/ShieldScore/commit/7f2692d) |
 
 ---
 
@@ -107,53 +107,57 @@ Rather than showcasing only flattering remarks, **we actively embraced negative 
 | :---: | :--- | :--- | :---: |
 | **Phase 1** | ZK Core & Compact Circuits | Toolchain configured, `shieldscore.compact` written with selective disclosure (`disclose()`), 10/10 Vitest tests pass, compiled to Groth16 circuits | ✅ Shipped |
 | **Phase 2** | UI Terminal & Wallet Integration | React 18 + Vite terminal, Three.js 3D Holographic Shield, 1AM / Lace multi-wallet connector via CIP-0030, real-time selective disclosure audit | ✅ Shipped |
-| **Phase 3** | Underwriting & Verification Engine | Dynamic lender policy circuit (`verifyCustomPolicy`), dual-state memory inspection, automated CI/CD pipeline (`.github/workflows/ci.yml`) | ✅ Shipped |
+| **Phase 3** | Institutional Underwriting Engine | Dynamic covenant circuit (`verifyCustomPolicy`), dual-state memory inspection, automated CI/CD pipeline (`.github/workflows/ci.yml`) | ✅ Shipped |
 | **Phase 4** | Dual-Network Settlement & Telemetry | Multi-network deployment on Midnight Preprod and Preview, on-chain explorer verification, comprehensive API documentation | ✅ Shipped |
-| **Phase 5** | Living Feedback & Capital Efficiency | In-app feedback ledger modal (`FeedbackModal.tsx`), undercollateralized loan drawdown calculator (3.4% APR, 105% collateral) | ✅ Shipped |
+| **Phase 5** | Institutional Feedback & Capital Efficiency | Off-chain structured telemetry framework, undercollateralized capital facility calculator (3.4% APR, 105% collateral) | ✅ Shipped |
 | **Phase 6** | Production Hardening & Cloud Deploy | Segmented dual-network switcher with session revocation, 70 verified dual-network participant identities, Vercel zero-configuration deployment | ✅ Shipped |
 
 ---
 
 ## 💡 The Problem & The ShieldScore Solution
 
-### The Broken Status Quo in Lending
-Traditional financial underwriting requires borrowers to surrender extensive sensitive documentation—tax returns, bank account statements, credit bureau history, salary slips, and collateral deeds. 
+### The Broken Status Quo in Private Credit & RWA Origination
 
-This model creates severe hazards for both borrowers and lenders:
-- **Catastrophic Data Honeypots:** Centralized databases storing financial records are prime targets for cyber breaches and identity theft.
-- **Over-Disclosure:** To prove they can afford a loan, borrowers are forced to reveal exactly how much they earn, where they bank, and their full transaction records.
-- **Regulatory Liability:** Institutions handling PII face mounting compliance burdens under GDPR, CCPA, and GLBA.
+Traditional institutional credit underwriting and Real-World Asset (RWA) origination requires counterparties to surrender extensive proprietary financial documentation — audited financial statements, debt service schedules, capitalization tables, and collateral appraisals — to every prospective lender in a syndicated deal.
+
+This model creates severe systemic risks across both traditional finance (TradFi) and decentralized finance (DeFi):
+
+- **Proprietary Data Leakage:** Every capital raise forces issuers to share sensitive financial positions with dozens of counterparties, creating competitive intelligence exposure and regulatory liability.
+- **Catastrophic Data Honeypots:** Centralized databases storing institutional financial records are prime targets for corporate espionage and cyber breaches (e.g., the \$4.4B Equifax breach affecting 147M records).
+- **Capital-Inefficient Overcollateralization in DeFi:** Without verifiable solvency attestations, DeFi lending protocols demand 150%–200% overcollateralization, locking tens of billions in idle capital and excluding legitimate institutional borrowers with strong balance sheets.
+- **RWA Tokenization Bottleneck:** Real-world asset issuers cannot prove asset-backing ratios or debt-service capacity to on-chain protocols without first doxxing their entire financial position to public block explorers.
 
 ### How ShieldScore Inverts the Model
-ShieldScore changes the paradigm from **"show me your sensitive records"** to **"prove that you satisfy the required credit conditions"**:
+
+ShieldScore transforms institutional underwriting from **"surrender your balance sheet"** to **"prove you meet the covenant requirements"**:
 
 ```
-Traditional Lending (Massive Data Over-Disclosure):
-[Borrower Financials] ──────── Full Tax Returns, Scores, Debts ───────> [Lender Database]
-(Salary, Bureau Score, Loans)                                            (Honeypot for breaches)
+Traditional Institutional Underwriting (Full Balance Sheet Disclosure):
+[Counterparty Financials] ──────── Full Audited Statements, Cap Tables ──────> [Syndicate Data Room]
+(Revenue, AUM, DSCR, Collateral)                                                (Competitive exposure)
 
-ShieldScore Model (Midnight Zero-Knowledge Verification):
+ShieldScore Model (Midnight Confidential Solvency Gate):
 [Private Witness Inputs]
-(Income, Score, DTI, Collateral) ──┐
-                                   ├─ Local ZK Prover ──> π (Proof) ──> [Midnight Ledger]
-[Public Lender Policy Rules]   ──┘                                       (Discloses only: true)
-(minScore = 700, maxDTI = 40%)
+(Revenue, Solvency Score, DSCR,  ──┐
+ Collateral Coverage)              ├─ Local ZK Prover ──> π (Proof) ──> [Midnight Ledger]
+[Institutional Covenant Rules]  ──┘                                      (Discloses only: true)
+(minSolvency = 700, maxLeverage = 40%)
 ```
 
 ---
 
 ## ⚡ Why the Midnight Ecosystem is Essential
 
-Traditional blockchains (Ethereum, Solana, Polygon) feature completely transparent ledgers where transaction parameters, balances, and smart contract state variables are visible to every observer. Confidential credit underwriting is impossible on public ledgers without exposing borrower financials.
+Traditional blockchains (Ethereum, Solana, Polygon) feature completely transparent ledgers where transaction parameters, balances, and smart contract state variables are visible to every observer. Confidential institutional solvency verification is impossible on public ledgers without exposing counterparty financials to competitors, regulators, and the general public.
 
 Midnight provides the specialized zero-knowledge primitives that make ShieldScore possible:
 
 | Midnight Capability | How ShieldScore Leverages It |
 | :--- | :--- |
-| **Dual-State Architecture** | Strictly isolates off-chain **Private Witness State** (credit score, income, debt) from on-chain **Public Ledger State** (verification result, risk tier). |
+| **Dual-State Architecture** | Strictly isolates off-chain **Private Witness State** (solvency metrics, revenue, debt coverage) from on-chain **Public Ledger State** (verification result, risk tier). |
 | **Compact Language** | Allows writing declarative polynomial constraint circuits with strict compile-time privacy barriers (`disclose()`). |
 | **Native Zero-Knowledge Proofs** | Generates succinct ZK-SNARKs that verify mathematical solvency in milliseconds. |
-| **DUST Gas Economics** | Midnight's dual-token model ($NIGHT and $DUST) enables shielded operational gas fees. |
+| **DUST Gas Economics** | Midnight's dual-token model (\$NIGHT and \$DUST) enables shielded operational gas fees. |
 | **Multi-Wallet Connector** | Interfaces directly with **1AM Wallet** and **Lace** via CIP-0030 DApp Connector standards. |
 
 ---
@@ -164,33 +168,33 @@ Midnight provides the specialized zero-knowledge primitives that make ShieldScor
 
 ---
 
-## 🛡️ Multi-Predicate Verification Circuits
+## 🛡️ Multi-Covenant Verification Circuits
 
-ShieldScore's Compact smart contract (`contract/src/shieldscore.compact`) implements 3 zero-knowledge circuits:
+ShieldScore's Compact smart contract (`contract/src/shieldscore.compact`) implements 3 zero-knowledge circuits designed for institutional-grade solvency verification:
 
 ### 1. `verifyCreditPassport(expectedCommitment, currentTimestamp)`
-Evaluates borrower criteria against the active ledger policy:
-$$\text{creditScore} \ge \text{minScore} \quad \wedge \quad \text{annualIncome} \ge \text{minIncome}$$
-$$\text{debtToIncome} \le \text{maxDTI} \quad \wedge \quad \text{collateralRatio} \ge \text{minCollateral}$$
-- Derives an algorithmic **Risk Tier** (Tier A: Prime, Tier B: Standard, Tier C: Acceptable).
+**Institutional Solvency Attestation** — Evaluates counterparty financial capacity against active underwriting covenants:
+$$\text{solvencyScore} \ge \text{minScore} \quad \wedge \quad \text{verifiableRevenue} \ge \text{minIncome}$$
+$$\text{debtServiceCoverage} \le \text{maxDSCR} \quad \wedge \quad \text{collateralCoverage} \ge \text{minCollateral}$$
+- Derives an algorithmic **Risk Tier** (Tier A: Investment Grade, Tier B: Standard, Tier C: Acceptable).
 - Discloses **only** the verification boolean outcome, assigned risk tier, and timestamp to the public ledger.
 
 ### 2. `verifyCustomPolicy(reqMinScore, reqMinIncome, reqMaxDti, reqMinCollateral, policyId, timestamp)`
-Enables arbitrary DeFi liquidity pools, DAO treasuries, or P2P lenders to evaluate applicants against bespoke credit parameters without deploying a new contract.
+**Syndicated Underwriting Gate** — Enables arbitrary DeFi liquidity pools, DAO treasuries, institutional syndicates, or RWA originators to evaluate counterparties against bespoke financial covenants without deploying a new contract.
 
 ### 3. `updatePolicy(newMinScore, newMinIncome, newMaxDti, newMinCollateral, newPolicyId)`
-Allows institutional risk managers to adjust baseline underwriting standards as macroeconomic conditions change.
+**Dynamic Covenant Governance** — Allows institutional risk committees, multisig governance, and protocol DAOs to adjust baseline underwriting covenants as macroeconomic conditions shift (rate cycles, credit contraction, regulatory changes).
 
 ---
 
-## 🔒 The Mathematical Privacy Model
+## 🔒 The Confidential Solvency Model
 
 | Data Attribute | Location | Stored On-Chain? | Observable by Public? |
 | :--- | :--- | :---: | :---: |
-| **Applicant Credit Score** | Client Local Memory | ❌ Never | ❌ Hidden |
-| **Applicant Annual Income** | Client Local Memory | ❌ Never | ❌ Hidden |
-| **Debt-to-Income Ratio** | Client Local Memory | ❌ Never | ❌ Hidden |
-| **Collateral Buffer Ratio** | Client Local Memory | ❌ Never | ❌ Hidden |
+| **Counterparty Solvency Score** | Client Local Memory | ❌ Never | ❌ Hidden |
+| **Verifiable Revenue / AUM** | Client Local Memory | ❌ Never | ❌ Hidden |
+| **Debt Service Coverage Ratio** | Client Local Memory | ❌ Never | ❌ Hidden |
+| **Collateral Coverage Ratio** | Client Local Memory | ❌ Never | ❌ Hidden |
 | **Blinding Salt Key** | Client Local Memory | ❌ Never | ❌ Hidden |
 | **Verification Boolean** | Midnight Public Ledger | ✅ Yes | ✅ Public |
 | **Assigned Risk Tier** | Midnight Public Ledger | ✅ Yes | ✅ Public |
@@ -261,9 +265,9 @@ ShieldScore includes a full GitHub Actions workflow (`.github/workflows/ci.yml`)
 | [**Building Journey**](docs/BUILDING_JOURNEY.md) | 12-step engineering roadmap and implementation log | Developers & Auditors |
 | [**Compact Circuits Specification**](docs/CIRCUITS_SPEC.md) | Polynomial constraint boundaries and disclosure specs | Cryptographers |
 | [**Underwriting Math & Formulas**](docs/UNDERWRITING_MATH.md) | Basis-point integer models and risk calculations | Underwriters & Quants |
-| [**Loan Drawdown Engine**](docs/LOAN_DRAWDOWN_ENGINE.md) | Real-time capital efficiency and borrow calculators | DeFi Borrowers |
+| [**Capital Facility Engine**](docs/LOAN_DRAWDOWN_ENGINE.md) | Real-time capital efficiency and facility calculators | Institutional Borrowers |
 | [**CIP-0030 Wallet Connector**](docs/CIP0030_WALLET_CONNECTOR.md) | Injected 1AM / Lace wallet discovery & session handling | Frontend Developers |
-| [**Dynamic Policy Engine**](docs/DYNAMIC_POLICY_ENGINE.md) | Syndicated risk pools and runtime custom policy evaluations | Institutional Lenders |
+| [**Dynamic Covenant Engine**](docs/DYNAMIC_POLICY_ENGINE.md) | Syndicated risk pools and runtime custom covenant evaluations | Institutional Lenders |
 | [**Deterministic HD Identities**](docs/SYNTHETIC_IDENTITIES_SPEC.md) | BIP-44 account derivation and 70-user testing personas | QA & Test Engineers |
 | [**DUST Gas Mechanics**](docs/DUST_GAS_MECHANICS.md) | Midnight Substrate dual-token economics & UTXO gas | Protocol Engineers |
 | [**Multi-Network Topology**](docs/PREPROD_PREVIEW_MIGRATION.md) | Preprod and Preview dual-network deployment and migration | DevOps & Node Runners |
@@ -274,7 +278,7 @@ ShieldScore includes a full GitHub Actions workflow (`.github/workflows/ci.yml`)
 | [**Cryptographic Invariants**](docs/CRYPTOGRAPHIC_INVARIANTS.md) | Completeness, soundness, and range-check proofs | Cryptographic Auditors |
 | [**Disclosure Privacy Audit**](docs/DISCLOSURE_PRIVACY_AUDIT.md) | Line-by-line Compact disclosure privacy audit | Security Reviewers |
 | [**Security Audit Dossier**](docs/SECURITY_AUDIT.md) | Threat models, zero-custody RAM guarantees, and invariants | Security Auditors |
-| [**Institutional Onboarding Manual**](docs/INSTITUTIONAL_ONBOARDING_MANUAL.md) | Fintech LOS integration and credit union underwriting | Institutional Partners |
+| [**Institutional Onboarding Manual**](docs/INSTITUTIONAL_ONBOARDING_MANUAL.md) | Fintech LOS integration and institutional counterparty onboarding | Institutional Partners |
 | [**Community Telemetry Framework**](docs/COMMUNITY_TELEMETRY.md) | Feedback ingestion, live Sheets telemetry, and RFC tracker | Community & Growth |
 | [**Vercel Cloud Deployment Guide**](docs/VERCEL_DEPLOYMENT_GUIDE.md) | Zero-config edge hosting, SPA rewrite routing & headers | Cloud Engineers |
 | [**Compact Compiler Guide**](docs/COMPACT_COMPILER_GUIDE.md) | Toolchain installation, version pinning, and zkir output | Core Developers |

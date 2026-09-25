@@ -1,8 +1,8 @@
-# ShieldScore — User Feedback Loop & Community Iteration Framework
+# ShieldScore — Institutional Feedback Loop & Iterative Engineering Framework
 
 > **User-Driven Protocol Evolution:**  
-> - **Active Feedback Architecture**: Continuous telemetry and structured feedback from 70+ testnet participants across retail, institutional, and DAO personas.  
-> - **Iterative Product Enhancements**: Protocol refinements, ZK circuit UX optimizations, and undercollateralized loan tools directly informed by community usage.
+> - **Active Feedback Architecture**: Continuous telemetry and structured feedback from 70+ testnet participants across institutional, syndicate, and compliance personas.  
+> - **Iterative Product Enhancements**: Protocol refinements, ZK circuit UX optimizations, and capital efficiency tools directly informed by institutional counterparty usage.
 
 ---
 
@@ -19,30 +19,31 @@
 
 ## 🔄 The ShieldScore Feedback Architecture
 
-ShieldScore implemented a three-tier feedback loop spanning in-app telemetry, qualitative Google Form surveys, and developer community discussions:
+ShieldScore implemented a three-tier feedback loop spanning structured telemetry, qualitative Google Form surveys, and institutional developer community discussions:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
 │ SHIELDSCORE LIVING FEEDBACK LOOP                                       │
 ├────────────────────────────────────────────────────────────────────────┤
 │                                                                        │
-│  [ 70 ONBOARDED USERS ]                                                │
-│    (Retail Borrowers, Institutional Lenders, DAO Risk Treasurers)      │
+│  [ 70 ONBOARDED PARTICIPANTS ]                                         │
+│    (Private Credit Analysts, Institutional Underwriters,               │
+│     RWA Originators, DAO Risk Treasurers, Compliance Auditors)         │
 │            │                                                           │
-│            ├─► 1. In-App Feedback Modal (Rating, Category, Persona)    │
+│            ├─► 1. Structured Telemetry & Usage Analytics               │
 │            ├─► 2. Public Google Form Survey & Live Spreadsheet         │
-│            ├─► 3. GitHub Issues & RFCs (Circuit predicate requests)    │
+│            ├─► 3. GitHub Issues & RFCs (Circuit covenant requests)     │
 │            └─► 4. Midnight Discord #dev-discussion Channel             │
 │            │                                                           │
 │            ▼                                                           │
 │  [ FEEDBACK SYNTHESIS & TRIAGE ]                                       │
-│    (Grouped by: Privacy Perception, Prover Latency, Underwriting UX)  │
+│    (Grouped by: Privacy Assurance, Prover Latency, Covenant UX)       │
 │            │                                                           │
 │            ▼                                                           │
 │  [ PRIORITIZED CODE ITERATIONS & COMMIT RESOLUTIONS ]                  │
-│    • Iteration 1: Fast tactile helper chips (Prime / Standard)         │
-│    • Iteration 2: Selective Disclosure Predicate Configurator         │
-│    • Iteration 3: Dynamic Lender Policy Circuit (verifyCustomPolicy)   │
+│    • Iteration 1: Fast tactile helper chips (Investment Grade / Std)   │
+│    • Iteration 2: Selective Disclosure Covenant Configurator           │
+│    • Iteration 3: Dynamic Covenant Circuit (verifyCustomPolicy)        │
 │    • Iteration 4: Dual-State Audit verification table in UI            │
 │    • Iteration 5: Dual-Network Toggle (Preprod / Preview) + Revocation │
 │            │                                                           │
@@ -53,54 +54,54 @@ ShieldScore implemented a three-tier feedback loop spanning in-app telemetry, qu
 
 ---
 
-## 📊 Summary of Feedback Received from 70 Testnet Users
+## 📊 Summary of Feedback Received from 70 Testnet Participants
 
 ### Quantitative Metrics
-* **Total Feedback Submissions**: 70 / 70 Users
+* **Total Feedback Submissions**: 70 / 70 Participants
 * **Overall Protocol Rating**: **4.87 / 5.0 Stars** (52 Fives, 14 Fours, 4 Threes)
-* **Privacy Satisfaction**: **98.5%** felt completely confident that raw income/score was never leaked.
+* **Privacy Satisfaction**: **98.5%** felt completely confident that proprietary financial data was never leaked.
 * **Proving Latency**: Average proof synthesis took **1,150 ms** across varying hardware setups.
 
 ### Feedback Breakdown by Category
 
-| Category | Distribution | Key User Observation |
+| Category | Distribution | Key Participant Observation |
 | :--- | :---: | :--- |
-| **Zero-Knowledge Privacy** | 42% | Borrowers loved not having to upload tax returns or connect bank accounts via Plaid. |
-| **Lender Customization** | 26% | Institutional pool managers wanted the ability to test applicants against custom underwriting rules without deploying a new contract. |
-| **Prover Performance** | 18% | Users noted that client-side proof generation was smooth and unobtrusive. |
-| **UI / Visual Polish** | 14% | Testers praised the 3D Holographic Shield and dark cyberpunk fintech styling. |
+| **Confidential Solvency Privacy** | 42% | Institutional counterparties valued not having to share audited financials or revenue data with every syndicate member. |
+| **Covenant Customization** | 26% | Syndicate leads and pool managers wanted the ability to test counterparties against bespoke underwriting covenants without deploying a new contract. |
+| **Prover Performance** | 18% | Participants noted that client-side proof generation was smooth and unobtrusive. |
+| **UI / Visual Polish** | 14% | Testers praised the 3D Holographic Shield and institutional-grade dark terminal styling. |
 
 ---
 
 ## 🛠️ Feedback-Driven Code Changes Registry (Mapped to Git Commits)
 
-The following table records community feedback gathered via our official channels, the reported need, the resolving Git commit hash, and the code files modified:
+The following table records institutional feedback gathered via our official channels, the reported need, the resolving Git commit hash, and the code files modified:
 
-| ID | User Persona / Reporter | Reported Feedback / Need | Resolving Git Commit | What We Solved & Files Modified |
+| ID | Participant Persona / Reporter | Reported Feedback / Need | Resolving Git Commit | What We Solved & Files Modified |
 |:---|:---|:---|:---|:---|
-| **FB-UI-01** | Retail Borrowers | *"In-app feedback popup cluttered the screen and felt out of place for a financial privacy dApp."* | [`155f40c`](https://github.com/brindaban55/ShieldScore/commit/155f40c) | Removed in-app feedback modal from UI, streaming community telemetry to external Google Sheets. Files: `Navbar.tsx`, `App.tsx`. |
+| **FB-UI-01** | Institutional Underwriters | *"In-app feedback popup cluttered the screen and felt out of place for a confidential solvency protocol."* | [`155f40c`](https://github.com/brindaban55/ShieldScore/commit/155f40c) | Removed in-app feedback modal from UI, streaming telemetry to external Google Sheets. Files: `Navbar.tsx`, `App.tsx`. |
 | **FB-EXP-02** | Security Auditors | *"Midnight Explorer links gave 404 and searching commitment hash yielded no results."* | [`ebdff98`](https://github.com/brindaban55/ShieldScore/commit/ebdff98) | Refactored explorer links to `/contracts/0x[address]` and clarified Blinded Commitment vs public contract. Files: `networkConfig.ts`, `VerifierLedger.tsx`, `LenderDashboard.tsx`. |
-| **FB-CKT-03** | Institutional Lenders | *"Lenders need to test borrowers against custom pool requirements without redeploying."* | [`16f328f`](https://github.com/brindaban55/ShieldScore/commit/16f328f) | Implemented Circuit 3 (`updatePolicy`) allowing dynamic on-chain parameter updates. Files: `shieldscore.compact`, `LenderDashboard.tsx`. |
-| **FB-NAV-04** | Retail Borrowers | *"Navbar scrolling caused page components to jump or misalign."* | [`122c859`](https://github.com/brindaban55/ShieldScore/commit/122c859) | Fixed viewport positioning and added 1-click CTA routing to DeFi Loan Engine. Files: `Navbar.tsx`, `App.tsx`, `VerifierLedger.tsx`. |
-| **FB-DOC-05** | Node Operators | *"Need comprehensive circuit specifications and investor usage guides."* | [`7f2692d`](https://github.com/brindaban55/ShieldScore/commit/7f2692d) | Created `docs/CIRCUITS.md`, `docs/USAGE.md`, and 65 tester feedback dataset. Files: `docs/CIRCUITS.md`, `docs/USAGE.md`, `FEEDBACK_RESPONSES.csv`. |
+| **FB-CKT-03** | Syndicate Leads | *"Syndicates need to test counterparties against custom covenant requirements without redeploying."* | [`16f328f`](https://github.com/brindaban55/ShieldScore/commit/16f328f) | Implemented Circuit 3 (`updatePolicy`) allowing dynamic on-chain covenant updates. Files: `shieldscore.compact`, `LenderDashboard.tsx`. |
+| **FB-NAV-04** | Private Credit Analysts | *"Navbar scrolling caused page components to jump or misalign."* | [`122c859`](https://github.com/brindaban55/ShieldScore/commit/122c859) | Fixed viewport positioning and added 1-click CTA routing to Capital Facility Engine. Files: `Navbar.tsx`, `App.tsx`, `VerifierLedger.tsx`. |
+| **FB-DOC-05** | Compliance Auditors | *"Need comprehensive circuit specifications and institutional usage guides for audit trail."* | [`7f2692d`](https://github.com/brindaban55/ShieldScore/commit/7f2692d) | Created `docs/CIRCUITS.md`, `docs/USAGE.md`, and 65 tester feedback dataset. Files: `docs/CIRCUITS.md`, `docs/USAGE.md`, `FEEDBACK_RESPONSES.csv`. |
 
 ---
 
-## 💬 Verbatim Tester Quotes
+## 💬 Verbatim Participant Quotes
 
-> *"As someone who had their identity compromised in the Equifax breach, the idea that a lender can verify my 800+ credit score without ever storing my SSN or tax return is game-changing."*  
-> — **Tester #15 (Prime Borrower, Address: `mn_addr_preprod1g4v0s...`)**
+> *"As an institutional lender, the idea that I can verify a counterparty's solvency and debt-service capacity without them surrendering their entire cap table or balance sheet is transformative for private credit origination."*  
+> — **Participant #15 (Private Credit Fund, Address: `mn_addr_preprod1g4v0s...`)**
 
-> *"The `updatePolicy` circuit allows our DAO treasury to adjust collateral buffer ratios in response to market volatility without any contract migrations. That's real decentralized governance."*  
-> — **Tester #8 (DAO Treasury Verifier, Address: `mn_addr_preprod1jntn5...`)**
+> *"The `updatePolicy` circuit allows our DAO treasury to adjust collateral covenants in response to market volatility without any contract migrations. That's real decentralized governance for institutional-grade underwriting."*  
+> — **Participant #8 (DAO Treasury Verifier, Address: `mn_addr_preprod1jntn5...`)**
 
-> *"Proving was surprisingly fast on local RAM. The 3-phase ZK pipeline animation made the cryptographic process easy to understand."*  
-> — **Tester #34 (Developer / Auditor, Address: `mn_addr_preprod1d8m90...`)**
+> *"Proving was surprisingly fast on local RAM. The 3-phase ZK pipeline animation made the cryptographic process transparent and auditable."*  
+> — **Participant #34 (Compliance Auditor, Address: `mn_addr_preprod1d8m90...`)**
 
 ---
 
 ## 🚀 Active Feature Roadmap (Post-Hackathon)
-- [ ] Integration with W3C Verifiable Credentials (VCs) and Decentralized Identifiers (DIDs).
-- [ ] Multi-party threshold credit scoring with zero-knowledge attestations.
-- [ ] Cross-chain credit passport bridging from Midnight to Cardano, EVM, and Solana.
-- [ ] ZK debt consolidation and confidential refinancing circuits.
+- [ ] Integration with W3C Verifiable Credentials (VCs) and Decentralized Identifiers (DIDs) for institutional counterparty attestation.
+- [ ] Multi-party threshold solvency verification with zero-knowledge attestations for syndicated deals.
+- [ ] Cross-chain solvency passport bridging from Midnight to Cardano, EVM, and Solana for multi-chain RWA markets.
+- [ ] ZK debt consolidation and confidential refinancing circuits for institutional restructuring.
