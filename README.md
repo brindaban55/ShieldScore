@@ -12,6 +12,7 @@
 
 <p align="center">
   <a href="https://shieldscore.vercel.app"><strong>🚀 Live DApp</strong></a> · 
+  <a href="docs/BUILDING_JOURNEY.md"><strong>🛠️ Building Journey</strong></a> · 
   <a href="https://youtu.be/SHIELDSCORE_DEMO"><strong>📺 Demo Video</strong></a> · 
   <a href="https://x.com/ShieldScoreFi"><strong>🐦 @ShieldScoreFi</strong></a> · 
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSd98mF_ShieldScore_Feedback/viewform"><strong>📋 Feedback Form</strong></a> · 
