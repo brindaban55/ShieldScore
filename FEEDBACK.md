@@ -1,8 +1,8 @@
-# ShieldScore — User Feedback Loop & Community Development (Level 5 & 6)
+# ShieldScore — User Feedback Loop & Community Iteration Framework
 
-> **Midnight Builder Challenge Requirements:**  
-> - **Level 5**: Living feedback loop documented with structured user insights from 50+ testnet users.  
-> - **Level 6**: Refined MVP guided by feedback loop data from 70+ testnet users across diverse personas.
+> **User-Driven Protocol Evolution:**  
+> - **Active Feedback Architecture**: Continuous telemetry and structured feedback from 70+ testnet participants across retail, institutional, and DAO personas.  
+> - **Iterative Product Enhancements**: Protocol refinements, ZK circuit UX optimizations, and undercollateralized loan tools directly informed by community usage.
 
 ---
 
