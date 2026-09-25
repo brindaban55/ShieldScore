@@ -35,24 +35,28 @@ jobs:
         run: npm ci || npm install
 
       - name: Install Compact Compiler Toolchain
+        shell: bash
         run: |
           curl --proto '=https' --tlsv1.2 -LsSf https://github.com/midnightntwrk/compact/releases/latest/download/compact-installer.sh | sh || true
-          echo "$HOME/.compact/bin" >> $GITHUB_PATH
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          echo "$HOME/.compact/bin" >> "$GITHUB_PATH"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
           export PATH="$HOME/.compact/bin:$HOME/.local/bin:$PATH"
           if command -v compactup >/dev/null 2>&1; then
-            compactup install || true
-            compactup default || true
+            compactup default 0.28.0 || compactup default $(compactup list --remote 2>/dev/null | tail -n 1) || compactup install || true
           fi
 
       - name: Compile or Verify ShieldScore Compact Circuits
         working-directory: contract
+        shell: bash
         run: |
           export PATH="$HOME/.compact/bin:$HOME/.local/bin:$PATH"
-          if compact compile src/shieldscore.compact managed 2>/dev/null; then
+          if compact compile src/shieldscore.compact managed; then
             echo "Compact circuit compilation succeeded"
-          else
+          elif [ -f "managed/contract/index.js" ]; then
             echo "Using verified pre-compiled managed circuits in repository"
+          else
+            echo "Failed to compile circuits and no pre-compiled managed circuits found"
+            exit 1
           fi
 
       - name: Typecheck Contract Code
