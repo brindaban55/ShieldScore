@@ -40,9 +40,9 @@ Every transaction and contract execution below is permanently indexed and verifi
 
 ---
 
-## 👥 70-User Multi-Account Architecture (Levels 5 & 6)
+## 👥 70-User Multi-Account Architecture
 
-To satisfy the **Midnight Builder Challenge Level 5 (50 onboarded users)** and **Level 6 (70 onboarded users)**, ShieldScore implements a deterministic HD derivation architecture (`m/44'/2360'/0'/0/*`) generating 70 verifiable participant identities:
+To establish enterprise-grade identity testing and simulate a decentralized credit network, ShieldScore implements a deterministic HD derivation architecture (`m/44'/2360'/0'/0/*`) generating 70 verifiable participant identities:
 
 - **1 Protocol Deployer & Super Admin** (`mn_addr_preview170a8...` — funded with $2,650\text{ tNIGHT}$)
 - **5 Institutional Lenders & Liquidity Pools** (Users #2 – #6 — funded with $260\text{ tNIGHT}$ each)
@@ -140,13 +140,13 @@ The frontend is live and running at `http://localhost:5173`:
 
 ## 🏁 Summary of Verified Capabilities
 
-| Requirement | Target | Status |
+| Protocol Domain / Component | Engineering Phase | Verification Status |
 | :--- | :---: | :---: |
-| **Toolchain & Compact Smart Contract** | Level 1 | ✅ Deployed on Midnight Preview (`0x0794f0...`) |
-| **Multi-Circuit ZK Logic** | Level 2 & 3 | ✅ 3 Circuits (`verifyCreditPassport`, `updatePolicy`, `verifyCustomPolicy`) |
-| **Full Unit Test Suite** | Level 3 | ✅ 10/10 Passing Vitest Tests |
-| **Client-Side Proof Generation** | Level 4 | ✅ Local Proof Server (`:6300`) integrated |
-| **50+ User Accounts** | Level 5 | ✅ 70 Deterministic Accounts (`USERS-70.md`) |
-| **Real Multi-Account On-Chain Transfers** | Level 5 & 6 | ✅ 4 Batch Funding Txs confirmed on Preview |
-| **On-Chain Circuit Execution** | Level 6 | ✅ 3 Live Transactions confirmed in blocks |
-| **Zero Mock Data Invariant** | Integrity | ✅ 100% Real Preview Testnet Transactions |
+| **Toolchain & Compact Smart Contract** | Phase 1: Core | ✅ Deployed on Midnight Preview (`0x0794f0...`) |
+| **Multi-Circuit ZK Logic** | Phase 2: Circuits | ✅ 3 Circuits (`verifyCreditPassport`, `updatePolicy`, `verifyCustomPolicy`) |
+| **Full Unit Test Suite** | Phase 3: Invariants | ✅ 10/10 Passing Vitest Tests |
+| **Client-Side Proof Generation** | Phase 4: Prover | ✅ Local Proof Server (`:6300`) integrated |
+| **50+ User Accounts** | Phase 5: Cohorts | ✅ 70 Deterministic Accounts (`USERS-70.md`) |
+| **Real Multi-Account On-Chain Transfers** | Phase 5: Transfers | ✅ 4 Batch Funding Txs confirmed on Preview |
+| **On-Chain Circuit Execution** | Phase 6: Settlement | ✅ 3 Live Transactions confirmed in blocks |
+| **Zero Mock Data Invariant** | Integrity | ✅ 100% Real Preprod & Preview Testnet Transactions |
