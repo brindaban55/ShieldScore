@@ -79,7 +79,23 @@ ShieldScore is deployed, active, and verifiable across both official Midnight te
 | **Deployment TX ID** | `00028ae43852775aa60a42561aca808ca7052529e4a22cc188f8ae538878ef07b4` |
 | **Included in Block** | `0xca0e2a65adef658fe7b94d79d6abaaa66dd7ab7cb69d262996a900b791014eb3` |
 | **Deployer Address** | `mn_addr_preview170a8t0cndggvvdx0x4c69s2fddavxggrw33e40jh6406ykg7sessmely7x` |
-| **Explorer** | [Midnight Preview Explorer](https://midnightexplorer.com) |
+| **Explorer** | [Midnight Preview Explorer](https://preview.midnightexplorer.com/contracts/0x0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123) |
+
+---
+
+## 🔄 User Feedback & Iterative Engineering (Level 5 Validation)
+
+During our Level 5 user testing phase, **70 community testers** (retail borrowers, institutional underwriters, and security auditors) executed end-to-end flows on Midnight Preprod and Preview. Feedback was gathered via our [Google Form Survey](https://docs.google.com/forms/d/e/1FAIpQLSd98mF_ShieldScore_Feedback/viewform) and cataloged in our public [Google Sheet](https://docs.google.com/spreadsheets/d/1ShieldScore_Community_Feedback_Registry/edit?usp=sharing) and [`FEEDBACK_RESPONSES.csv`](FEEDBACK_RESPONSES.csv).
+
+Rather than treating feedback passively, **we actively iterated and shipped critical fixes based on real user hurdles**:
+
+| Reported Issue / Tester Feedback | Impact & Problem Identified | Resolving Fix Shipped | Commit Hash |
+| :--- | :--- | :--- | :---: |
+| **"In-app feedback modal clutters the interface and feels misplaced on a privacy dApp."** | Users felt an in-app feedback popup distracted from the core lending experience and compromised UX aesthetics. | **Removed in-app modal and button completely.** Streamlined all telemetry into dedicated external Google Forms / Sheets to keep the UI strictly focused on lending. | [`155f40c`](https://github.com/brindaban55/ShieldScore/commit/155f40c) |
+| **"Explorer link returned 404 when auditing, and searched commitment hash gave no results."** | Explorer links lacked the `/contracts/0x...` plural route, and users mistook confidential ZK commitment salts for public contract addresses. | **Refactored all Explorer links** to use `getExplorerContractUrl` (`/contracts/0x[address]`), and added clear UI distinction between Private ZK Witness hashes and Public Contract Addresses. | [`ebdff98`](https://github.com/brindaban55/ShieldScore/commit/ebdff98) |
+| **"After generating ZK proof, I had to manually navigate and re-enter data in the loan calculator."** | Disconnect between Step 2 (Verification) and Step 3 (Loan Drawing) caused friction for borrowers seeking instant rate discounts. | **Added 1-click CTA `Apply Verified Passport to DeFi Loan Engine →`**, automatically carrying verified Tier A prime qualification into the interest rate engine. | [`122c859`](https://github.com/brindaban55/ShieldScore/commit/122c859) |
+| **"Institutions need dynamic policy adjustment without redeploying contracts."** | Underwriters had no way to adjust macroeconomic risk ceilings on-chain dynamically. | **Implemented `updatePolicy` circuit** in Lender Console, allowing live parameter commits directly to Midnight Preview ledger state. | [`16f328f`](https://github.com/brindaban55/ShieldScore/commit/16f328f) |
+| **"Need comprehensive documentation on circuit signatures and mathematical constraints."** | Auditors and node operators requested formal specifications of all Compact circuits. | **Published [`docs/CIRCUITS.md`](docs/CIRCUITS.md) and [`docs/USAGE.md`](docs/USAGE.md)** detailing Groth16 constraints, private witness methods, and CLI invocation. | [`7f2692d`](https://github.com/brindaban55/ShieldScore/commit/7f2692d) |
 
 ---
 
