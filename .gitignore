@@ -17,6 +17,9 @@ contract/midnight-level-db/
 *.key
 *.seed
 *.mnemonic
+*RECOVERY*.md
+*PRIVATE*.md
+WALLETS_RECOVERY_PRIVATE.md
 .env
 .env.local
 .env.*.local
