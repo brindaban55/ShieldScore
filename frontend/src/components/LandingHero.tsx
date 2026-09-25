@@ -28,7 +28,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono text-cyan-300 mb-6 shadow-[0_0_16px_rgba(0,240,255,0.2)]"
           >
             <Lock className="w-3.5 h-3.5 text-cyan-400" />
-            <span>Confidential DeFi Credit Passport</span>
+            <span>Confidential Private Credit & RWA Solvency Gate</span>
           </motion.div>
 
           <motion.h1
@@ -37,9 +37,9 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
             transition={{ duration: 0.5, delay: 0.05 }}
             className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-[-0.035em] text-white leading-[1.12]"
           >
-            Prove your financial eligibility.{' '}
+            Prove institutional solvency.{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 block mt-1">
-              Keep your profile private.
+              Keep proprietary financials private.
             </span>
           </motion.h1>
 
@@ -49,7 +49,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-5 font-sans text-base sm:text-lg text-slate-300 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed"
           >
-            ShieldScore inverts traditional lending: instead of exposing tax records, credit scores, and debt histories, prove mathematical compliance via Midnight zero-knowledge circuits.
+            ShieldScore inverts private credit underwriting: prove balance sheet capacity, debt-service coverage, and collateral solvency via Midnight zero-knowledge circuits without exposing audited financial records.
           </motion.p>
 
           {/* Action CTAs with Framer Motion tactile spring clicks */}
@@ -120,9 +120,9 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
           <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4">
             <EyeOff className="w-5 h-5" />
           </div>
-          <h3 className="font-display text-base font-bold text-white tracking-tight">Private Financial Witness</h3>
+          <h3 className="font-display text-base font-bold text-white tracking-tight">Private Solvency Witness</h3>
           <p className="font-sans text-xs text-slate-300 mt-2 leading-relaxed">
-            Exact income, credit scores, debt obligations, and banking details are computed exclusively in client memory. Raw data never touches any server.
+            Proprietary revenue run-rates, solvency metrics, debt-service coverage, and asset valuations are processed exclusively in client RAM. Raw balance sheets never touch any network.
           </p>
         </GlassCard>
 
@@ -130,9 +130,9 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
           <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-4">
             <ShieldCheck className="w-5 h-5" />
           </div>
-          <h3 className="font-display text-base font-bold text-white tracking-tight">Compact Zero-Knowledge Circuit</h3>
+          <h3 className="font-display text-base font-bold text-white tracking-tight">Compact Solvency Circuits</h3>
           <p className="font-sans text-xs text-slate-300 mt-2 leading-relaxed">
-            Evaluates financial conditions against lender policies using cryptographic polynomial assertions. Verified without leaking intermediate values.
+            Evaluates covenant conditions against syndicate requirements using Groth16 polynomial assertions. Mathematically verified without leaking financial secrets.
           </p>
         </GlassCard>
 
@@ -140,9 +140,9 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
           <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4">
             <Scale className="w-5 h-5" />
           </div>
-          <h3 className="font-display text-base font-bold text-white tracking-tight">On-Chain Settlement</h3>
+          <h3 className="font-display text-base font-bold text-white tracking-tight">Dual-State On-Chain Settlement</h3>
           <p className="font-sans text-xs text-slate-300 mt-2 leading-relaxed">
-            Discloses only the binary verification result, assigned risk category, and immutable timestamp to Midnight Preview's public ledger.
+            Discloses only the binary verification result, assigned investment-grade tier, and immutable timestamp to Midnight Preview's public ledger.
           </p>
         </GlassCard>
       </div>

@@ -26,7 +26,7 @@ export const NETWORKS_CONFIG: Record<SupportedNetwork, NetworkEndpoints> = {
     proofServerUrl: import.meta.env.VITE_PROOF_SERVER || 'http://localhost:6300',
     explorerUrl: import.meta.env.VITE_EXPLORER_URL || 'https://preview.midnightexplorer.com',
     faucetUrl: 'https://faucet.preview.midnight.network/',
-    deployedContractAddress: '0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123',
+    deployedContractAddress: 'ae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730',
     addressPrefix: 'mn_addr_preview',
     demoAddress: 'mn_addr_preview170a8t0cndggvvdx0x4c69s2fddavxggrw33e40jh6406ykg7sessmely7x',
   },

@@ -40,42 +40,42 @@ interface AttestationMeta {
 const ATTESTATION_PRESETS: Record<Exclude<AttestationSource, 'custom'>, AttestationMeta> = {
   experian: {
     id: 'experian',
-    title: 'Experian Credit Bureau Attestation',
-    badge: 'Bureau Signed',
-    issuer: 'Experian Decision Analytics (DID: did:key:z6MkuExperianUS04)',
-    algorithm: 'ECDSA-SECP256K1 Verifiable Credential',
+    title: 'Big-4 Solvency Audit Attestation',
+    badge: 'Auditor Signed',
+    issuer: 'Ernst & Young / Grant Thornton Attestation (DID: did:key:z6MkuAuditUS04)',
+    algorithm: 'ECDSA-SECP256K1 Institutional Credential',
     certHash: '0x9f8c47b12d59aa03b71948fc20641e75d048',
     score: '790',
     income: '120000',
     dti: '28',
     collateral: '210',
-    description: 'Certified FICO credit bureau report with verified multi-year payment history.',
+    description: 'Certified balance sheet & cash flow audit proving debt service capacity and liquidity reserves.',
   },
   plaid: {
     id: 'plaid',
-    title: 'Plaid Open Banking Cashflow',
-    badge: 'Bank Verified',
-    issuer: 'Plaid Open Banking Network (DID: did:key:z6MkuPlaidOracle)',
-    algorithm: 'Ed25519 Signed Cash Flow Attestation',
+    title: 'Qualified Custodian Proof of Reserve',
+    badge: 'Custodian Verified',
+    issuer: 'Institutional Custody Network (DID: did:key:z6MkuCustodyOracle)',
+    algorithm: 'Ed25519 Signed Asset Attestation',
     certHash: '0x3a71b4e0988fa3911c08e5bb920f324671a8',
     score: '730',
     income: '75000',
     dti: '35',
     collateral: '160',
-    description: '12-month verified recurring payroll deposits and verified recurring debt obligations.',
+    description: 'Audited institutional reserve and liquid collateral attestation via cryptographically signed statement.',
   },
   zktls: {
     id: 'zktls',
-    title: 'Bank Portal zkTLS Web-Proof',
-    badge: 'TLS Session',
-    issuer: 'TLSNotary WebPKI (Chase / Bank of America HTTPS)',
-    algorithm: 'ChaCha20-Poly1305 TLS 1.3 Attestation',
+    title: 'RWA Registry & Oracle Attestation',
+    badge: 'PoR Verified',
+    issuer: 'Chainlink PoR & RWA Registry (DID: did:key:z6MkuRWAOracle)',
+    algorithm: 'ChaCha20-Poly1305 Cryptographic Attestation',
     certHash: '0x7e8349fa81bc5920042a38b291d90c5b4129',
     score: '760',
     income: '95000',
     dti: '31',
     collateral: '185',
-    description: 'Direct browser-to-bank HTTPS cryptographic session proof verifying liquid balance sheet.',
+    description: 'Cryptographically verified on-chain asset-backing ratio for tokenized real estate & structured debt.',
   },
 };
 
@@ -181,10 +181,10 @@ export const BorrowerProver: React.FC<BorrowerProverProps> = ({
               </span>
             </div>
             <h2 className="font-display text-xl font-bold tracking-tight text-white flex items-center gap-2">
-              Private Financial Credential Vault
+              Confidential Solvency Credential Vault
             </h2>
             <p className="font-sans text-xs text-slate-300 mt-0.5 leading-relaxed">
-              Authentic bureau-signed credentials or open-banking data are ingested locally into browser memory.
+              Auditor-signed financial attestations or custodian proof-of-reserve data are ingested locally into private browser RAM.
             </p>
           </div>
 
@@ -202,7 +202,7 @@ export const BorrowerProver: React.FC<BorrowerProverProps> = ({
         {/* Real-World Financial Attestation Source Selector */}
         <div className="mt-5 space-y-3">
           <label className="block text-xs font-semibold text-slate-300 uppercase font-mono tracking-wider">
-            Verified Financial Data Source (Underwriting Oracle)
+            Verified Solvency Data Source (Underwriting Oracle)
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
             <button
@@ -217,14 +217,14 @@ export const BorrowerProver: React.FC<BorrowerProverProps> = ({
               <div className="flex items-center justify-between gap-1 mb-1">
                 <span className="text-xs font-bold text-white flex items-center gap-1.5">
                   <Building2 className="w-3.5 h-3.5 text-cyan-400" />
-                  Experian Bureau
+                  Solvency Audit
                 </span>
                 <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300">
-                  FICO 790
+                  Grade 790
                 </span>
               </div>
               <p className="text-[11px] text-slate-400 leading-tight">
-                Signed bureau credit attestation with prime solvency score.
+                Big-4 signed balance sheet audit with prime solvency rating.
               </p>
             </button>
 
@@ -240,14 +240,14 @@ export const BorrowerProver: React.FC<BorrowerProverProps> = ({
               <div className="flex items-center justify-between gap-1 mb-1">
                 <span className="text-xs font-bold text-white flex items-center gap-1.5">
                   <Globe className="w-3.5 h-3.5 text-sky-400" />
-                  Plaid Open Bank
+                  Custodian PoR
                 </span>
                 <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300">
-                  Cashflow 730
+                  Reserve 730
                 </span>
               </div>
               <p className="text-[11px] text-slate-400 leading-tight">
-                12-month verified cash flow and verified debt obligations.
+                Verified institutional reserves and liquid collateral backing.
               </p>
             </button>
 
@@ -263,14 +263,14 @@ export const BorrowerProver: React.FC<BorrowerProverProps> = ({
               <div className="flex items-center justify-between gap-1 mb-1">
                 <span className="text-xs font-bold text-white flex items-center gap-1.5">
                   <KeyRound className="w-3.5 h-3.5 text-indigo-400" />
-                  zkTLS Web-Proof
+                  RWA Registry
                 </span>
                 <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300">
-                  TLS 760
+                  Asset 760
                 </span>
               </div>
               <p className="text-[11px] text-slate-400 leading-tight">
-                Direct client HTTPS cryptographic session from bank portal.
+                Cryptographic on-chain asset registry proof for structured facilities.
               </p>
             </button>
 
@@ -333,10 +333,10 @@ export const BorrowerProver: React.FC<BorrowerProverProps> = ({
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-5">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {/* Credit Score */}
+            {/* Credit Score / Solvency Score */}
             <div>
               <label className="block text-xs font-medium text-slate-300 mb-1.5 flex items-center justify-between">
-                <span>Credit Score (Private Witness)</span>
+                <span>Composite Solvency Rating (Private Witness)</span>
                 <span className="text-[11px] text-slate-500 font-mono">Min req: 700</span>
               </label>
               <input
@@ -350,10 +350,10 @@ export const BorrowerProver: React.FC<BorrowerProverProps> = ({
               />
             </div>
 
-            {/* Annual Income */}
+            {/* Annual Income / Verifiable Revenue */}
             <div>
               <label className="block text-xs font-medium text-slate-300 mb-1.5 flex items-center justify-between">
-                <span>Annual Income (USD)</span>
+                <span>Verifiable Revenue / Net Cashflow (USD)</span>
                 <span className="text-[11px] text-slate-500 font-mono">Min req: $50,000</span>
               </label>
               <input
@@ -361,15 +361,15 @@ export const BorrowerProver: React.FC<BorrowerProverProps> = ({
                 min="0"
                 value={inputs.annualIncome}
                 onChange={(e) => handleInputChange('annualIncome', e.target.value)}
-                placeholder="e.g. 85000"
+                placeholder="e.g. 120000"
                 className="w-full px-4 py-3 rounded-xl bg-canvas-input border border-white/10 text-white placeholder-slate-500/40 text-sm font-mono focus:outline-none focus:border-cyan-400/80 focus:ring-1 focus:ring-cyan-400/80 transition-all tabular-nums"
               />
             </div>
 
-            {/* Debt to Income Ratio */}
+            {/* Debt Service Coverage Ratio */}
             <div>
               <label className="block text-xs font-medium text-slate-300 mb-1.5 flex items-center justify-between">
-                <span>Debt-to-Income Ratio (%)</span>
+                <span>Debt Service Coverage / Leverage Ratio (%)</span>
                 <span className="text-[11px] text-slate-500 font-mono">Max req: 40%</span>
               </label>
               <input
@@ -379,7 +379,7 @@ export const BorrowerProver: React.FC<BorrowerProverProps> = ({
                 step="0.1"
                 value={inputs.debtToIncomeRatio}
                 onChange={(e) => handleInputChange('debtToIncomeRatio', e.target.value)}
-                placeholder="e.g. 32.5 (Must be ≤ 40%)"
+                placeholder="e.g. 28.0 (Must be ≤ 40%)"
                 className="w-full px-4 py-3 rounded-xl bg-canvas-input border border-white/10 text-white placeholder-slate-500/40 text-sm font-mono focus:outline-none focus:border-cyan-400/80 focus:ring-1 focus:ring-cyan-400/80 transition-all tabular-nums"
               />
             </div>
@@ -387,7 +387,7 @@ export const BorrowerProver: React.FC<BorrowerProverProps> = ({
             {/* Collateral Ratio */}
             <div>
               <label className="block text-xs font-medium text-slate-300 mb-1.5 flex items-center justify-between">
-                <span>Collateral Buffer Ratio (%)</span>
+                <span>Asset / Collateral Coverage Buffer (%)</span>
                 <span className="text-[11px] text-slate-500 font-mono">Min req: 150%</span>
               </label>
               <input
@@ -396,7 +396,7 @@ export const BorrowerProver: React.FC<BorrowerProverProps> = ({
                 step="1"
                 value={inputs.collateralRatio}
                 onChange={(e) => handleInputChange('collateralRatio', e.target.value)}
-                placeholder="e.g. 180 (Must be ≥ 150%)"
+                placeholder="e.g. 210 (Must be ≥ 150%)"
                 className="w-full px-4 py-3 rounded-xl bg-canvas-input border border-white/10 text-white placeholder-slate-500/40 text-sm font-mono focus:outline-none focus:border-cyan-400/80 focus:ring-1 focus:ring-cyan-400/80 transition-all tabular-nums"
               />
             </div>
@@ -405,7 +405,7 @@ export const BorrowerProver: React.FC<BorrowerProverProps> = ({
           {/* Identity Blinding Salt */}
           <div>
             <label className="block text-xs font-medium text-slate-300 mb-1.5 flex items-center justify-between">
-              <span>Identity Blinding Salt (Pedersen Commitment Secret)</span>
+              <span>Confidential Blinding Salt (Pedersen Commitment Secret)</span>
               <span className="text-[11px] text-slate-500 font-mono">Auto-generated if blank</span>
             </label>
             <input
@@ -436,8 +436,8 @@ export const BorrowerProver: React.FC<BorrowerProverProps> = ({
           <div className="p-3.5 rounded-xl bg-cyan-500/[0.06] border border-cyan-500/20 text-xs text-slate-300 flex items-start gap-3">
             <Lock className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
             <div className="leading-relaxed">
-              <span className="font-semibold text-white block">Real-World Zero-Knowledge Underwriting:</span>
-              Lenders do not trust self-reported numbers. Certified credit bureaus (Experian) or Open Banking APIs (Plaid) cryptographically sign your financial data. The Midnight Compact circuit verifies this signature and evaluates your solvency locally. Zero bank credentials, tax documents, or SSNs are ever transmitted to any server or ledger.
+              <span className="font-semibold text-white block">Real-World Institutional Zero-Knowledge Underwriting:</span>
+              Syndicates do not require public balance sheet disclosure. Independent auditors or qualified custodians cryptographically sign financial attestations. The Midnight Compact circuit verifies the attestation and asserts all solvency covenants locally in client RAM. Zero audited financials, cap tables, or proprietary positions are ever revealed to syndicate members or public block explorers.
             </div>
           </div>
 

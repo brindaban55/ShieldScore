@@ -37,11 +37,11 @@ export const VerifierLedger: React.FC<VerifierLedgerProps> = ({
   const getTierLabel = (tier: number) => {
     switch (tier) {
       case 1:
-        return { name: 'Tier A — Prime Solvency', color: 'text-cyan-300', bg: 'bg-cyan-500/10 border-cyan-500/30' };
+        return { name: 'Tier A — Investment Grade (Prime)', color: 'text-cyan-300', bg: 'bg-cyan-500/10 border-cyan-500/30' };
       case 2:
-        return { name: 'Tier B — Standard Qualifying', color: 'text-sky-300', bg: 'bg-sky-500/10 border-sky-500/30' };
+        return { name: 'Tier B — Senior Secured (Standard)', color: 'text-sky-300', bg: 'bg-sky-500/10 border-sky-500/30' };
       default:
-        return { name: 'Tier C — Baseline Acceptable', color: 'text-emerald-300', bg: 'bg-emerald-500/10 border-emerald-500/30' };
+        return { name: 'Tier C — Subordinated (Acceptable)', color: 'text-emerald-300', bg: 'bg-emerald-500/10 border-emerald-500/30' };
     }
   };
 
@@ -58,11 +58,11 @@ export const VerifierLedger: React.FC<VerifierLedgerProps> = ({
         applicantCommitment: outcome.commitment,
         contractStateBytes: stateByteLength || 1024,
         privacyInvariantAudit: {
-          containsUserCreditScore: false,
-          containsUserIncome: false,
-          containsUserDtiRatio: false,
-          containsUserCollateral: false,
-          containsPersonallyIdentifiableInformation: false,
+          containsSolvencyScore: false,
+          containsRevenueData: false,
+          containsDebtServiceRatio: false,
+          containsCollateralValuation: false,
+          containsProprietaryFinancialData: false,
         },
       }
     : {
@@ -193,10 +193,10 @@ export const VerifierLedger: React.FC<VerifierLedgerProps> = ({
 
                 <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-300 flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-400" />
-                  <span>Borrower satisfies lender underwriting policy without revealing income or debt.</span>
+                  <span>Counterparty satisfies syndicate underwriting covenants without disclosing balance sheet or debt schedules.</span>
                 </div>
 
-                {/* Direct CTA to use Passport in DeFi Loan Quotation Engine */}
+                {/* Direct CTA to use Passport in Capital Facility Engine */}
                 {onNavigateToLoans && (
                   <motion.button
                     whileHover={{ scale: 1.02 }}
@@ -205,7 +205,7 @@ export const VerifierLedger: React.FC<VerifierLedgerProps> = ({
                     className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 border border-cyan-400/40 text-cyan-300 hover:text-white text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-[0_0_16px_rgba(0,240,255,0.15)]"
                   >
                     <Zap className="w-4 h-4 text-cyan-400" />
-                    <span>Apply Verified Passport to DeFi Loan Engine</span>
+                    <span>Apply Verified Solvency to Capital Facility Engine →</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </motion.button>
                 )}
@@ -218,7 +218,7 @@ export const VerifierLedger: React.FC<VerifierLedgerProps> = ({
                 <div>
                   <h4 className="text-base font-semibold text-white">No Proof Evaluated Yet</h4>
                   <p className="text-xs text-slate-400 mt-1 max-w-xs">
-                    Input your financial parameters in Step 1 above and click "Generate Private ZK Proof" to verify.
+                    Input solvency parameters in Step 1 above and click "Generate Confidential Solvency Proof" to verify.
                   </p>
                 </div>
                 <div className="px-3 py-1.5 rounded-lg bg-cyan-500/5 border border-cyan-500/20 text-[11px] font-mono text-cyan-400">

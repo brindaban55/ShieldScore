@@ -1,4 +1,4 @@
-# ShieldScore — Institutional Usage, Auditor & Investor Guide
+# AegisSolv — Institutional Usage, Auditor & Investor Guide
 
 > **Confidential Solvency Attestation & Institutional Private Credit Underwriting on Midnight Network**  
 > *Official Walkthrough for Hackathon Evaluators, Institutional Integrators, and Compliance Auditors.*
@@ -26,7 +26,7 @@
 
 Traditional institutional private credit origination and RWA (Real-World Asset) tokenization requires counterparties to surrender audited financial statements, capitalization tables, and proprietary revenue data to every prospective lender in a syndicated deal. In DeFi, the absence of verifiable solvency attestations forces protocols to mandate **150%–200% overcollateralization**, locking billions in idle capital.
 
-**ShieldScore resolves this using Midnight's Dual-State Architecture:**
+**AegisSolv resolves this using Midnight's Dual-State Architecture:**
 * **Private State (Off-chain client witness):** Contains the counterparty's exact solvency metrics — asset coverage ratios, verifiable revenue, debt service coverage, and secret salt. This data **never touches the network**.
 * **Public Ledger State (On-chain Midnight consensus):** Stores only the boolean verification outcome, assigned risk tier (Tier A/B/C), settlement block, and cryptographic Pedersen commitment.
 
@@ -38,7 +38,7 @@ Institutional counterparties unlock **capital-efficient facility terms (as low a
 
 | Network | Contract Address | Explorer Verification Link | Block Height |
 | :--- | :--- | :--- | :--- |
-| **Midnight Preview** | `0x0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123` | [Audit on Preview Explorer](https://preview.midnightexplorer.com/contracts/0x0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123) | `#1016024` |
+| **Midnight Preview** | `0xae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730` | [Audit on Preview Explorer](https://preview.midnightexplorer.com/contracts/0xae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730) | Active |
 | **Midnight Preprod** | `0xfc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b` | [Audit on Preprod Explorer](https://preprod.midnightexplorer.com/contract/fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b) | `#841920` |
 
 ---
@@ -97,7 +97,7 @@ npm run dev
    - **Status:** `VERIFIED (ZK-SNARK VALID)`
    - **Assigned Risk Tier:** `Tier A — Investment Grade`
    - **Settlement Block:** `#1016024`
-   - **On-Chain Contract:** `0x0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123`
+   - **On-Chain Contract:** `0xae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730`
 2. Click **Audit in Preview Explorer ↗** to inspect the live contract bytecode and state in Midnight Explorer.
 
 ### Step 5: Capital Facility Pricing & Rate Locking
@@ -114,7 +114,7 @@ npm run dev
    - Maximum Debt Service Coverage Ratio (e.g. `38%`)
    - Minimum Collateral Coverage (e.g. `160%`)
 3. Click **Commit Covenant to Midnight Preview Ledger**.
-4. The `updatePolicy` circuit mutates the public ledger state (Tx ID: `00c2304e46dfba925be34227e69b9b2876b3117b...`).
+4. The `updatePolicy` circuit mutates the public ledger state (Tx ID: `00abddfd924b8e92c4547185d08ea61bb6035ee7155894f71a9bfdf79471b93d72`).
 
 ### Step 7: Syndicated Custom Underwriting (`verifyCustomPolicy`)
 Institutional syndicates, RWA originators, and private credit funds can specify bespoke underwriting covenants dynamically without deploying a separate contract:
@@ -152,6 +152,6 @@ The table below outlines what is disclosed versus what is cryptographically seal
 
 When verifying transactions and contracts on Midnight Explorer:
 1. **Contract Search:** Always use the full contract address prefixed with `0x`:  
-   `0x0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123`
+   `0xae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730`
 2. **Commitment Hashes:** Blinded commitments (e.g. `0x4bb06f8e...`) are private ZK witness secrets stored in local client state and are **not** indexed in public block explorer search bars.
 3. **Block Verification:** Search mined block `#1016024` on [Midnight Preview Explorer Blocks](https://preview.midnightexplorer.com/blocks/1016024).

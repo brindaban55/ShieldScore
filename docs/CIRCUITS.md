@@ -1,19 +1,19 @@
-# ShieldScore — Zero-Knowledge Compact Circuits Guide
+# AegisSolv — Zero-Knowledge Compact Circuits Guide
 
 > **Compact Version**: 0.23+ / 0.31+  
 > **Source File**: `contract/src/shieldscore.compact`  
 > **Proof System**: Groth16 zk-SNARK with BLS12-381 pairing curves  
-> **Deployment Network**: Midnight Preview (`0x0794f000...`) & Preprod (`0xfc67e285...`)
+> **Deployment Network**: Midnight Preview (`0xae6c1533...`) & Preprod (`0xfc67e285...`)
 
 ---
 
 ## 📐 Circuit Architecture Overview
 
-ShieldScore compiles zero-knowledge circuits using Midnight's **Compact** domain-specific language. Circuits act as verifiable state-transition functions that evaluate off-chain private witness inputs against on-chain public underwriting covenants without revealing the witness data. This architecture enables institutional counterparties to prove solvency and debt-service capacity without surrendering proprietary financial positions.
+AegisSolv compiles zero-knowledge circuits using Midnight's **Compact** domain-specific language. Circuits act as verifiable state-transition functions that evaluate off-chain private witness inputs against on-chain public underwriting covenants without revealing the witness data. This architecture enables institutional counterparties to prove solvency and debt-service capacity without surrendering proprietary financial positions.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
-│                        SHIELDSCORE DUAL-STATE MODEL                    │
+│                         AEGISSOLV DUAL-STATE MODEL                     │
 ├────────────────────────────────────────────────────────────────────────┤
 │                                                                        │
 │   PRIVATE WITNESS (Client RAM Only)          PUBLIC LEDGER STATE       │

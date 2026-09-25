@@ -15,7 +15,7 @@ export const DualStateAudit: React.FC = () => {
           Midnight Dual-State Privacy Model
         </h1>
         <p className="font-sans text-sm text-slate-300 mt-1 max-w-2xl leading-relaxed">
-          Understanding how ShieldScore executes off-chain witness logic with zero-knowledge mathematical verification while maintaining complete public ledger transparency.
+          Understanding how AegisSolv executes off-chain witness logic with zero-knowledge mathematical verification while maintaining complete public ledger transparency.
         </p>
       </div>
 
@@ -23,7 +23,7 @@ export const DualStateAudit: React.FC = () => {
       <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-[0_16px_48px_rgba(0,0,0,0.8)]">
         <img
           src="/hero_banner.jpg"
-          alt="ShieldScore Dual-State Architecture"
+          alt="AegisSolv Dual-State Architecture"
           className="w-full h-auto max-h-[460px] object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#080B11] via-transparent to-transparent" />
@@ -117,15 +117,15 @@ export const DualStateAudit: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono text-slate-300">
           <div className="flex items-start gap-2.5">
             <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-            <span>Zero Knowledge: Verifier learns nothing beyond mathematical truth of threshold.</span>
+            <span>Zero Knowledge: Syndicate learns nothing beyond mathematical truth of solvency covenants.</span>
           </div>
           <div className="flex items-start gap-2.5">
             <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-            <span>Soundness: Dishonest borrower with credit score &lt; 700 cannot produce valid proof.</span>
+            <span>Soundness: Counterparty failing solvency covenants cannot produce a valid Groth16 proof.</span>
           </div>
           <div className="flex items-start gap-2.5">
             <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-            <span>Completeness: Honest borrower meeting requirements is guaranteed valid proof.</span>
+            <span>Completeness: Counterparty satisfying covenants is guaranteed a valid proof generation.</span>
           </div>
           <div className="flex items-start gap-2.5">
             <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />

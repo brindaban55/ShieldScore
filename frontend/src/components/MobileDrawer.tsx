@@ -41,9 +41,9 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
   };
 
   const navItems: { id: AppTab; label: string; icon: React.FC<{ className?: string }> }[] = [
-    { id: 'borrower', label: 'Borrower Passport', icon: Shield },
-    { id: 'loans', label: 'DeFi Loan Engine', icon: Coins },
-    { id: 'lender', label: 'Lender Console', icon: Sliders },
+    { id: 'borrower', label: 'Solvency Attestation', icon: Shield },
+    { id: 'loans', label: 'Capital Facility Engine', icon: Coins },
+    { id: 'lender', label: 'Underwriting Console', icon: Sliders },
     { id: 'architecture', label: 'Dual-State Audit', icon: Cpu },
   ];
 

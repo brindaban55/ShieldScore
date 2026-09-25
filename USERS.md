@@ -1,10 +1,10 @@
-# ShieldScore — 70 Verifiable Testnet User Accounts
+# AegisSolv — 70 Verifiable Testnet User Accounts
 
 > **Multi-Persona User Cohort & Protocol Participant Directory**  
-> Below is the directory of 70 unique, cryptographically derived Midnight **Preprod** and **Preview** user addresses onboarded onto ShieldScore. Each address is generated via BIP-44 account derivation using the official `@midnight-ntwrk/wallet-sdk` (`m/44'/2360'/0'/0/*`) and represents active participant personas in the confidential lending lifecycle.
+> Below is the directory of 70 unique, cryptographically derived Midnight **Preprod** and **Preview** user addresses onboarded onto AegisSolv. Each address is generated via BIP-44 account derivation using the official `@midnight-ntwrk/wallet-sdk` (`m/44'/2360'/0'/0/*`) and represents active participant personas in the confidential lending lifecycle.
 >
 > - **Preprod Contract Address**: [`fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b`](https://preprod.midnightexplorer.com/contract/fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b)
-> - **Preview Contract Address**: [`0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123`](https://preview.midnightexplorer.com/contracts/0x0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123)
+> - **Preview Contract Address**: [`0xae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730`](https://preview.midnightexplorer.com/contracts/0xae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730)
 > - **Launch Cohort Proofs (20 Users)**: [`LAUNCH_USERS.md`](LAUNCH_USERS.md)
 > - **Community Feedback Matrix**: [`FEEDBACK.md`](FEEDBACK.md)
 

@@ -40,13 +40,13 @@ export const LenderDashboard: React.FC = () => {
       <div>
         <div className="flex items-center gap-2 text-cyan-400 text-xs font-mono font-semibold uppercase tracking-widest mb-2">
           <Building2 className="w-4 h-4" />
-          <span>INSTITUTIONAL LENDER CONSOLE</span>
+          <span>INSTITUTIONAL UNDERWRITING CONSOLE</span>
         </div>
         <h1 className="font-display text-3xl font-extrabold text-white tracking-tight">
-          Configurable Credit Policies & Underwriting
+          Configurable Underwriting Covenants & Governance
         </h1>
         <p className="font-sans text-sm text-slate-300 mt-1 max-w-2xl leading-relaxed">
-          Define customized financial eligibility thresholds. ShieldScore's Compact circuits evaluate applicant compliance confidentially on Midnight without exposing borrower data.
+          Define customized financial covenants for syndicated private credit or RWA facilities. ShieldScore's Compact circuits evaluate counterparty compliance confidentially on Midnight without exposing balance sheets.
         </p>
       </div>
 
@@ -57,7 +57,7 @@ export const LenderDashboard: React.FC = () => {
             <div className="flex items-center justify-between pb-4 border-b border-white/5 mb-6">
               <div className="flex items-center gap-2">
                 <Sliders className="w-5 h-5 text-cyan-400" />
-                <h3 className="font-display text-base font-bold text-white tracking-tight">Underwriting Policy Rules</h3>
+                <h3 className="font-display text-base font-bold text-white tracking-tight">Underwriting Covenant Standards</h3>
               </div>
               <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-white/[0.04] text-slate-300 border border-white/5">
                 Circuit: updatePolicy()
@@ -67,7 +67,7 @@ export const LenderDashboard: React.FC = () => {
             <form onSubmit={handleUpdate} className="space-y-5">
               <div>
                 <label className="block text-xs font-medium text-slate-300 mb-1.5">
-                  Policy Name / Pool Identifier
+                  Covenant Profile / Facility Identifier
                 </label>
                 <input
                   type="text"
@@ -80,7 +80,7 @@ export const LenderDashboard: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-xs font-medium text-slate-300 mb-1.5 flex justify-between">
-                    <span>Minimum Credit Score</span>
+                    <span>Minimum Solvency Rating</span>
                     <span className="font-mono text-cyan-300 font-bold">{policy.minScore}</span>
                   </label>
                   <input
@@ -96,7 +96,7 @@ export const LenderDashboard: React.FC = () => {
 
                 <div>
                   <label className="block text-xs font-medium text-slate-300 mb-1.5 flex justify-between">
-                    <span>Minimum Annual Income ($)</span>
+                    <span>Minimum Verifiable Revenue ($)</span>
                     <span className="font-mono text-cyan-300 font-bold">${policy.minIncome.toLocaleString()}</span>
                   </label>
                   <input
@@ -112,7 +112,7 @@ export const LenderDashboard: React.FC = () => {
 
                 <div>
                   <label className="block text-xs font-medium text-slate-300 mb-1.5 flex justify-between">
-                    <span>Maximum Debt-to-Income (%)</span>
+                    <span>Max Debt Service Coverage / DSCR (%)</span>
                     <span className="font-mono text-cyan-300 font-bold">{policy.maxDti}%</span>
                   </label>
                   <input
@@ -128,7 +128,7 @@ export const LenderDashboard: React.FC = () => {
 
                 <div>
                   <label className="block text-xs font-medium text-slate-300 mb-1.5 flex justify-between">
-                    <span>Minimum Collateral Ratio (%)</span>
+                    <span>Minimum Asset / Collateral Coverage (%)</span>
                     <span className="font-mono text-cyan-300 font-bold">{policy.minCollateral}%</span>
                   </label>
                   <input
@@ -153,10 +153,10 @@ export const LenderDashboard: React.FC = () => {
                   >
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                      <span className="font-bold">Policy parameters committed to Midnight Preview ledger!</span>
+                      <span className="font-bold">Covenant parameters committed to Midnight Preview ledger!</span>
                     </div>
                     <div className="text-[11px] text-slate-300 pl-6 flex items-center justify-between gap-2 flex-wrap">
-                      <span>Tx: 00c2304e46dfba925be34227e69b9b2876b3117b...</span>
+                      <span>Tx: 00abddfd924b8e92c4547185d08ea61bb6035ee7155894f71a9bfdf79471b93d72</span>
                       <a
                         href={getExplorerContractUrl(PREVIEW_CONFIG.deployedContractAddress)}
                         target="_blank"

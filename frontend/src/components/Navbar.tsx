@@ -37,9 +37,9 @@ export const Navbar: React.FC<NavbarProps> = ({
     : null;
 
   const navTabs: { id: AppTab; label: string; icon: React.FC<{ className?: string }> }[] = [
-    { id: 'borrower', label: 'Borrower Passport', icon: Shield },
-    { id: 'loans', label: 'DeFi Loan Engine', icon: Coins },
-    { id: 'lender', label: 'Lender Console', icon: Users },
+    { id: 'borrower', label: 'Solvency Attestation', icon: Shield },
+    { id: 'loans', label: 'Capital Facility Engine', icon: Coins },
+    { id: 'lender', label: 'Underwriting Console', icon: Users },
     { id: 'architecture', label: 'Dual-State Audit', icon: Cpu },
   ];
 
@@ -63,14 +63,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div>
               <div className="flex items-center gap-1.5">
                 <span className="font-display font-extrabold text-lg tracking-tight text-white group-hover:text-cyan-300 transition-colors">
-                  SHIELDSCORE
+                  AEGISSOLV
                 </span>
                 <span className="text-[10px] font-mono font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
-                  ZK-DEFI
+                  ZK-RWA
                 </span>
               </div>
               <p className="text-[11px] text-slate-400 font-sans tracking-tight hidden sm:block">
-                Confidential Credit Passport
+                Confidential Solvency Protocol
               </p>
             </div>
           </motion.button>

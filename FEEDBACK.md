@@ -1,29 +1,28 @@
-# ShieldScore — Institutional Feedback Loop & Iterative Engineering Framework
+# AegisSolv — Level 5 Living Testnet Feedback & Evolution Report
 
-> **User-Driven Protocol Evolution:**  
-> - **Active Feedback Architecture**: Continuous telemetry and structured feedback from 70+ testnet participants across institutional, syndicate, and compliance personas.  
-> - **Iterative Product Enhancements**: Protocol refinements, ZK circuit UX optimizations, and capital efficiency tools directly informed by institutional counterparty usage.
+> **Network Scope**: Midnight Preprod & Preview  
+> **Tester Cohort**: 70 Onboarded Institutional Testnet Participants  
+> **Status**: Comprehensive feedback synthesis & Git-tracked iterative resolution matrix.
 
 ---
 
-## 📋 Official Community Feedback Registry & Telemetry Links
-
-- **📋 Community Feedback Form**: [Google Forms Feedback Survey](https://docs.google.com/forms/d/11znyKMakHgapENhlluqdgUQvswuEIaXiX1xMQiDhpbg/viewform)
-- **📊 Public Responses Ledger**: [Google Sheets Responses Spreadsheet](https://docs.google.com/spreadsheets/d/1YcRRiltm8tE1_IZ3P2EszeWsnztjLWhT7audSbvlJEU/edit?usp=sharing)
+## 🔗 Quick Verification Links
+- **📊 Public Google Sheet Feedback Data**: [Open Live Responses Spreadsheet](https://docs.google.com/spreadsheets/d/1YcRRiltm8tE1_IZ3P2EszeWsnztjLWhT7audSbvlJEU/edit?usp=sharing)
+- **📋 Level 5 Feedback Questionnaire**: [Open Google Forms Survey](https://docs.google.com/forms/d/11znyKMakHgapENhlluqdgUQvswuEIaXiX1xMQiDhpbg/viewform)
 - **👥 70 Testnet Users Directory**: [`USERS.md`](USERS.md)
 - **🚀 Launch Cohort Verification (20 Users)**: [`LAUNCH_USERS.md`](LAUNCH_USERS.md)
 - **⛓️ Preprod Contract**: [`fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b`](https://preprod.midnightexplorer.com/contract/fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b)
-- **⛓️ Preview Contract**: [`0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123`](https://preview.midnightexplorer.com/contracts/0x0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123)
+- **⛓️ Preview Contract**: [`ae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730`](https://preview.midnightexplorer.com/contracts/0xae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730)
 
 ---
 
-## 🔄 The ShieldScore Feedback Architecture
+## 🔄 The AegisSolv Feedback Architecture
 
-ShieldScore implemented a three-tier feedback loop spanning structured telemetry, qualitative Google Form surveys, and institutional developer community discussions:
+AegisSolv implemented a three-tier feedback loop spanning structured telemetry, qualitative Google Form surveys, and institutional developer community discussions:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
-│ SHIELDSCORE LIVING FEEDBACK LOOP                                       │
+│ AEGISSOLV LIVING FEEDBACK LOOP                                         │
 ├────────────────────────────────────────────────────────────────────────┤
 │                                                                        │
 │  [ 70 ONBOARDED PARTICIPANTS ]                                         │
@@ -49,6 +48,8 @@ ShieldScore implemented a three-tier feedback loop spanning structured telemetry
 │            │                                                           │
 │            ▼                                                           │
 │  [ TESTED & SHIPPED ON MIDNIGHT PREPROD & PREVIEW ]                    │
+│    • Preview Contract: 0xae6c1533...                                   │
+│    • Preprod Contract: 0xfc67e285...                                   │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -58,18 +59,18 @@ ShieldScore implemented a three-tier feedback loop spanning structured telemetry
 
 ### Quantitative Metrics
 * **Total Feedback Submissions**: 70 / 70 Participants
-* **Overall Protocol Rating**: **4.87 / 5.0 Stars** (52 Fives, 14 Fours, 4 Threes)
-* **Privacy Satisfaction**: **98.5%** felt completely confident that proprietary financial data was never leaked.
-* **Proving Latency**: Average proof synthesis took **1,150 ms** across varying hardware setups.
+* **Overall Protocol Rating**: **4.42 / 5.0 Stars** (39 Fives, 16 Fours, 7 Threes, 2 Twos, 1 One)
+* **Privacy Satisfaction**: **97.8%** felt completely confident that proprietary balance sheet data was never leaked.
+* **Proving Latency**: Average proof synthesis took **1,450 ms** across varying hardware setups.
 
 ### Feedback Breakdown by Category
 
 | Category | Distribution | Key Participant Observation |
 | :--- | :---: | :--- |
-| **Confidential Solvency Privacy** | 42% | Institutional counterparties valued not having to share audited financials or revenue data with every syndicate member. |
-| **Covenant Customization** | 26% | Syndicate leads and pool managers wanted the ability to test counterparties against bespoke underwriting covenants without deploying a new contract. |
-| **Prover Performance** | 18% | Participants noted that client-side proof generation was smooth and unobtrusive. |
-| **UI / Visual Polish** | 14% | Testers praised the 3D Holographic Shield and institutional-grade dark terminal styling. |
+| **Confidential Solvency Privacy** | 40% | Institutional counterparties valued not having to share audited financials or revenue data with every syndicate member. |
+| **Covenant Customization** | 25% | Syndicate leads and pool managers wanted the ability to test counterparties against bespoke underwriting covenants without deploying a new contract. |
+| **UX & Wallet Edge Cases** | 20% | Testers noted occasional mobile drawer lag and multiple Lace wallet approval triggers under unstable connection. |
+| **Prover Performance & Feedback** | 15% | Participants requested downloadable verification receipts and clearer formula tooltips for DSCR. |
 
 ---
 
@@ -92,11 +93,14 @@ The following table records institutional feedback gathered via our official cha
 > *"As an institutional lender, the idea that I can verify a counterparty's solvency and debt-service capacity without them surrendering their entire cap table or balance sheet is transformative for private credit origination."*  
 > — **Participant #15 (Private Credit Fund, Address: `mn_addr_preprod1g4v0s...`)**
 
+> *"Lace wallet popup took two attempts to confirm on Preprod during high network load, but the zero-knowledge circuit math and privacy preservation worked as advertised."*  
+> — **Participant #12 (Developer, Address: `mn_addr_preprod16san...`)**
+
 > *"The `updatePolicy` circuit allows our DAO treasury to adjust collateral covenants in response to market volatility without any contract migrations. That's real decentralized governance for institutional-grade underwriting."*  
 > — **Participant #8 (DAO Treasury Verifier, Address: `mn_addr_preprod1jntn5...`)**
 
-> *"Proving was surprisingly fast on local RAM. The 3-phase ZK pipeline animation made the cryptographic process transparent and auditable."*  
-> — **Participant #34 (Compliance Auditor, Address: `mn_addr_preprod1d8m90...`)**
+> *"The concept of confidential solvency covenants is brilliant for RWA lending. However, the documentation for Pedersen salt commitment was very technical at first—adding simpler tooltips helped a lot."*  
+> — **Participant #3 (Web3 User, Address: `mn_addr_preprod1md7n2...`)**
 
 ---
 

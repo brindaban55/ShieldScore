@@ -36,8 +36,8 @@ export const LoanQuoteEngine: React.FC<LoanQuoteEngineProps> = ({
   // Rate structures based on algorithmic risk tier
   const tierConfig = {
     1: {
-      name: 'Tier A — Prime Solvency',
-      badge: 'Prime',
+      name: 'Tier A — Investment Grade (Prime)',
+      badge: 'Investment Grade',
       apr: 4.2,
       collateralRatio: 110, // 110% required collateral vs 180% standard
       maxLoan: 200000,
@@ -46,8 +46,8 @@ export const LoanQuoteEngine: React.FC<LoanQuoteEngineProps> = ({
       bgGlow: 'bg-cyan-500/10',
     },
     2: {
-      name: 'Tier B — Standard Qualifying',
-      badge: 'Standard',
+      name: 'Tier B — Senior Secured (Standard)',
+      badge: 'Senior Secured',
       apr: 6.9,
       collateralRatio: 130, // 130% required collateral
       maxLoan: 100000,
@@ -56,8 +56,8 @@ export const LoanQuoteEngine: React.FC<LoanQuoteEngineProps> = ({
       bgGlow: 'bg-sky-500/10',
     },
     3: {
-      name: 'Tier C — Baseline Acceptable',
-      badge: 'Baseline',
+      name: 'Tier C — Subordinated (Acceptable)',
+      badge: 'Subordinated',
       apr: 9.8,
       collateralRatio: 150, // 150% required collateral
       maxLoan: 50000,
@@ -97,18 +97,18 @@ export const LoanQuoteEngine: React.FC<LoanQuoteEngineProps> = ({
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="text-[10px] font-mono font-semibold uppercase tracking-widest text-cyan-400">
-              Confidential DeFi Application
+              Institutional Private Credit
             </span>
             <span className="text-[10px] font-mono font-medium px-1.5 py-0.2 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
-              Low-Collateral Credit Engine
+              Capital Facility Engine
             </span>
           </div>
           <h2 className="font-display text-xl font-bold tracking-tight text-white flex items-center gap-2">
             <Coins className="w-5 h-5 text-cyan-400" />
-            Undercollateralized Loan Quotation Engine
+            Capital Facility & Private Credit Engine
           </h2>
           <p className="font-sans text-xs text-slate-300 mt-0.5 leading-relaxed">
-            Turn your zero-knowledge ShieldScore proof into instant, high-efficiency borrowing terms on Midnight.
+            Turn verified solvency proofs into capital-efficient private credit facilities with minimized collateral drag.
           </p>
         </div>
 
@@ -159,7 +159,7 @@ export const LoanQuoteEngine: React.FC<LoanQuoteEngineProps> = ({
             <div className="flex items-center justify-between">
               <label className="text-xs font-medium text-slate-300 flex items-center gap-1.5">
                 <DollarSign className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Requested Borrow Amount</span>
+                <span>Requested Facility / Credit Line</span>
               </label>
               <div className="text-lg font-bold font-mono text-cyan-300 tabular-nums">
                 ${loanAmount.toLocaleString()}
@@ -273,7 +273,7 @@ export const LoanQuoteEngine: React.FC<LoanQuoteEngineProps> = ({
               </div>
               <div className="flex justify-between text-[11px] font-mono">
                 <span className="text-emerald-400">
-                  ShieldScore: {config.collateralRatio}% (${requiredCollateral.toLocaleString()})
+                  AegisSolv: {config.collateralRatio}% (${requiredCollateral.toLocaleString()})
                 </span>
                 <span className="text-slate-500">
                   Anonymous: {standardOvercollateralRatio}% (${standardCollateral.toLocaleString()})
@@ -294,7 +294,7 @@ export const LoanQuoteEngine: React.FC<LoanQuoteEngineProps> = ({
                 />
               </div>
               <div className="flex justify-between text-[11px] font-mono">
-                <span className="text-emerald-400">ShieldScore Rate: {config.apr}%</span>
+                <span className="text-emerald-400">AegisSolv Rate: {config.apr}%</span>
                 <span className="text-slate-500">Traditional Anonymous DeFi: {standardApr}%</span>
               </div>
             </div>
@@ -323,7 +323,7 @@ export const LoanQuoteEngine: React.FC<LoanQuoteEngineProps> = ({
           <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 text-[11px] text-slate-400 flex items-start gap-2.5">
             <Lock className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
             <span>
-              The lending contract settles solely on the Midnight blockchain using the verified Pedersen commitment. The liquidity pool never sees your salary, credit score, or bank statement.
+              The credit facility settles solely on the Midnight blockchain using the verified Pedersen commitment. The syndicate liquidity pool never sees your balance sheet, revenue run-rate, or proprietary financial records.
             </span>
           </div>
         </div>

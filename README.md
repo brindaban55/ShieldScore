@@ -1,4 +1,4 @@
-# ShieldScore 🛡️
+# AegisSolv 🛡️
 
 > **"Institutional-grade confidential solvency verification. Prove financial capacity without surrendering balance sheets."**
 
@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <img src="shieldscore_logo.jpg" alt="ShieldScore Logo" width="220" />
+  <img src="shieldscore_logo.jpg" alt="AegisSolv Logo" width="220" />
 </p>
 
 > **Domain**: **Confidential Solvency Attestation & Institutional Private Credit Underwriting Gate**  
@@ -35,9 +35,9 @@
 | :--- | :--- | :--- |
 | 🚀 **Live MVP** | [shieldscore.vercel.app](https://shieldscore.vercel.app) | Deployed on Vercel, live on Midnight Preview & Preprod |
 | 📦 **GitHub Repository** | [github.com/brindaban55/ShieldScore](https://github.com/brindaban55/ShieldScore) | Public repository with full codebase, contracts, & circuits |
-| ⛓️ **Midnight Preview Contract** | `0x0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123` | Deployed Compact smart contract on Preview |
+| ⛓️ **Midnight Preview Contract** | `0xae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730` | Deployed Compact smart contract on Preview |
 | ⛓️ **Midnight Preprod Contract** | `0xfc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b` | Deployed Compact smart contract on Preprod |
-| 🌐 **Midnight Preview Explorer** | [Audit on Preview Explorer](https://preview.midnightexplorer.com/contracts/0x0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123) | Official Midnight Preview Block Explorer |
+| 🌐 **Midnight Preview Explorer** | [Audit on Preview Explorer](https://preview.midnightexplorer.com/contracts/0xae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730) | Official Midnight Preview Block Explorer |
 | 🌐 **Midnight Preprod Explorer** | [Audit on Preprod Explorer](https://preprod.midnightexplorer.com/contract/fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b) | Official Midnight Preprod Block Explorer |
 | 📊 **Level 5 Feedback Sheet** | [Google Sheets Feedback Data](https://docs.google.com/spreadsheets/d/1YcRRiltm8tE1_IZ3P2EszeWsnztjLWhT7audSbvlJEU/edit?usp=sharing) | Live Google Sheet containing structured Preprod tester responses |
 | 📋 **Level 5 Feedback Form** | [Google Forms Survey](https://docs.google.com/forms/d/11znyKMakHgapENhlluqdgUQvswuEIaXiX1xMQiDhpbg/viewform) | Public community feedback questionnaire for testnet testers |
@@ -51,7 +51,7 @@
 
 ---
 
-**ShieldScore** is a **confidential solvency attestation and institutional private credit underwriting protocol** built natively on the **Midnight Network**. It enables institutional counterparties — private credit funds, RWA originators, DAO treasuries, and syndicated lending desks — to verify borrower financial capacity through zero-knowledge cryptographic proofs without requiring the counterparty to surrender balance sheets, income statements, or proprietary financial positions.
+**AegisSolv** is a **confidential solvency attestation and institutional private credit underwriting protocol** built natively on the **Midnight Network**. It enables institutional counterparties — private credit funds, RWA originators, DAO treasuries, and syndicated lending desks — to verify borrower financial capacity through zero-knowledge cryptographic proofs without requiring the counterparty to surrender balance sheets, income statements, or proprietary financial positions.
 
 Counterparties hold sensitive institutional financial metrics — such as total assets under management, revenue run-rate, debt service coverage ratios, and collateral buffers — securely in local client memory. By executing client-side zero-knowledge Compact circuits, counterparties generate mathematical proofs ($\pi$) demonstrating compliance with underwriting covenants (e.g. `solvencyScore >= 700`, `verifiableRevenue >= $50,000`, `debtServiceCoverage <= 40%`). The protocol receives cryptographic attestation of solvency on-chain without receiving, transmitting, or storing any proprietary financial data.
 
@@ -59,7 +59,7 @@ Counterparties hold sensitive institutional financial metrics — such as total 
 
 ## 🌐 Live On-Chain Deployments: Preprod & Preview
 
-ShieldScore is deployed, active, and verifiable across both official Midnight test networks:
+AegisSolv is deployed, active, and verifiable across both official Midnight test networks:
 
 ### 1. Midnight Preprod (Live)
 | Parameter | On-Chain Value |
@@ -76,17 +76,17 @@ ShieldScore is deployed, active, and verifiable across both official Midnight te
 | Parameter | On-Chain Value |
 | :--- | :--- |
 | **Network** | Midnight Preview (`preview`) |
-| **Contract Address** | [`0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123`](https://midnightexplorer.com/contract/0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123) |
-| **Deployment TX ID** | `00028ae43852775aa60a42561aca808ca7052529e4a22cc188f8ae538878ef07b4` |
-| **Included in Block** | `0xca0e2a65adef658fe7b94d79d6abaaa66dd7ab7cb69d262996a900b791014eb3` |
+| **Contract Address** | [`ae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730`](https://preview.midnightexplorer.com/contracts/0xae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730) |
+| **Deployment TX ID** | `006892ca60ae771690e7333217e1e0103770944d4275ec1144324edd00577aa00f` |
+| **Included in Block** | `0xbef9d5e40916638e5cad463af5b425e23fbef6e8c019193caab4f7a9e88bd89f` |
 | **Deployer Address** | `mn_addr_preview170a8t0cndggvvdx0x4c69s2fddavxggrw33e40jh6406ykg7sessmely7x` |
-| **Explorer** | [Midnight Preview Explorer](https://preview.midnightexplorer.com/contracts/0x0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123) |
+| **Explorer** | [Midnight Preview Explorer](https://preview.midnightexplorer.com/contracts/0xae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730) |
 
 ---
 
 ## 🔄 User Feedback & Iterative Engineering (Level 5 Validation)
 
-During our Level 5 user testing phase, **70 community testers** (institutional underwriters, private credit analysts, RWA originators, and security auditors) evaluated ShieldScore on Midnight Preprod and Preview. Telemetry was collected via our live [Google Form Survey](https://docs.google.com/forms/d/11znyKMakHgapENhlluqdgUQvswuEIaXiX1xMQiDhpbg/viewform) and recorded in our public [Google Sheets Feedback Ledger](https://docs.google.com/spreadsheets/d/1YcRRiltm8tE1_IZ3P2EszeWsnztjLWhT7audSbvlJEU/edit?usp=sharing).
+During our Level 5 user testing phase, **70 community testers** (institutional underwriters, private credit analysts, RWA originators, and security auditors) evaluated AegisSolv on Midnight Preprod and Preview. Telemetry was collected via our live [Google Form Survey](https://docs.google.com/forms/d/11znyKMakHgapENhlluqdgUQvswuEIaXiX1xMQiDhpbg/viewform) and recorded in our public [Google Sheets Feedback Ledger](https://docs.google.com/spreadsheets/d/1YcRRiltm8tE1_IZ3P2EszeWsnztjLWhT7audSbvlJEU/edit?usp=sharing).
 
 Rather than showcasing only flattering remarks, **we actively embraced negative critiques, reported bugs, and confusion from testers**, turning them into direct engineering improvements:
 
@@ -114,7 +114,7 @@ Rather than showcasing only flattering remarks, **we actively embraced negative 
 
 ---
 
-## 💡 The Problem & The ShieldScore Solution
+## 💡 The Problem & The AegisSolv Solution
 
 ### The Broken Status Quo in Private Credit & RWA Origination
 
@@ -127,16 +127,16 @@ This model creates severe systemic risks across both traditional finance (TradFi
 - **Capital-Inefficient Overcollateralization in DeFi:** Without verifiable solvency attestations, DeFi lending protocols demand 150%–200% overcollateralization, locking tens of billions in idle capital and excluding legitimate institutional borrowers with strong balance sheets.
 - **RWA Tokenization Bottleneck:** Real-world asset issuers cannot prove asset-backing ratios or debt-service capacity to on-chain protocols without first doxxing their entire financial position to public block explorers.
 
-### How ShieldScore Inverts the Model
+### How AegisSolv Inverts the Model
 
-ShieldScore transforms institutional underwriting from **"surrender your balance sheet"** to **"prove you meet the covenant requirements"**:
+AegisSolv transforms institutional underwriting from **"surrender your balance sheet"** to **"prove you meet the covenant requirements"**:
 
 ```
 Traditional Institutional Underwriting (Full Balance Sheet Disclosure):
 [Counterparty Financials] ──────── Full Audited Statements, Cap Tables ──────> [Syndicate Data Room]
 (Revenue, AUM, DSCR, Collateral)                                                (Competitive exposure)
 
-ShieldScore Model (Midnight Confidential Solvency Gate):
+AegisSolv Model (Midnight Confidential Solvency Gate):
 [Private Witness Inputs]
 (Revenue, Solvency Score, DSCR,  ──┐
  Collateral Coverage)              ├─ Local ZK Prover ──> π (Proof) ──> [Midnight Ledger]
@@ -150,9 +150,9 @@ ShieldScore Model (Midnight Confidential Solvency Gate):
 
 Traditional blockchains (Ethereum, Solana, Polygon) feature completely transparent ledgers where transaction parameters, balances, and smart contract state variables are visible to every observer. Confidential institutional solvency verification is impossible on public ledgers without exposing counterparty financials to competitors, regulators, and the general public.
 
-Midnight provides the specialized zero-knowledge primitives that make ShieldScore possible:
+Midnight provides the specialized zero-knowledge primitives that make AegisSolv possible:
 
-| Midnight Capability | How ShieldScore Leverages It |
+| Midnight Capability | How AegisSolv Leverages It |
 | :--- | :--- |
 | **Dual-State Architecture** | Strictly isolates off-chain **Private Witness State** (solvency metrics, revenue, debt coverage) from on-chain **Public Ledger State** (verification result, risk tier). |
 | **Compact Language** | Allows writing declarative polynomial constraint circuits with strict compile-time privacy barriers (`disclose()`). |
@@ -163,14 +163,14 @@ Midnight provides the specialized zero-knowledge primitives that make ShieldScor
 ---
 
 <p align="center">
-  <img src="hero_banner.jpg" alt="ShieldScore Dual-State Architecture" width="100%" />
+  <img src="hero_banner.jpg" alt="AegisSolv Dual-State Architecture" width="100%" />
 </p>
 
 ---
 
 ## 🛡️ Multi-Covenant Verification Circuits
 
-ShieldScore's Compact smart contract (`contract/src/shieldscore.compact`) implements 3 zero-knowledge circuits designed for institutional-grade solvency verification:
+AegisSolv's Compact smart contract (`contract/src/shieldscore.compact`) implements 3 zero-knowledge circuits designed for institutional-grade solvency verification:
 
 ### 1. `verifyCreditPassport(expectedCommitment, currentTimestamp)`
 **Institutional Solvency Attestation** — Evaluates counterparty financial capacity against active underwriting covenants:
@@ -248,7 +248,7 @@ Open `http://localhost:5173` in your browser.
 
 ## 🧪 Automated CI/CD Pipeline
 
-ShieldScore includes a full GitHub Actions workflow (`.github/workflows/ci.yml`):
+AegisSolv includes a full GitHub Actions workflow (`.github/workflows/ci.yml`):
 - Spins up `midnightntwrk/proof-server:latest` in CI.
 - Downloads and configures the native `compact` compiler toolchain.
 - Compiles `.compact` smart contracts and verifies ZK intermediate representation (`.zkir`).
