@@ -45,6 +45,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
     { id: 'loans', label: 'Capital Facility Engine', icon: Coins },
     { id: 'lender', label: 'Underwriting Console', icon: Sliders },
     { id: 'architecture', label: 'Dual-State Audit', icon: Cpu },
+    { id: 'docs', label: 'Circuit Docs', icon: FileCode2 },
   ];
 
   return (
@@ -62,7 +63,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
             <div className="flex items-center justify-between pb-4 border-b border-white/5">
               <div className="flex items-center gap-2">
                 <img src="/shieldscore_logo.jpg" alt="Logo" className="w-8 h-8 rounded-lg object-cover" />
-                <span className="font-bold text-base text-white">SHIELDSCORE</span>
+                <span className="font-bold text-base text-white">AEGISSOLV</span>
               </div>
               <motion.button
                 whileHover={{ scale: 1.1 }}

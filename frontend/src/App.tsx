@@ -10,9 +10,10 @@ import { VerifierLedger, type VerificationOutcome } from './components/VerifierL
 import { LoanQuoteEngine } from './components/LoanQuoteEngine';
 import { LenderDashboard } from './components/LenderDashboard';
 import { DualStateAudit } from './components/DualStateAudit';
+import { CircuitDocs } from './components/CircuitDocs';
 import { useWallet } from './hooks/useWallet';
 import { useContractState } from './hooks/useContractState';
-import { type SupportedNetwork, getNetworkConfig } from './lib/networkConfig';
+import { type SupportedNetwork, getNetworkConfig, getExplorerContractUrl } from './lib/networkConfig';
 import { ExternalLink } from 'lucide-react';
 
 export const App: React.FC = () => {
@@ -31,7 +32,7 @@ export const App: React.FC = () => {
     clearRevocationNotice,
   } = useWallet(activeNetwork);
 
-  const { blockHeight: onChainBlockHeight, isDeployed } = useContractState();
+  const { blockHeight: onChainBlockHeight, isDeployed } = useContractState(activeNetwork);
 
   const [activeTab, setActiveTab] = useState<AppTab>('borrower');
   const [isWalletModalOpen, setIsWalletModalOpen] = useState(false);
@@ -231,6 +232,11 @@ export const App: React.FC = () => {
                   <DualStateAudit />
                 </div>
               )}
+              {activeTab === 'docs' && (
+                <div className="min-h-[calc(100vh-14rem)]">
+                  <CircuitDocs activeNetwork={activeNetwork} />
+                </div>
+              )}
             </motion.div>
           </AnimatePresence>
         </main>
@@ -239,14 +245,14 @@ export const App: React.FC = () => {
         <footer className="mt-16 border-t border-white/5 py-8 bg-[#080B11]/90 backdrop-blur-md">
           <div className="max-w-[1440px] w-[95%] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
             <div className="flex items-center gap-2">
-              <span className="text-white font-bold font-sans">ShieldScore</span>
+              <span className="text-white font-bold font-sans">AegisSolv</span>
               <span>•</span>
-              <span>Zero-Knowledge DeFi Privacy Layer on Midnight</span>
+              <span>Confidential Solvency & Institutional Private Credit Underwriting Gate on Midnight</span>
             </div>
 
             <div className="flex items-center gap-6">
               <a
-                href={`${currentNetConfig.explorerUrl}/contract/${currentNetConfig.deployedContractAddress}`}
+                href={getExplorerContractUrl(currentNetConfig.deployedContractAddress, activeNetwork)}
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-cyan-400 transition-colors flex items-center gap-1"

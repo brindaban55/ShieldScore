@@ -46,7 +46,7 @@ export const LenderDashboard: React.FC = () => {
           Configurable Underwriting Covenants & Governance
         </h1>
         <p className="font-sans text-sm text-slate-300 mt-1 max-w-2xl leading-relaxed">
-          Define customized financial covenants for syndicated private credit or RWA facilities. ShieldScore's Compact circuits evaluate counterparty compliance confidentially on Midnight without exposing balance sheets.
+          Define customized financial covenants for syndicated private credit or RWA facilities. AegisSolv's Compact circuits evaluate counterparty compliance confidentially on Midnight without exposing balance sheets.
         </p>
       </div>
 
@@ -199,17 +199,17 @@ export const LenderDashboard: React.FC = () => {
           <GlassCard>
             <h3 className="font-display text-sm font-bold text-white mb-2 flex items-center gap-2 tracking-tight">
               <Shield className="w-4 h-4 text-cyan-400" />
-              <span>How Lenders Integrate ShieldScore</span>
+              <span>How Syndicates Integrate AegisSolv</span>
             </h3>
             <div className="font-sans text-xs text-slate-300 space-y-3 leading-relaxed">
               <p>
-                1. <strong>Publish Criteria:</strong> Lenders register their credit parameters directly on Midnight via <code className="text-cyan-300 font-mono">updatePolicy</code>.
+                1. <strong>Publish Covenants:</strong> Risk committees register baseline covenants directly on Midnight via <code className="text-cyan-300 font-mono">updatePolicy</code>.
               </p>
               <p>
-                2. <strong>Zero Data Ingestion:</strong> Borrowers invoke the <code className="text-cyan-300 font-mono">verifyCreditPassport</code> circuit locally on their own devices.
+                2. <strong>Zero Data Ingestion:</strong> Counterparties invoke the <code className="text-cyan-300 font-mono">verifyCreditPassport</code> circuit locally on their own devices.
               </p>
               <p>
-                3. <strong>Instant Verification:</strong> The lender queries the contract state for the borrower's commitment to confirm <code className="text-emerald-400 font-mono">verificationResult == true</code>.
+                3. <strong>Instant Verification:</strong> The syndicate queries the on-chain contract state for the commitment hash to confirm <code className="text-emerald-400 font-mono">verificationResult == true</code> and retrieve the assigned risk tier.
               </p>
             </div>
           </GlassCard>
@@ -220,7 +220,7 @@ export const LenderDashboard: React.FC = () => {
               <span>Institutional Risk Mitigation</span>
             </h3>
             <p className="font-sans text-xs text-slate-400 leading-relaxed">
-              By never possessing borrower tax returns, bank credentials, or social security numbers, lending platforms eliminate catastrophic data breach liability and regulatory exposure under GDPR/CCPA.
+              By never possessing counterparty audited balance sheets, debt schedules, or capitalization tables, lending platforms eliminate catastrophic data breach liability and corporate espionage risks.
             </p>
           </GlassCard>
         </div>

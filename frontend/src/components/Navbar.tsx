@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Radio, Wallet, LogOut, Menu, Coins, Cpu, Users, MessageSquare } from 'lucide-react';
+import { Shield, Radio, Wallet, LogOut, Menu, Coins, Cpu, Users, FileCode2 } from 'lucide-react';
 import type { WalletProviderType } from '../lib/walletConnector';
 
 import type { SupportedNetwork } from '../lib/networkConfig';
 
-export type AppTab = 'borrower' | 'loans' | 'lender' | 'architecture';
+export type AppTab = 'borrower' | 'loans' | 'lender' | 'architecture' | 'docs';
 
 interface NavbarProps {
   activeTab: AppTab;
@@ -41,6 +41,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'loans', label: 'Capital Facility Engine', icon: Coins },
     { id: 'lender', label: 'Underwriting Console', icon: Users },
     { id: 'architecture', label: 'Dual-State Audit', icon: Cpu },
+    { id: 'docs', label: 'Circuit Docs', icon: FileCode2 },
   ];
 
   return (

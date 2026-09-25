@@ -58,7 +58,7 @@ export const WalletModal: React.FC<WalletModalProps> = ({
                 <span>Mobile Device Detected ({device.os.toUpperCase()})</span>
               </div>
               <p className="text-[11px] text-amber-100/80 mb-3">
-                Browser extensions require desktop browsers. On mobile, launch ShieldScore inside 1AM Wallet or continue in Demo Mode:
+                Browser extensions require desktop browsers. On mobile, launch AegisSolv inside 1AM Wallet or continue in Demo Mode:
               </p>
               <div className="grid grid-cols-2 gap-2">
                 <a

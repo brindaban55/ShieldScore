@@ -142,36 +142,36 @@ export const DualStateAudit: React.FC = () => {
           </span>
         </div>
         <h3 className="font-display text-xl font-bold text-white tracking-tight">
-          How ShieldScore Drives Real-World Value & Sustainable Revenue
+          How AegisSolv Drives Real-World Value & Sustainable Revenue
         </h3>
         <p className="font-sans text-xs text-slate-300 mt-1 max-w-3xl leading-relaxed">
-          DeFi currently has over $30 Billion trapped in idle overcollateralization because protocols cannot evaluate risk anonymously. ShieldScore solves this capital inefficiency while generating protocol revenue.
+          DeFi currently has over $30 Billion trapped in idle overcollateralization because protocols cannot evaluate risk anonymously. AegisSolv solves this capital inefficiency while generating protocol revenue.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-6">
           {/* Pillar 1: Borrower Value */}
           <div className="p-4 rounded-xl bg-white/[0.02] border border-cyan-500/20 space-y-2.5">
             <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
-              For Borrowers
+              For Counterparties & Borrowers
             </span>
             <h4 className="font-display text-sm font-bold text-white">70% Lower Collateral Locked</h4>
             <ul className="text-xs font-sans text-slate-300 space-y-1.5 leading-relaxed">
-              <li>• <strong>Capital Efficiency:</strong> Deposit only 110% collateral vs 180% in standard DeFi.</li>
-              <li>• <strong>Interest Reduction:</strong> Pay 4.2% Prime APR vs 15.4% anonymous DeFi penalty.</li>
-              <li>• <strong>Zero Privacy Breach:</strong> Tax records and credit scores never touch public explorers.</li>
+              <li>• <strong>Capital Efficiency:</strong> Deposit only 105%-110% collateral vs 180% in standard DeFi.</li>
+              <li>• <strong>Interest Reduction:</strong> Pay 4.2%-6.2% Prime APR vs 15.4% anonymous DeFi penalty.</li>
+              <li>• <strong>Zero Privacy Breach:</strong> Tax records and financial statements never touch public explorers.</li>
             </ul>
           </div>
 
           {/* Pillar 2: Institutional Lender Value */}
           <div className="p-4 rounded-xl bg-white/[0.02] border border-indigo-500/20 space-y-2.5">
             <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/30">
-              For Lenders & Pools
+              For Syndicates & Liquidity Pools
             </span>
             <h4 className="font-display text-sm font-bold text-white">High Yield Prime Underwriting</h4>
             <ul className="text-xs font-sans text-slate-300 space-y-1.5 leading-relaxed">
-              <li>• <strong>Higher Yield:</strong> Earn 6.5% - 8.5% APY on prime undercollateralized pools (vs 2.5% on Aave).</li>
+              <li>• <strong>Higher Yield:</strong> Earn 6.5% - 8.5% APY on prime undercollateralized facilities (vs 2.5% on Aave).</li>
               <li>• <strong>Zero Data Breach Liability:</strong> Lenders never store user PII, eliminating GDPR/FCRA liability.</li>
-              <li>• <strong>Cryptographic Enforcement:</strong> Default liquidations executed autonomously by Midnight smart contracts.</li>
+              <li>• <strong>Cryptographic Enforcement:</strong> Covenants and risk tiers verified autonomously by Midnight Compact circuits.</li>
             </ul>
           </div>
 
@@ -182,9 +182,9 @@ export const DualStateAudit: React.FC = () => {
             </span>
             <h4 className="font-display text-sm font-bold text-white">3-Stream Monetization</h4>
             <ul className="text-xs font-sans text-slate-300 space-y-1.5 leading-relaxed">
-              <li>• <strong>0.35% Loan Origination Fee:</strong> Collected on every undercollateralized loan originated.</li>
+              <li>• <strong>0.35% Facility Origination Fee:</strong> Collected on every capital facility drawdown originated.</li>
               <li>• <strong>$1.50 Attestation Query Fee:</strong> Paid by institutional lending pools per verified passport.</li>
-              <li>• <strong>10% Performance Spread:</strong> Accrues to the ShieldScore DAO treasury from pool yield.</li>
+              <li>• <strong>10% Performance Spread:</strong> Accrues to the AegisSolv DAO treasury from pool yield.</li>
             </ul>
           </div>
         </div>

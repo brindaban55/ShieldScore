@@ -155,7 +155,7 @@ export async function connectWalletProvider(
   // Strict Network Verification: Address must match current active network prefix
   if (!address.startsWith(netConfig.addressPrefix)) {
     const detectedNet = address.startsWith('mn_addr_preview') ? 'Midnight Preview' : (address.startsWith('mn_addr_preprod') ? 'Midnight Preprod' : 'Unknown Network');
-    throw new Error(`Network Mismatch: Your wallet is currently on ${detectedNet} (${address.slice(0, 15)}...), but ShieldScore is active on ${netConfig.networkName}. Please switch your 1AM or Lace wallet extension to ${netConfig.networkName} and try again.`);
+    throw new Error(`Network Mismatch: Your wallet is currently on ${detectedNet} (${address.slice(0, 15)}...), but AegisSolv is active on ${netConfig.networkName}. Please switch your 1AM or Lace wallet extension to ${netConfig.networkName} and try again.`);
   }
 
   return { address, connectedApi };

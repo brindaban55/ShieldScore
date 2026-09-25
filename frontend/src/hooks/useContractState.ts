@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { PREVIEW_CONFIG } from '../lib/networkConfig';
+import { getNetworkConfig, type SupportedNetwork } from '../lib/networkConfig';
 
 export interface OnChainContractState {
   address: string;
@@ -13,14 +13,16 @@ export interface OnChainContractState {
   error: string | null;
 }
 
-export function useContractState() {
+export function useContractState(network: SupportedNetwork = 'preview') {
+  const netConfig = getNetworkConfig(network);
+
   const [contractData, setContractData] = useState<OnChainContractState>({
-    address: PREVIEW_CONFIG.deployedContractAddress,
+    address: netConfig.deployedContractAddress,
     stateHex: null,
     blockHeight: null,
     stateByteLength: 0,
     isDeployed: true,
-    network: 'Midnight Preview',
+    network: netConfig.networkName,
     lastUpdated: null,
     isLoading: true,
     error: null,
@@ -41,11 +43,11 @@ export function useContractState() {
           }
         `,
         variables: {
-          contractAddress: PREVIEW_CONFIG.deployedContractAddress,
+          contractAddress: netConfig.deployedContractAddress,
         },
       });
 
-      const response = await fetch(PREVIEW_CONFIG.indexerUrl, {
+      const response = await fetch(netConfig.indexerUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -63,12 +65,12 @@ export function useContractState() {
       const stateStr = contract?.state || '';
 
       setContractData({
-        address: contract?.address || PREVIEW_CONFIG.deployedContractAddress,
+        address: contract?.address || netConfig.deployedContractAddress,
         stateHex: stateStr,
         blockHeight: block?.height || null,
         stateByteLength: stateStr ? Math.floor(stateStr.length / 2) : 0,
         isDeployed: !!contract?.address,
-        network: 'Midnight Preview (Dual-State)',
+        network: `${netConfig.networkName} (Dual-State)`,
         lastUpdated: new Date().toLocaleTimeString(),
         isLoading: false,
         error: null,
@@ -81,7 +83,7 @@ export function useContractState() {
         error: err.message || 'Failed to query live indexer.',
       }));
     }
-  }, []);
+  }, [netConfig.deployedContractAddress, netConfig.indexerUrl, netConfig.networkName]);
 
   useEffect(() => {
     fetchLiveState();

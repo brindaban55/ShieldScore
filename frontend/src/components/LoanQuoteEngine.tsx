@@ -256,7 +256,7 @@ export const LoanQuoteEngine: React.FC<LoanQuoteEngineProps> = ({
         <div className="lg:col-span-6 space-y-4">
           <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 space-y-4">
             <h3 className="text-xs font-mono uppercase tracking-wider text-slate-400">
-              The ShieldScore Advantage vs Standard DeFi
+              The AegisSolv Advantage vs Standard DeFi
             </h3>
 
             {/* Metric 1: Collateral Comparison */}
