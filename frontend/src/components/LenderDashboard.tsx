@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GlassCard } from './GlassCard';
 import { Sliders, Shield, ArrowRight, RefreshCw, CheckCircle2, Building2, HelpCircle, ShieldCheck } from 'lucide-react';
-import { PREVIEW_CONFIG } from '../lib/networkConfig';
+import { PREVIEW_CONFIG, getExplorerContractUrl } from '../lib/networkConfig';
 
 interface LenderPolicy {
   policyName: string;
@@ -158,7 +158,7 @@ export const LenderDashboard: React.FC = () => {
                     <div className="text-[11px] text-slate-300 pl-6 flex items-center justify-between gap-2 flex-wrap">
                       <span>Tx: 00c2304e46dfba925be34227e69b9b2876b3117b...</span>
                       <a
-                        href={`https://preview.midnightexplorer.com/contract/${PREVIEW_CONFIG.deployedContractAddress}`}
+                        href={getExplorerContractUrl(PREVIEW_CONFIG.deployedContractAddress)}
                         target="_blank"
                         rel="noreferrer"
                         className="text-cyan-400 hover:text-cyan-300 underline flex items-center gap-1"

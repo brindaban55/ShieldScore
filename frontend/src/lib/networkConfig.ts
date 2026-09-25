@@ -52,3 +52,9 @@ export const PREVIEW_CONFIG = NETWORKS_CONFIG.preview;
 export function getNetworkConfig(networkId: SupportedNetwork): NetworkEndpoints {
   return NETWORKS_CONFIG[networkId] || NETWORKS_CONFIG.preview;
 }
+
+export function getExplorerContractUrl(address: string, network: SupportedNetwork = 'preview'): string {
+  const cleanAddr = address.startsWith('0x') ? address : `0x${address}`;
+  const base = network === 'preprod' ? 'https://preprod.midnightexplorer.com' : 'https://preview.midnightexplorer.com';
+  return `${base}/contracts/${cleanAddr}`;
+}

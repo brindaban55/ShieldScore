@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { GlassCard } from './GlassCard';
 import { CheckCircle2, ShieldAlert, ExternalLink, Copy, Check, Terminal, FileCode2, ArrowRight, RefreshCw, Zap } from 'lucide-react';
-import { PREVIEW_CONFIG } from '../lib/networkConfig';
+import { PREVIEW_CONFIG, getExplorerContractUrl } from '../lib/networkConfig';
 import { useContractState } from '../hooks/useContractState';
 
 export interface VerificationOutcome {
@@ -112,7 +112,7 @@ export const VerifierLedger: React.FC<VerifierLedgerProps> = ({
           <motion.a
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            href={`${PREVIEW_CONFIG.explorerUrl}/contract/${PREVIEW_CONFIG.deployedContractAddress}`}
+            href={getExplorerContractUrl(PREVIEW_CONFIG.deployedContractAddress)}
             target="_blank"
             rel="noreferrer"
             className="text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 hover:border-cyan-500/40 transition-all w-fit"
@@ -148,9 +148,12 @@ export const VerifierLedger: React.FC<VerifierLedgerProps> = ({
                   </div>
 
                   <div>
-                    <span className="text-[10px] text-slate-400 font-mono block">BLINDED COMMITMENT</span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] text-slate-400 font-mono block">BLINDED COMMITMENT (ZK WITNESS)</span>
+                      <span className="text-[9px] font-mono text-cyan-400/80 bg-cyan-400/10 px-1.5 py-0.5 rounded">Private Witness</span>
+                    </div>
                     <div className="flex items-center justify-between gap-2 mt-0.5">
-                      <code className="text-xs font-mono text-slate-200 truncate">
+                      <code className="text-xs font-mono text-slate-200 truncate" title={outcome.commitment}>
                         {outcome.commitment}
                       </code>
                       <motion.button
@@ -162,6 +165,9 @@ export const VerifierLedger: React.FC<VerifierLedgerProps> = ({
                         {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                       </motion.button>
                     </div>
+                    <span className="text-[9px] text-slate-500 font-mono block mt-0.5">
+                      Private cryptographic salt kept secret from public view
+                    </span>
                   </div>
 
                   <div className="grid grid-cols-2 gap-2 pt-2 border-t border-white/5 text-xs font-mono">
@@ -170,15 +176,15 @@ export const VerifierLedger: React.FC<VerifierLedgerProps> = ({
                       <span className="text-slate-300 tabular-nums">#{outcome.blockHeight || blockHeight}</span>
                     </div>
                     <div>
-                      <span className="text-[10px] text-slate-500 block">TX IDENTIFIER</span>
+                      <span className="text-[10px] text-slate-500 block">ON-CHAIN CONTRACT</span>
                       <a
-                        href={`https://preview.midnightexplorer.com/contract/${PREVIEW_CONFIG.deployedContractAddress}`}
+                        href={getExplorerContractUrl(PREVIEW_CONFIG.deployedContractAddress)}
                         target="_blank"
                         rel="noreferrer"
-                        title="Audit transaction on Midnight Explorer"
+                        title="Audit contract on Midnight Explorer"
                         className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2 flex items-center gap-1 font-mono"
                       >
-                        <span className="truncate">{outcome.txId.slice(0, 12)}...</span>
+                        <span className="truncate">0x{PREVIEW_CONFIG.deployedContractAddress.slice(0, 8)}...</span>
                         <ExternalLink className="w-2.5 h-2.5 shrink-0" />
                       </a>
                     </div>
