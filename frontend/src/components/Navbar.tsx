@@ -53,7 +53,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => setActiveTab('borrower')}
+            onClick={() => {
+              setActiveTab('borrower');
+              window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            }}
             className="flex items-center gap-3 text-left group"
           >
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/10 border border-cyan-500/30 flex items-center justify-center shadow-[0_0_16px_rgba(0,240,255,0.25)] group-hover:border-cyan-400/60 group-hover:shadow-[0_0_24px_rgba(0,240,255,0.4)] transition-all">
@@ -117,7 +120,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             return (
               <motion.button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => {
+                  setActiveTab(tab.id);
+                  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.96 }}
                 className={`relative px-3.5 py-1.5 rounded-lg text-xs font-medium transition-colors flex items-center gap-1.5 z-10 ${

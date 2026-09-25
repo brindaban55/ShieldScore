@@ -36,6 +36,7 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
 
   const handleNav = (tab: AppTab) => {
     setActiveTab(tab);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     onClose();
   };
 

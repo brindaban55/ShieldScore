@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GlassCard } from './GlassCard';
-import { MessageSquare, Star, CheckCircle2, X, Send, Sparkles, User, ThumbsUp, ExternalLink } from 'lucide-react';
+import { MessageSquare, Star, CheckCircle2, X, Send, User, ExternalLink, HelpCircle } from 'lucide-react';
 
 interface FeedbackModalProps {
   isOpen: boolean;
@@ -19,7 +19,7 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({ isOpen, onClose })
     e.preventDefault();
     if (!comments.trim()) return;
 
-    // Persist locally for feedback loop tracking
+    // Persist to local feedback store for developer diagnostics
     try {
       const existing = JSON.parse(localStorage.getItem('shieldscore_user_feedback') || '[]');
       existing.push({
@@ -68,16 +68,16 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({ isOpen, onClose })
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="flex items-center gap-2.5 mb-1 text-cyan-400 font-mono text-xs uppercase tracking-wider font-semibold">
+              <div className="flex items-center gap-2 mb-1 text-cyan-400 font-mono text-xs uppercase tracking-wider font-semibold">
                 <MessageSquare className="w-4 h-4" />
-                <span>Level 5 & 6 Living Feedback Loop</span>
+                <span>Developer Support & Feedback</span>
               </div>
 
               <h3 className="font-display text-2xl font-bold text-white tracking-tight">
                 Submit Product Feedback
               </h3>
               <p className="font-sans text-xs text-slate-300 mt-1 leading-relaxed">
-                Help shape the future of confidential credit on Midnight. Your input directly influences our circuit features and underwriting roadmaps.
+                Help shape the future of confidential credit on Midnight. Your input directly informs our protocol features and underwriting engineering.
               </p>
 
               {isSubmitted ? (
@@ -89,9 +89,9 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({ isOpen, onClose })
                   <div className="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 shadow-[0_0_24px_rgba(16,185,129,0.3)]">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h4 className="font-display text-lg font-bold text-white">Feedback Recorded!</h4>
+                  <h4 className="font-display text-lg font-bold text-white">Feedback Dispatched!</h4>
                   <p className="text-xs font-sans text-slate-300 max-w-xs leading-relaxed">
-                    Thank you for participating in our testnet user feedback loop. Your response has been added to our development ledger.
+                    Thank you! Your feedback has been forwarded to the ShieldScore development team.
                   </p>
                 </motion.div>
               ) : (
@@ -136,12 +136,12 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({ isOpen, onClose })
                           key={star}
                           type="button"
                           onClick={() => setRating(star)}
-                          className="p-1 transition-transform hover:scale-110"
+                          className="p-1 text-slate-500 hover:text-amber-400 transition-colors"
                         >
                           <Star
                             className={`w-6 h-6 ${
                               star <= rating
-                                ? 'text-amber-400 fill-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]'
+                                ? 'text-amber-400 fill-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]'
                                 : 'text-slate-600'
                             }`}
                           />
@@ -150,7 +150,7 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({ isOpen, onClose })
                     </div>
                   </div>
 
-                  {/* Category */}
+                  {/* Feedback Topic */}
                   <div>
                     <label className="block text-xs font-medium text-slate-300 mb-1.5">
                       Feedback Topic
@@ -158,7 +158,7 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({ isOpen, onClose })
                     <select
                       value={category}
                       onChange={(e) => setCategory(e.target.value as any)}
-                      className="w-full px-4 py-2.5 rounded-xl bg-canvas-input border border-white/10 text-white text-xs font-mono focus:outline-none focus:border-cyan-400 transition-all"
+                      className="w-full px-3 py-2 rounded-xl bg-canvas-input border border-white/10 text-white text-xs font-mono focus:outline-none focus:border-cyan-400/80 transition-all"
                     >
                       <option value="privacy">Zero-Knowledge Privacy Guarantee & Disclosures</option>
                       <option value="performance">Prover Speed & Client-Side Proof Generation</option>
@@ -167,7 +167,7 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({ isOpen, onClose })
                     </select>
                   </div>
 
-                  {/* Comments */}
+                  {/* Comments Area */}
                   <div>
                     <label className="block text-xs font-medium text-slate-300 mb-1.5">
                       Your Insights & Suggestions
@@ -177,7 +177,7 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({ isOpen, onClose })
                       value={comments}
                       onChange={(e) => setComments(e.target.value)}
                       placeholder="e.g. The client-side proof generation felt instant. I would like to see support for multi-asset collateral ratios in Tier B..."
-                      className="w-full px-4 py-2.5 rounded-xl bg-canvas-input border border-white/10 text-white placeholder-slate-500 text-xs font-mono focus:outline-none focus:border-cyan-400 transition-all resize-none"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-canvas-input border border-white/10 text-white placeholder-slate-500/40 text-xs font-sans focus:outline-none focus:border-cyan-400/80 transition-all"
                     />
                   </div>
 
@@ -187,26 +187,24 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({ isOpen, onClose })
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     disabled={!comments.trim()}
-                    className="w-full py-3.5 rounded-xl font-display font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 transition-all flex items-center justify-center gap-2 text-xs tracking-tight shadow-[0_0_20px_rgba(0,240,255,0.3)] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                    className="w-full py-3 rounded-xl font-display font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 transition-all flex items-center justify-center gap-2 text-xs tracking-tight shadow-[0_0_16px_rgba(0,240,255,0.25)] disabled:opacity-40 cursor-pointer"
                   >
-                    <Send className="w-4 h-4" />
-                    <span>Submit to Feedback Ledger</span>
+                    <Send className="w-3.5 h-3.5" />
+                    <span>Send Feedback to Developer</span>
                   </motion.button>
 
-                  {/* External Google Form Link */}
-                  <div className="pt-2 text-center border-t border-white/5">
-                    <p className="text-[11px] text-slate-400 font-sans">
-                      Prefer a detailed external survey?{' '}
-                      <a
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSd98mF_ShieldScore_Feedback/viewform"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-cyan-400 hover:text-cyan-300 underline font-mono inline-flex items-center gap-1 transition-colors"
-                      >
-                        <span>Open Google Feedback Form</span>
-                        <ExternalLink className="w-3 h-3" />
-                      </a>
-                    </p>
+                  {/* Alternate External Feedback Channels */}
+                  <div className="pt-2 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>Prefer an external form?</span>
+                    <a
+                      href="https://forms.google.com"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-cyan-400 hover:text-cyan-300 flex items-center gap-1 hover:underline"
+                    >
+                      <span>Google Feedback Form</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
                   </div>
                 </form>
               )}

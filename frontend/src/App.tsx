@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar, type AppTab } from './components/Navbar';
 import { WalletModal } from './components/WalletModal';
@@ -107,6 +107,11 @@ export const App: React.FC = () => {
     }, 400);
   };
 
+  // Always reset window scroll on tab change to prevent blank-screen viewport misalignment
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [activeTab]);
+
   return (
     <div className="min-h-screen relative bg-[#080B11] text-slate-100 selection:bg-cyan-500/20 selection:text-cyan-300 overflow-x-hidden">
       {/* Full-bleed rich background visuals */}
@@ -177,7 +182,7 @@ export const App: React.FC = () => {
               transition={{ duration: 0.26, ease: 'easeOut' }}
             >
               {activeTab === 'borrower' && (
-                <div>
+                <div className="min-h-[calc(100vh-14rem)]">
                   {/* Hero Banner with 3D Holographic Shield */}
                   <LandingHero
                     onConnectWallet={() => setIsWalletModalOpen(true)}
@@ -213,7 +218,7 @@ export const App: React.FC = () => {
               )}
 
               {activeTab === 'loans' && (
-                <div className="max-w-[1440px] w-[95%] mx-auto py-10 space-y-8">
+                <div className="max-w-[1440px] w-[95%] mx-auto py-10 space-y-8 min-h-[calc(100vh-14rem)]">
                   <LoanQuoteEngine
                     verifiedOutcome={verificationOutcome}
                     onNavigateToProver={() => setActiveTab('borrower')}
@@ -221,8 +226,16 @@ export const App: React.FC = () => {
                 </div>
               )}
 
-              {activeTab === 'lender' && <LenderDashboard />}
-              {activeTab === 'architecture' && <DualStateAudit />}
+              {activeTab === 'lender' && (
+                <div className="min-h-[calc(100vh-14rem)]">
+                  <LenderDashboard />
+                </div>
+              )}
+              {activeTab === 'architecture' && (
+                <div className="min-h-[calc(100vh-14rem)]">
+                  <DualStateAudit />
+                </div>
+              )}
             </motion.div>
           </AnimatePresence>
         </main>
