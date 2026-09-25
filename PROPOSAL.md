@@ -1,6 +1,6 @@
 # ShieldScore — Confidential Credentials & Solvency Eligibility Gate (Product Proposal)
 
-> **Midnight Builder Challenge Track:** Approved Idea Category 2 & 4  
+> **Midnight Ecosystem Domain:** Confidential Credentials & Eligibility Gate  
 > **Category:** *Confidential Credentials & Eligibility Gate — prove a financial solvency threshold without revealing the underlying raw data.*  
 > **Network Target:** Midnight Preview / Preprod  
 > **Contract Address:** [`0x0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123`](https://preview.midnightexplorer.com/contracts/0x0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123)
@@ -99,9 +99,9 @@ Using the integrated **DeFi Loan Quote Engine**, ShieldScore turns zero-knowledg
 
 ## 6. Project Roadmap & Production Milestones
 
-- [x] **Level 1**: Compact compiler setup, test suite, and contract deployment on Midnight Preview.
-- [x] **Level 2**: Frontend integration, Lace & 1AM Wallet DApp connectors, and live circuit invocation.
-- [x] **Level 3**: Production CI/CD workflow, 10/10 passing Vitest tests, and approved idea alignment.
-- [x] **Level 4**: Full documentation, live explorer verification, and public product profile.
-- [x] **Level 5**: 50+ on-chain user accounts onboarded and living user feedback loop documented.
-- [x] **Level 6**: 70 verifiable testnet user accounts, 20 launch user transactions, responsive mobile & desktop UX with 1AM Wallet deep linking, and institutional brand kit.
+- [x] **Phase 1: Compact Circuit Architecture**: Compact compiler setup, test suite, and contract deployment on Midnight Preview.
+- [x] **Phase 2: Client DApp & Multi-Wallet Integration**: Frontend integration, Lace & 1AM Wallet DApp connectors, and live circuit invocation.
+- [x] **Phase 3: Formal Invariants & Automated CI/CD**: Production CI/CD workflow, 10/10 passing Vitest tests, and cryptographic threat models.
+- [x] **Phase 4: Public Distribution & Verification**: Full architectural documentation, live explorer verification, and public product profile.
+- [x] **Phase 5: User Identity Cohorts & Telemetry**: 50+ on-chain user accounts onboarded and living user feedback loop documented.
+- [x] **Phase 6: Multi-Network Release & Settlement**: 70 verifiable testnet user accounts, 20 launch user transactions, responsive mobile & desktop UX with 1AM Wallet deep linking, and institutional brand kit.
