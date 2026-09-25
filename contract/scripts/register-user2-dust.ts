@@ -76,7 +76,7 @@ async function main() {
   console.log(`Available UTXOs: ${coins.length}`);
   for (let i = 0; i < coins.length; i++) {
     const c = coins[i];
-    console.log(`  UTXO #${i + 1}: ${Number(c.value) / 1_000_000} tNIGHT | DUST GEN: ${c.meta?.registeredForDustGeneration ? 'YES' : 'NO'}`);
+    console.log(`  UTXO #${i + 1}: ${Number(c.utxo.value) / 1_000_000} tNIGHT | DUST GEN: ${c.meta?.registeredForDustGeneration ? 'YES' : 'NO'}`);
   }
 
   const unregistered = coins.filter((c: any) => !c.meta?.registeredForDustGeneration);

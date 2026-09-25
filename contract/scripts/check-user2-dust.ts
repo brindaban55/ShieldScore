@@ -53,7 +53,7 @@ async function main() {
   console.log(`Total UTXOs: ${state.availableCoins.length}`);
   for (let i = 0; i < state.availableCoins.length; i++) {
     const c = state.availableCoins[i];
-    console.log(`  UTXO #${i + 1}: ${Number(c.value) / 1_000_000} tNIGHT | DUST GEN: ${c.meta?.registeredForDustGeneration ? 'YES' : 'NO'}`);
+    console.log(`  UTXO #${i + 1}: ${Number(c.utxo.value) / 1_000_000} tNIGHT | DUST GEN: ${c.meta?.registeredForDustGeneration ? 'YES' : 'NO'}`);
   }
 
   console.log('Syncing dust...');
