@@ -23,8 +23,8 @@
   <img src="shieldscore_logo.jpg" alt="ShieldScore Logo" width="220" />
 </p>
 
-> **Midnight Builder Challenge Category**: **Confidential Credentials & Eligibility Gate**  
-> **Challenge Progress**: Level 1 (New Moon) through Level 6 (Supermoon) Complete.
+> **Domain**: **Confidential Credentials & Financial Eligibility Gate**  
+> **Ecosystem**: Built natively for the **Midnight Network** (Preprod & Preview)
 
 **ShieldScore** is a privacy-preserving financial eligibility and confidential credit-verification protocol built natively for the **Midnight Network**.
 
@@ -32,22 +32,9 @@ Borrowers hold sensitive personal financial metrics—such as annual income, cre
 
 ---
 
-## 🏆 Midnight Builder Challenge — Level 1 to 6 Compliance Matrix
-
-| Level | Challenge Phase | Core Requirement | ShieldScore Implementation | Status |
-| :---: | :--- | :--- | :--- | :---: |
-| **Level 1** | New Moon | Toolchain, first Compact contract with `disclose()`, passing tests, deployed on Preview | Toolchain installed, `shieldscore.compact` written, 10/10 Vitest tests pass, deployed on Midnight Preview (`0794f000...`) | ✅ Complete |
-| **Level 2** | Crescent | Contract wired to frontend UI, 1AM/Lace wallet connect/disconnect, observable privacy behavior | React 18 + Vite frontend with multi-wallet connector, ZK pipeline, selective disclosure audit | ✅ Complete |
-| **Level 3** | Half Moon | Approved idea ("Confidential Credentials"), production-grade dApp, 3+ tests, CI/CD pipeline | "Confidential Credentials" category, 10 tests, GitHub Actions CI/CD (`.github/workflows/ci.yml`) | ✅ Complete |
-| **Level 4** | Gibbous | MVP on Preview, full documentation, setup guide, product profile on X | Full docs (`README.md`, `docs/PRIVACY_MODEL.md`), X profile ([@ShieldScoreFi](https://x.com/ShieldScoreFi)) | ✅ Complete |
-| **Level 5** | Full Moon | 50 Preprod/Preview users, living feedback loop documented, updated docs | 50+ users directory (`USERS-70.md`), living feedback loop & in-app feedback modal (`FEEDBACK.md`) | ✅ Complete |
-| **Level 6** | Supermoon | 70 Preprod/Preview users, refined MVP, feedback documentation, 30+ meaningful commits | 70 verifiable user accounts (`USERS-70.md`), 30+ structured git commits | ✅ Complete |
-
----
-
 ## 🌐 Live On-Chain Deployments: Preprod & Preview
 
-ShieldScore is deployed and verifiable across both official Midnight test networks:
+ShieldScore is deployed, active, and verifiable across both official Midnight test networks:
 
 ### 1. Midnight Preprod (Live)
 | Parameter | On-Chain Value |
@@ -69,6 +56,19 @@ ShieldScore is deployed and verifiable across both official Midnight test networ
 | **Included in Block** | `0xca0e2a65adef658fe7b94d79d6abaaa66dd7ab7cb69d262996a900b791014eb3` |
 | **Deployer Address** | `mn_addr_preview170a8t0cndggvvdx0x4c69s2fddavxggrw33e40jh6406ykg7sessmely7x` |
 | **Explorer** | [Midnight Preview Explorer](https://midnightexplorer.com) |
+
+---
+
+## 🏗️ Protocol Architecture & Development Milestones
+
+| Milestone | Architecture Stage | Technical Implementation | Status |
+| :---: | :--- | :--- | :---: |
+| **Phase 1** | ZK Core & Compact Circuits | Toolchain configured, `shieldscore.compact` written with selective disclosure (`disclose()`), 10/10 Vitest tests pass, compiled to Groth16 circuits | ✅ Shipped |
+| **Phase 2** | UI Terminal & Wallet Integration | React 18 + Vite terminal, Three.js 3D Holographic Shield, 1AM / Lace multi-wallet connector via CIP-0030, real-time selective disclosure audit | ✅ Shipped |
+| **Phase 3** | Underwriting & Verification Engine | Dynamic lender policy circuit (`verifyCustomPolicy`), dual-state memory inspection, automated CI/CD pipeline (`.github/workflows/ci.yml`) | ✅ Shipped |
+| **Phase 4** | Dual-Network Settlement & Telemetry | Multi-network deployment on Midnight Preprod and Preview, on-chain explorer verification, comprehensive API documentation | ✅ Shipped |
+| **Phase 5** | Living Feedback & Capital Efficiency | In-app feedback ledger modal (`FeedbackModal.tsx`), undercollateralized loan drawdown calculator (3.4% APR, 105% collateral) | ✅ Shipped |
+| **Phase 6** | Production Hardening & Cloud Deploy | Segmented dual-network switcher with session revocation, 70 verified dual-network participant identities, Vercel zero-configuration deployment | ✅ Shipped |
 
 ---
 
