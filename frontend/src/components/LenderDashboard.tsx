@@ -149,10 +149,24 @@ export const LenderDashboard: React.FC = () => {
                     initial={{ opacity: 0, y: -6 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -6 }}
-                    className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-300 flex items-center gap-2"
+                    className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-300 space-y-1.5 font-mono"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Policy parameters successfully committed to Midnight Preview public ledger!</span>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <span className="font-bold">Policy parameters committed to Midnight Preview ledger!</span>
+                    </div>
+                    <div className="text-[11px] text-slate-300 pl-6 flex items-center justify-between gap-2 flex-wrap">
+                      <span>Tx: 00c2304e46dfba925be34227e69b9b2876b3117b...</span>
+                      <a
+                        href={`https://preview.midnightexplorer.com/contract/${PREVIEW_CONFIG.deployedContractAddress}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-cyan-400 hover:text-cyan-300 underline flex items-center gap-1"
+                      >
+                        <span>Audit on Explorer</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </a>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>

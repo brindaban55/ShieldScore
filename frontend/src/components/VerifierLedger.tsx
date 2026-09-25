@@ -171,7 +171,16 @@ export const VerifierLedger: React.FC<VerifierLedgerProps> = ({
                     </div>
                     <div>
                       <span className="text-[10px] text-slate-500 block">TX IDENTIFIER</span>
-                      <span className="text-cyan-400 truncate block">{outcome.txId.slice(0, 10)}...</span>
+                      <a
+                        href={`https://preview.midnightexplorer.com/contract/${PREVIEW_CONFIG.deployedContractAddress}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        title="Audit transaction on Midnight Explorer"
+                        className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2 flex items-center gap-1 font-mono"
+                      >
+                        <span className="truncate">{outcome.txId.slice(0, 12)}...</span>
+                        <ExternalLink className="w-2.5 h-2.5 shrink-0" />
+                      </a>
                     </div>
                   </div>
                 </div>
