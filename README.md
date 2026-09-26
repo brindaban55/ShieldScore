@@ -6,15 +6,15 @@
 [![Network](https://img.shields.io/badge/network-Preprod%20%26%20Preview%20Live-792EE5.svg)](https://preprod.midnightexplorer.com/contract/fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b)
 [![Wallet](https://img.shields.io/badge/wallet-1AM%20%2F%20Lace-00F0FF.svg)](https://1am.xyz)
 [![CI/CD](https://img.shields.io/badge/CI%2FCD-Passing-00D26A.svg)](.github/workflows/ci.yml)
-[![X Profile](https://img.shields.io/badge/X-@ShieldScoreFi-000000.svg?logo=x)](https://x.com/ShieldScoreFi)
+[![X Profile](https://img.shields.io/badge/X-@AegisSolv-000000.svg?logo=x)](https://x.com/AegisSolv)
 [![Testnet Users](https://img.shields.io/badge/Users-70%20Onboarded-00F0FF.svg)](USERS.md)
 [![Feedback Form](https://img.shields.io/badge/Feedback-Google%20Form-E11D48.svg)](https://docs.google.com/forms/d/e/1FAIpQLScip75x3mesw-qE3R4BMvq3qaNf4-55GLNGSj_t9-MhGt9AWg/viewform)
 
 <p align="center">
-  <a href="https://shieldscore.vercel.app"><strong>🚀 Live DApp</strong></a> · 
+  <a href="https://aegis-solv-frontend.vercel.app/"><strong>🚀 Live DApp</strong></a> · 
   <a href="docs/BUILDING_JOURNEY.md"><strong>🛠️ Building Journey</strong></a> · 
-  <a href="https://youtu.be/SHIELDSCORE_DEMO"><strong>📺 Demo Video</strong></a> · 
-  <a href="https://x.com/ShieldScoreFi"><strong>🐦 @ShieldScoreFi</strong></a> · 
+  <a href="https://youtu.be/q5t_Lj_XzhU"><strong>📺 Demo Video</strong></a> · 
+  <a href="https://x.com/AegisSolv"><strong>🐦 @AegisSolv</strong></a> · 
   <a href="https://docs.google.com/forms/d/e/1FAIpQLScip75x3mesw-qE3R4BMvq3qaNf4-55GLNGSj_t9-MhGt9AWg/viewform"><strong>📋 Feedback Form</strong></a> · 
   <a href="https://docs.google.com/spreadsheets/d/1YcRRiltm8tE1_IZ3P2EszeWsnztjLWhT7audSbvlJEU/edit?usp=sharing"><strong>📊 Responses Sheet</strong></a> · 
   <a href="USERS.md"><strong>👥 70 Users</strong></a>
@@ -33,7 +33,7 @@
 
 | Resource | Link / Identifier | Notes |
 | :--- | :--- | :--- |
-| 🚀 **Live MVP** | [shieldscore.vercel.app](https://shieldscore.vercel.app) | Deployed on Vercel, live on Midnight Preview & Preprod |
+| 🚀 **Live MVP** | [aegis-solv-frontend.vercel.app](https://aegis-solv-frontend.vercel.app/) | Deployed on Vercel, live on Midnight Preview & Preprod |
 | 📦 **GitHub Repository** | [github.com/brindaban55/ShieldScore](https://github.com/brindaban55/ShieldScore) | Public repository with full codebase, contracts, & circuits |
 | ⛓️ **Midnight Preview Contract** | `0xae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730` | Deployed Compact smart contract on Preview |
 | ⛓️ **Midnight Preprod Contract** | `0xfc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b` | Deployed Compact smart contract on Preprod |
@@ -42,8 +42,8 @@
 | 📊 **Level 5 Feedback Sheet** | [Google Sheets Feedback Data](https://docs.google.com/spreadsheets/d/1YcRRiltm8tE1_IZ3P2EszeWsnztjLWhT7audSbvlJEU/edit?usp=sharing) | Live Google Sheet containing structured Preprod tester responses |
 | 📋 **Level 5 Feedback Form** | [Google Forms Survey](https://docs.google.com/forms/d/e/1FAIpQLScip75x3mesw-qE3R4BMvq3qaNf4-55GLNGSj_t9-MhGt9AWg/viewform) | Public community feedback questionnaire for testnet testers |
 | 👥 **Level 5 User Proof** | [`users.md`](users.md) | Structured 70 Preprod & Preview user validation records |
-| 🐦 **ShieldScore X Profile** | [@ShieldScoreFi](https://x.com/ShieldScoreFi) | Product building in public profile |
-| 🎥 **MVP Demo Video** | [YouTube — ShieldScore MVP Walkthrough](https://youtu.be/SHIELDSCORE_DEMO) | Walkthrough recording of live MVP flow |
+| 🐦 **AegisSolv X Profile** | [@AegisSolv](https://x.com/AegisSolv) | Product building in public profile |
+| 🎥 **MVP Demo Video** | [YouTube — AegisSolv MVP Walkthrough](https://youtu.be/q5t_Lj_XzhU) | Walkthrough recording of live MVP flow |
 | ⚙️ **CI/CD Pipeline** | [`.github/workflows/ci.yml`](.github/workflows/ci.yml) | Automated test, Compact compile, and build |
 | 📖 **Usage Guide** | [`docs/USAGE.md`](docs/USAGE.md) | Step-by-step investor & auditor walkthrough |
 | 📐 **Circuits Specification** | [`docs/CIRCUITS.md`](docs/CIRCUITS.md) | Complete zero-knowledge Compact circuits specification |

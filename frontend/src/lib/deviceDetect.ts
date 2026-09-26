@@ -47,7 +47,7 @@ export interface MobileWalletLinks {
 }
 
 export function getMobileWalletLinks(dappUrl?: string): MobileWalletLinks {
-  const targetUrl = dappUrl || (typeof window !== 'undefined' ? window.location.href : 'https://shieldscore.vercel.app');
+  const targetUrl = dappUrl || (typeof window !== 'undefined' ? window.location.href : 'https://aegis-solv-frontend.vercel.app');
   const encodedUrl = encodeURIComponent(targetUrl);
   const device = detectDevice();
 

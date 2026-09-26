@@ -6,7 +6,7 @@
 > **Live Contract Address (Preview)**: [`0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123`](https://midnightexplorer.com/contract/0794f000c1446592b46446d9ce4929f43867dd86f5dc1660e25827ebaaf56123)  
 > **Live Contract Address (Preprod)**: [`fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b`](https://preprod.midnightexplorer.com/contract/fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b)  
 > **Explorer**: [https://midnightexplorer.com](https://midnightexplorer.com)  
-> **Product Community Profile**: [@ShieldScoreFi](https://x.com/ShieldScoreFi)  
+> **Product Community Profile**: [@AegisSolv](https://x.com/AegisSolv)  
 
 ---
 
@@ -34,7 +34,7 @@
 ### Phase 4: Public Distribution, Developer API & Verification
 * [x] **Working MVP Live on Preview**: Explorer verifiable contract with confirmed block heights.
 * [x] **Full Documentation**: Complete setup instructions, threat model, and API references.
-* [x] **Product Community Profile**: [@ShieldScoreFi](https://x.com/ShieldScoreFi) linked in README.
+* [x] **Product Community Profile**: [@AegisSolv](https://x.com/AegisSolv) linked in README.
 
 ### Phase 5: Account Cohort Directory & User Telemetry
 * [x] **50+ Users Onboarded**: Directory of 70 unique Midnight Preview user addresses in [`USERS-70.md`](../USERS-70.md).
