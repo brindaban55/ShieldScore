@@ -34,7 +34,7 @@
 | Resource | Link / Identifier | Notes |
 | :--- | :--- | :--- |
 | 🚀 **Live MVP** | [aegis-solv-frontend.vercel.app](https://aegis-solv-frontend.vercel.app/) | Deployed on Vercel, live on Midnight Preview & Preprod |
-| 📦 **GitHub Repository** | [github.com/brindaban55/ShieldScore](https://github.com/brindaban55/ShieldScore) | Public repository with full codebase, contracts, & circuits |
+| 📦 **GitHub Repository** | [github.com/brindaban55/AegisSolv](https://github.com/brindaban55/AegisSolv) | Public repository with full codebase, contracts, & circuits |
 | ⛓️ **Midnight Preview Contract** | `0xae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730` | Deployed Compact smart contract on Preview |
 | ⛓️ **Midnight Preprod Contract** | `0xfc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b` | Deployed Compact smart contract on Preprod |
 | 🌐 **Midnight Preview Explorer** | [Audit on Preview Explorer](https://preview.midnightexplorer.com/contracts/0xae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730) | Official Midnight Preview Block Explorer |

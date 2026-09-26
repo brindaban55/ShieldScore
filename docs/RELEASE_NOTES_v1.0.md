@@ -2,7 +2,7 @@
 
 > **Version**: `1.0.0-production`  
 > **Release Target**: Midnight Preprod & Preview Testnets  
-> **Repository**: [https://github.com/brindaban55/ShieldScore](https://github.com/brindaban55/ShieldScore)
+> **Repository**: [https://github.com/brindaban55/AegisSolv](https://github.com/brindaban55/AegisSolv)
 
 ---
 

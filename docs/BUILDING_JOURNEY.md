@@ -4,7 +4,7 @@
 > **Ecosystem**: Midnight Network (Preprod & Preview)  
 > **Core Primitive**: Client-Side Groth16 Zero-Knowledge Verification & Selective Disclosure  
 > **Author & Lead Contributor**: brindaban55 (`brindabankishored@gmail.com`)  
-> **Repository**: [https://github.com/brindaban55/ShieldScore](https://github.com/brindaban55/ShieldScore)
+> **Repository**: [https://github.com/brindaban55/AegisSolv](https://github.com/brindaban55/AegisSolv)
 
 ---
 

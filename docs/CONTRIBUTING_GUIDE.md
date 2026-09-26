@@ -14,8 +14,8 @@ Thank you for your interest in contributing to **ShieldScore — The Private Cre
 ### 2. Quickstart
 ```bash
 # Clone the repository
-git clone https://github.com/brindaban55/ShieldScore.git
-cd ShieldScore
+git clone https://github.com/brindaban55/AegisSolv.git
+cd AegisSolv
 
 # Install dependencies across all monorepo workspaces
 npm install

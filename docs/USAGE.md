@@ -52,8 +52,8 @@ Institutional counterparties unlock **capital-efficient facility terms (as low a
 ### Option B: Local Development & Proof Server
 ```bash
 # Clone the repository
-git clone https://github.com/brindaban55/ShieldScore.git
-cd ShieldScore
+git clone https://github.com/brindaban55/AegisSolv.git
+cd AegisSolv
 
 # Start Midnight Proof Server (Docker)
 docker run -p 6300:6300 midnightnetwork/proof-server:latest
