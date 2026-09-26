@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <img src="aegissol_logo.png" alt="AegisSol Logo" width="220" />
+  <img src="images/banner.jpg" alt="AegisSolv Banner" width="100%" />
 </p>
 
 > **Domain**: **Confidential Solvency Attestation & Institutional Private Credit Underwriting Gate**  
