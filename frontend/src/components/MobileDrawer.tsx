@@ -62,8 +62,10 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({
             {/* Header */}
             <div className="flex items-center justify-between pb-4 border-b border-white/5">
               <div className="flex items-center gap-2">
-                <img src="/shieldscore_logo.jpg" alt="Logo" className="w-8 h-8 rounded-lg object-cover" />
-                <span className="font-bold text-base text-white">AEGISSOLV</span>
+                <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center overflow-hidden p-0.5">
+                  <img src="/aegissol_logo.png" alt="Logo" className="w-full h-full object-contain" />
+                </div>
+                <span className="font-bold text-base text-white">AEGISSOL</span>
               </div>
               <motion.button
                 whileHover={{ scale: 1.1 }}

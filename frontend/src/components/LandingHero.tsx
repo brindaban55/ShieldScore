@@ -49,7 +49,7 @@ export const LandingHero: React.FC<LandingHeroProps> = ({
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-5 font-sans text-base sm:text-lg text-slate-300 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed"
           >
-            ShieldScore inverts private credit underwriting: prove balance sheet capacity, debt-service coverage, and collateral solvency via Midnight zero-knowledge circuits without exposing audited financial records.
+            AegisSolv inverts private credit underwriting: prove balance sheet capacity, debt-service coverage, and collateral solvency via Midnight zero-knowledge circuits without exposing audited financial records.
           </motion.p>
 
           {/* Action CTAs with Framer Motion tactile spring clicks */}

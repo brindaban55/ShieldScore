@@ -8,20 +8,20 @@
 [![CI/CD](https://img.shields.io/badge/CI%2FCD-Passing-00D26A.svg)](.github/workflows/ci.yml)
 [![X Profile](https://img.shields.io/badge/X-@ShieldScoreFi-000000.svg?logo=x)](https://x.com/ShieldScoreFi)
 [![Testnet Users](https://img.shields.io/badge/Users-70%20Onboarded-00F0FF.svg)](USERS.md)
-[![Feedback Form](https://img.shields.io/badge/Feedback-Google%20Form-E11D48.svg)](https://docs.google.com/forms/d/11znyKMakHgapENhlluqdgUQvswuEIaXiX1xMQiDhpbg/viewform)
+[![Feedback Form](https://img.shields.io/badge/Feedback-Google%20Form-E11D48.svg)](https://docs.google.com/forms/d/e/1FAIpQLScip75x3mesw-qE3R4BMvq3qaNf4-55GLNGSj_t9-MhGt9AWg/viewform)
 
 <p align="center">
   <a href="https://shieldscore.vercel.app"><strong>🚀 Live DApp</strong></a> · 
   <a href="docs/BUILDING_JOURNEY.md"><strong>🛠️ Building Journey</strong></a> · 
   <a href="https://youtu.be/SHIELDSCORE_DEMO"><strong>📺 Demo Video</strong></a> · 
   <a href="https://x.com/ShieldScoreFi"><strong>🐦 @ShieldScoreFi</strong></a> · 
-  <a href="https://docs.google.com/forms/d/11znyKMakHgapENhlluqdgUQvswuEIaXiX1xMQiDhpbg/viewform"><strong>📋 Feedback Form</strong></a> · 
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScip75x3mesw-qE3R4BMvq3qaNf4-55GLNGSj_t9-MhGt9AWg/viewform"><strong>📋 Feedback Form</strong></a> · 
   <a href="https://docs.google.com/spreadsheets/d/1YcRRiltm8tE1_IZ3P2EszeWsnztjLWhT7audSbvlJEU/edit?usp=sharing"><strong>📊 Responses Sheet</strong></a> · 
   <a href="USERS.md"><strong>👥 70 Users</strong></a>
 </p>
 
 <p align="center">
-  <img src="shieldscore_logo.jpg" alt="AegisSolv Logo" width="220" />
+  <img src="aegissol_logo.png" alt="AegisSol Logo" width="220" />
 </p>
 
 > **Domain**: **Confidential Solvency Attestation & Institutional Private Credit Underwriting Gate**  
@@ -40,7 +40,7 @@
 | 🌐 **Midnight Preview Explorer** | [Audit on Preview Explorer](https://preview.midnightexplorer.com/contracts/0xae6c15336b55bf034b4320563dec45f2d727f23aa32f19812eced4134919e730) | Official Midnight Preview Block Explorer |
 | 🌐 **Midnight Preprod Explorer** | [Audit on Preprod Explorer](https://preprod.midnightexplorer.com/contract/fc67e2850565d285f2c51ece80eb4894a32961f317d91703f4cd98a9ebef088b) | Official Midnight Preprod Block Explorer |
 | 📊 **Level 5 Feedback Sheet** | [Google Sheets Feedback Data](https://docs.google.com/spreadsheets/d/1YcRRiltm8tE1_IZ3P2EszeWsnztjLWhT7audSbvlJEU/edit?usp=sharing) | Live Google Sheet containing structured Preprod tester responses |
-| 📋 **Level 5 Feedback Form** | [Google Forms Survey](https://docs.google.com/forms/d/11znyKMakHgapENhlluqdgUQvswuEIaXiX1xMQiDhpbg/viewform) | Public community feedback questionnaire for testnet testers |
+| 📋 **Level 5 Feedback Form** | [Google Forms Survey](https://docs.google.com/forms/d/e/1FAIpQLScip75x3mesw-qE3R4BMvq3qaNf4-55GLNGSj_t9-MhGt9AWg/viewform) | Public community feedback questionnaire for testnet testers |
 | 👥 **Level 5 User Proof** | [`users.md`](users.md) | Structured 70 Preprod & Preview user validation records |
 | 🐦 **ShieldScore X Profile** | [@ShieldScoreFi](https://x.com/ShieldScoreFi) | Product building in public profile |
 | 🎥 **MVP Demo Video** | [YouTube — ShieldScore MVP Walkthrough](https://youtu.be/SHIELDSCORE_DEMO) | Walkthrough recording of live MVP flow |
@@ -54,6 +54,40 @@
 **AegisSolv** is a **confidential solvency attestation and institutional private credit underwriting protocol** built natively on the **Midnight Network**. It enables institutional counterparties — private credit funds, RWA originators, DAO treasuries, and syndicated lending desks — to verify borrower financial capacity through zero-knowledge cryptographic proofs without requiring the counterparty to surrender balance sheets, income statements, or proprietary financial positions.
 
 Counterparties hold sensitive institutional financial metrics — such as total assets under management, revenue run-rate, debt service coverage ratios, and collateral buffers — securely in local client memory. By executing client-side zero-knowledge Compact circuits, counterparties generate mathematical proofs ($\pi$) demonstrating compliance with underwriting covenants (e.g. `solvencyScore >= 700`, `verifiableRevenue >= $50,000`, `debtServiceCoverage <= 40%`). The protocol receives cryptographic attestation of solvency on-chain without receiving, transmitting, or storing any proprietary financial data.
+
+---
+
+## 📸 Production Interface & On-Chain Application Walkthrough
+
+A visual walkthrough of the AegisSolv production terminal live on Midnight Preview & Preprod:
+
+### 1. Hero Overview & Injected CIP-0030 Authentication
+![Hero Overview](screenshots/01_hero_overview.png)
+*Figure 1: High-performance terminal interface featuring live Midnight testnet connection status, dual-network switcher, and non-custodial wallet authentication (1AM & Lace).*
+
+---
+
+### 2. Confidential Solvency Attestation & Verifier Ledger
+![Solvency Attestation & Verifier Ledger](screenshots/02_solvency_attestation.png)
+*Figure 2: Step 1 (Private Witness Vault) & Step 2 (On-Chain Verifier State). Displays verified Tier A Investment Grade risk qualification, private Pedersen commitment salt, and confirmed block on Midnight Preview ledger with zero PII leakage.*
+
+---
+
+### 3. Capital Facility & Private Credit Engine
+![Capital Facility Engine](screenshots/03_capital_facility_engine.png)
+*Figure 3: Instant facility pricing engine dynamically routing verified counterparties to 110% collateralization (-70% reduction) and 4.2% fixed prime APR vs standard 180% / 15.4% anonymous DeFi penalties.*
+
+---
+
+### 4. Institutional Underwriting Console & Policy Governance
+![Underwriting Console](screenshots/04_underwriting_console.png)
+*Figure 4: Underwriting console empowering liquidity syndicates and risk committees to tune covenant boundaries via the on-chain `updatePolicy` circuit.*
+
+---
+
+### 5. Interactive Zero-Knowledge Circuit Docs & Sandbox Simulator
+![Circuit Docs & Simulator](screenshots/05_circuit_docs.png)
+*Figure 5: In-app developer & auditor documentation suite featuring Compact source code, TypeScript SDK invocation, proof server cURL payloads, and an interactive circuit sandbox.*
 
 ---
 
@@ -86,7 +120,7 @@ AegisSolv is deployed, active, and verifiable across both official Midnight test
 
 ## 🔄 User Feedback & Iterative Engineering (Level 5 Validation)
 
-During our Level 5 user testing phase, **70 community testers** (institutional underwriters, private credit analysts, RWA originators, and security auditors) evaluated AegisSolv on Midnight Preprod and Preview. Telemetry was collected via our live [Google Form Survey](https://docs.google.com/forms/d/11znyKMakHgapENhlluqdgUQvswuEIaXiX1xMQiDhpbg/viewform) and recorded in our public [Google Sheets Feedback Ledger](https://docs.google.com/spreadsheets/d/1YcRRiltm8tE1_IZ3P2EszeWsnztjLWhT7audSbvlJEU/edit?usp=sharing).
+During our Level 5 user testing phase, **70 community testers** (institutional underwriters, private credit analysts, RWA originators, and security auditors) evaluated AegisSolv on Midnight Preprod and Preview. Telemetry was collected via our live [Google Form Survey](https://docs.google.com/forms/d/e/1FAIpQLScip75x3mesw-qE3R4BMvq3qaNf4-55GLNGSj_t9-MhGt9AWg/viewform) and recorded in our public [Google Sheets Feedback Ledger](https://docs.google.com/spreadsheets/d/1YcRRiltm8tE1_IZ3P2EszeWsnztjLWhT7audSbvlJEU/edit?usp=sharing).
 
 Rather than showcasing only flattering remarks, **we actively embraced negative critiques, reported bugs, and confusion from testers**, turning them into direct engineering improvements:
 

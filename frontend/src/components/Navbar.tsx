@@ -58,13 +58,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             }}
             className="flex items-center gap-3 text-left group"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/10 border border-cyan-500/30 flex items-center justify-center shadow-[0_0_16px_rgba(0,240,255,0.25)] group-hover:border-cyan-400/60 group-hover:shadow-[0_0_24px_rgba(0,240,255,0.4)] transition-all">
-              <img src="/shieldscore_logo.jpg" alt="Logo" className="w-7 h-7 rounded-lg object-cover" />
+            <div className="w-10 h-10 rounded-xl bg-white border border-cyan-500/30 flex items-center justify-center shadow-[0_0_16px_rgba(0,240,255,0.25)] group-hover:border-cyan-400/60 group-hover:shadow-[0_0_24px_rgba(0,240,255,0.4)] transition-all overflow-hidden p-1">
+              <img src="/aegissol_logo.png" alt="AegisSol Logo" className="w-full h-full object-contain" />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
                 <span className="font-display font-extrabold text-lg tracking-tight text-white group-hover:text-cyan-300 transition-colors">
-                  AEGISSOLV
+                  AEGISSOL
                 </span>
                 <span className="text-[10px] font-mono font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
                   ZK-RWA

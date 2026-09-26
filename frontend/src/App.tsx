@@ -167,16 +167,9 @@ export const App: React.FC = () => {
           </motion.div>
         )}
 
-        {/* Content Body with Fluid Page Slide Transitions */}
+        {/* Content Body */}
         <main className="flex-1">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.26, ease: 'easeOut' }}
-            >
+          <div key={activeTab} className="min-h-full">
               {activeTab === 'borrower' && (
                 <div className="min-h-[calc(100vh-14rem)]">
                   {/* Hero Banner with 3D Holographic Shield */}
@@ -237,8 +230,7 @@ export const App: React.FC = () => {
                   <CircuitDocs activeNetwork={activeNetwork} />
                 </div>
               )}
-            </motion.div>
-          </AnimatePresence>
+          </div>
         </main>
 
         {/* Footer */}
