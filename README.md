@@ -62,32 +62,67 @@ Counterparties hold sensitive institutional financial metrics — such as total 
 A visual walkthrough of the AegisSolv production terminal live on Midnight Preview & Preprod:
 
 ### 1. Hero Overview & Injected CIP-0030 Authentication
-![Hero Overview](screenshots/01_hero_overview.png)
-*Figure 1: High-performance terminal interface featuring live Midnight testnet connection status, dual-network switcher, and non-custodial wallet authentication (1AM & Lace).*
+<p align="center">
+  <img src="images/1.png" alt="AegisSolv Hero Overview & Solvency Gate" width="100%" />
+</p>
+
+*Figure 1: High-performance terminal interface featuring live Midnight testnet connection status, dual-network switcher (Preview / Preprod), and non-custodial wallet authentication (1AM & Lace).*
+
+- **Confidential Solvency Gate:** Inverts traditional private credit underwriting by evaluating balance sheet capacity, debt service coverage, and collateral solvency through zero-knowledge proofs.
+- **Dual Network Switcher:** Seamlessly toggles RPC endpoints, indexers, and contract ABIs between Midnight Preview (`ae6c15...`) and Preprod (`fc67e2...`).
+- **Client-Side ZK Ingestion:** Browser-contained proof generation ensures proprietary corporate financials never touch a remote server or public mempool.
 
 ---
 
-### 2. Confidential Solvency Attestation & Verifier Ledger
-![Solvency Attestation & Verifier Ledger](screenshots/02_solvency_attestation.png)
-*Figure 2: Step 1 (Private Witness Vault) & Step 2 (On-Chain Verifier State). Displays verified Tier A Investment Grade risk qualification, private Pedersen commitment salt, and confirmed block on Midnight Preview ledger with zero PII leakage.*
+### 2. Capital Facility & Private Credit Engine
+<p align="center">
+  <img src="images/2.png" alt="Capital Facility & Private Credit Engine" width="100%" />
+</p>
+
+*Figure 2: Instant facility pricing engine dynamically routing verified counterparties to 110% collateralization (-70% reduction) and 4.2% fixed prime APR vs standard 180% / 15.4% anonymous DeFi penalties.*
+
+- **Undercollateralized Prime Credit:** Tier A Investment Grade status slashes required collateral from standard 180% ($90,000) down to **110% ($55,000)** on a $50,000 facility.
+- **Capital Drag Elimination:** Instantly unlocks **+$35,000 in freed capital** and **$5,600/year in interest savings** via prime 4.2% fixed APR.
+- **Confidential Settlement:** Facilities settle on Midnight using verified Pedersen commitments without revealing underlying AUM or debt ratios.
 
 ---
 
-### 3. Capital Facility & Private Credit Engine
-![Capital Facility Engine](screenshots/03_capital_facility_engine.png)
-*Figure 3: Instant facility pricing engine dynamically routing verified counterparties to 110% collateralization (-70% reduction) and 4.2% fixed prime APR vs standard 180% / 15.4% anonymous DeFi penalties.*
+### 3. Institutional Underwriting Console & Policy Governance
+<p align="center">
+  <img src="images/3.png" alt="Configurable Underwriting Covenants & Governance" width="100%" />
+</p>
+
+*Figure 3: Underwriting console empowering liquidity syndicates, DAO risk committees, and credit desks to tune covenant boundaries via the on-chain `updatePolicy()` circuit.*
+
+- **Dynamic Risk Governance:** Liquidity managers adjust baseline covenants in real time (e.g. Min Solvency Score: 720, Min Verifiable Revenue: $65k, Max DSCR: 38%, Min Collateral: 160%).
+- **On-Chain Policy Ledger:** Directly updates the contract's public state on Midnight without requiring smart contract redeployments.
+- **Zero Data Ingestion:** Syndicates underwrite multi-million dollar liquidity tranches while completely eliminating corporate data breach liability.
 
 ---
 
-### 4. Institutional Underwriting Console & Policy Governance
-![Underwriting Console](screenshots/04_underwriting_console.png)
-*Figure 4: Underwriting console empowering liquidity syndicates and risk committees to tune covenant boundaries via the on-chain `updatePolicy` circuit.*
+### 4. Midnight Dual-State Privacy Model & Architecture Audit
+<p align="center">
+  <img src="images/4.png" alt="Midnight Dual-State Privacy Model" width="100%" />
+</p>
+
+*Figure 4: Architectural breakdown of AegisSolv's dual-state execution model — separating private client-side witness memory from public consensus ledger settlement.*
+
+- **1. Private Witness State:** Sensitive inputs (credit scores, audited revenue, debt schedules) reside strictly in the borrower's local RAM via TypeScript witness callbacks.
+- **2. Compact Circuit (ZK):** The Compact compiler generates Groth16 arithmetic constraints on BLS12-381 curves, producing succinct mathematical proofs ($\pi$).
+- **3. Public Ledger State:** Midnight consensus nodes verify $\pi$ on-chain, storing only declassified boolean attestations and blinded Pedersen commitments.
 
 ---
 
 ### 5. Interactive Zero-Knowledge Circuit Docs & Sandbox Simulator
-![Circuit Docs & Simulator](screenshots/05_circuit_docs.png)
+<p align="center">
+  <img src="images/5.png" alt="Compact Circuits & Developer Integration" width="100%" />
+</p>
+
 *Figure 5: In-app developer & auditor documentation suite featuring Compact source code, TypeScript SDK invocation, proof server cURL payloads, and an interactive circuit sandbox.*
+
+- **Comprehensive Circuit Explorer:** Direct inspection of `verifyCreditPassport()`, `verifyCustomPolicy()`, and `updatePolicy()` Compact implementations.
+- **Interactive Circuit Sandbox:** Real-time client-side polynomial constraint evaluator allowing auditors and developers to simulate covenant verification before on-chain execution.
+- **Multi-Environment SDK Snippets:** Ready-to-use TypeScript invocation code and Docker proof server cURL payloads for rapid institutional integration.
 
 ---
 
